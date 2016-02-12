@@ -5,14 +5,11 @@ import java.util.Date;
 
 
 public class Leerling {
-    private int id ; 
+    private final int id ; 
     private String voornaam; 
     private String Achternaam; 
     private String email ; 
     private Date geboorteDatum ; 
-
-    public Leerling() {
-    }
 
     public Leerling(int id, String voornaam, String Achternaam, String email, Date geboorteDatum) {
         this.id = id;
