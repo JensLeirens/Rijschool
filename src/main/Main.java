@@ -20,11 +20,12 @@ public class Main extends Application{
         EvaStartScherm root = new EvaStartScherm();
         
         // titel en grootte niet FINAL moet nog aangepast worden naarmate vooruitgang
-        Scene scene = new Scene(root);
-               
-        primaryStage.setTitle("Basis Eva");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        //Scene scene = new Scene(root);
+         root.setTitle("Evaluatie Leerling"); 
+         root.show();      
+        //primaryStage.setTitle("Basis Eva");
+        //primaryStage.setScene(scene);
+        //primaryStage.show();
     }
 
     public static void main(String[] args) {
