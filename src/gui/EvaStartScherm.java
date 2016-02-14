@@ -4,6 +4,8 @@ package gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -27,7 +29,8 @@ public class EvaStartScherm extends Stage{
         // Vrije ruimte rond de randen van de grid (boven, rechts, onder, links)        
         gridPaneTop.setPadding(new Insets(10, 10, 10, 10));
         
-        
+        ImageView rotonde = new ImageView(new Image(getClass().getResourceAsStream("../image/Rotonde.png")));
+        gridPaneTop.add(rotonde,1,1);
         
         // gridpane Left _______________________________________________________________________________________________
         
