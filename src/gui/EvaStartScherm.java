@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import org.scenicview.ScenicView;
 
 
 public class EvaStartScherm extends Stage{
@@ -21,11 +23,12 @@ public class EvaStartScherm extends Stage{
     private Circle circleRijbaanMetRijStroken;
     private Circle circleStad;
     private Circle circleAutosnelweg;
-
+    
 
     public EvaStartScherm() {
         // gridpane TOP _______________________________________________________________________________________________
-        
+        Label spacer = new Label("") ; 
+        spacer.setMinWidth(10);
         //gridpane initialiseren een centreren gaps maken en paddings 
         GridPane gridPaneTop = new GridPane();
         gridPaneTop.setAlignment(Pos.CENTER);
@@ -37,7 +40,7 @@ public class EvaStartScherm extends Stage{
         gridPaneTop.setVgap(10);
         
         // Vrije ruimte rond de randen van de grid (boven, rechts, onder, links)        
-        gridPaneTop.setPadding(new Insets(10, 10, 10, 10));
+        gridPaneTop.setPadding(new Insets(10, 50, 10, 10));
         
         ImageView rotonde = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Rotonde.png")));
         
@@ -59,6 +62,7 @@ public class EvaStartScherm extends Stage{
         gridPaneTop.add(circleRotonde,4,0);
         ColumnConstraints column5 = new ColumnConstraints(10);
         gridPaneTop.getColumnConstraints().add(column5);
+        gridPaneTop.add(spacer,5,0); 
         
         ImageView rijbaanMetRijStroken = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/RijbaanMetRijStroken.png")));
         rijbaanMetRijStroken.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -74,10 +78,13 @@ public class EvaStartScherm extends Stage{
         });
         gridPaneTop.add(rijbaanMetRijStroken,6,0,4,4);
         
+        Label spacer2 = new Label("") ; 
+        spacer2.setMinWidth(10);
         circleRijbaanMetRijStroken = new Circle();
         circleRijbaanMetRijStroken.setRadius(7);
         circleRijbaanMetRijStroken.setFill(Color.RED);
         gridPaneTop.add(circleRijbaanMetRijStroken,10,0);
+        gridPaneTop.add(spacer2,11,0); 
         
         ImageView stad = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Stad.png")));
         stad.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -93,10 +100,13 @@ public class EvaStartScherm extends Stage{
         });
         gridPaneTop.add(stad,12,0,4,4);
         
+        Label spacer3 = new Label("") ; 
+        spacer3.setMinWidth(10);
         circleStad = new Circle();
         circleStad.setRadius(7);
         circleStad.setFill(Color.RED);
         gridPaneTop.add(circleStad,16,0);
+        gridPaneTop.add(spacer3,17,0); 
         
         ImageView autosnelweg = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/RijbaanMetRijStroken.png")));
         autosnelweg.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -167,6 +177,8 @@ public class EvaStartScherm extends Stage{
 
         Scene scene = new Scene(borderPane);
         this.setScene(scene);
+
+        ScenicView.show(scene);
 
         
         
