@@ -27,6 +27,10 @@ public class EvaStartScherm extends Stage{
     private Circle circleSchakelaar;
     private Circle circleVloeistof;
     
+    private Circle circleTanken;
+    private Circle circleGps;
+    private Circle circleStop;
+    
 
     public EvaStartScherm() {
         // gridpane TOP _______________________________________________________________________________________________
@@ -109,7 +113,7 @@ public class EvaStartScherm extends Stage{
         gridPaneTop.add(circleStad,16,0);
         gridPaneTop.add(spacer3,17,0); 
         
-        ImageView autosnelweg = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/RijbaanMetRijStroken.png")));
+        ImageView autosnelweg = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Stad.png")));
         autosnelweg.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
         
         @Override
@@ -200,9 +204,66 @@ public class EvaStartScherm extends Stage{
         
         GridPane gridPaneRight = new GridPane();
         gridPaneRight.setAlignment(Pos.CENTER);
-        gridPaneRight.setHgap(10);
+        //gridPaneRight.setHgap(10);
         gridPaneRight.setVgap(10);
         gridPaneRight.setPadding(new Insets(10, 10, 10, 10));
+        
+        ImageView tanken = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Tanken.png")));
+        tanken.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleTanken.getFill()== Color.RED){
+                    circleTanken.setFill(Color.GREEN);
+                }
+                else
+                    circleTanken.setFill(Color.RED);
+            }
+        });
+        gridPaneRight.add(tanken,0,0,4,4);
+        
+        circleTanken = new Circle();
+        circleTanken.setRadius(7);
+        circleTanken.setFill(Color.RED);
+        gridPaneRight.add(circleTanken,4,0);
+
+        ImageView gps = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Gps.png")));
+        gps.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleGps.getFill()== Color.RED){
+                    circleGps.setFill(Color.GREEN);
+                }
+                else
+                    circleGps.setFill(Color.RED);
+            }
+        });
+        gridPaneRight.add(gps,0,4,4,4);
+        
+        circleGps = new Circle();
+        circleGps.setRadius(7);
+        circleGps.setFill(Color.RED);
+        gridPaneRight.add(circleGps,4,4);
+
+        ImageView stop = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Stop.png")));
+        stop.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleStop.getFill()== Color.RED){
+                    circleStop.setFill(Color.GREEN);
+                }
+                else
+                    circleStop.setFill(Color.RED);
+            }
+        });
+        gridPaneRight.add(stop,0,8,4,4);
+        
+        circleStop = new Circle();
+        circleStop.setRadius(7);
+        circleStop.setFill(Color.RED);
+        gridPaneRight.add(circleStop,4,8);
         
         // gridpane Botttom _______________________________________________________________________________________________
         
