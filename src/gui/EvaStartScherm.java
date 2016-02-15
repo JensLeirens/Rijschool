@@ -23,6 +23,10 @@ public class EvaStartScherm extends Stage{
     private Circle circleStad;
     private Circle circleAutosnelweg;
     
+    private Circle circleBanden;
+    private Circle circleSchakelaar;
+    private Circle circleVloeistof;
+    
 
     public EvaStartScherm() {
         // gridpane TOP _______________________________________________________________________________________________
@@ -129,9 +133,66 @@ public class EvaStartScherm extends Stage{
         
         GridPane gridPaneLeft = new GridPane();
         gridPaneLeft.setAlignment(Pos.CENTER);
-        gridPaneLeft.setHgap(10);
+        //gridPaneLeft.setHgap(10);
         gridPaneLeft.setVgap(10);
         gridPaneLeft.setPadding(new Insets(10, 10, 10, 10));
+
+        ImageView schakelaar = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Schakelaar.png")));
+        schakelaar.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleSchakelaar.getFill()== Color.RED){
+                    circleSchakelaar.setFill(Color.GREEN);
+                }
+                else
+                    circleSchakelaar.setFill(Color.RED);
+            }
+        });
+        gridPaneLeft.add(schakelaar,0,0,4,4);
+        
+        circleSchakelaar = new Circle();
+        circleSchakelaar.setRadius(7);
+        circleSchakelaar.setFill(Color.RED);
+        gridPaneLeft.add(circleSchakelaar,4,0);
+
+        ImageView vloeistof = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Vloeistof.png")));
+        vloeistof.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleVloeistof.getFill()== Color.RED){
+                    circleVloeistof.setFill(Color.GREEN);
+                }
+                else
+                    circleVloeistof.setFill(Color.RED);
+            }
+        });
+        gridPaneLeft.add(vloeistof,0,4,4,4);
+        
+        circleVloeistof = new Circle();
+        circleVloeistof.setRadius(7);
+        circleVloeistof.setFill(Color.RED);
+        gridPaneLeft.add(circleVloeistof,4,4);
+
+        ImageView banden = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/Banden.png")));
+        banden.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        
+        @Override
+            public void handle(MouseEvent event) {
+                if(circleBanden.getFill()== Color.RED){
+                    circleBanden.setFill(Color.GREEN);
+                }
+                else
+                    circleBanden.setFill(Color.RED);
+            }
+        });
+        gridPaneLeft.add(banden,0,8,4,4);
+        
+        circleBanden = new Circle();
+        circleBanden.setRadius(7);
+        circleBanden.setFill(Color.RED);
+        gridPaneLeft.add(circleBanden,4,8);
         
         
         
