@@ -14,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import org.scenicview.ScenicView;
 
 
 public class EvaStartScherm extends Stage{
@@ -60,8 +59,6 @@ public class EvaStartScherm extends Stage{
         circleRotonde.setRadius(7);
         circleRotonde.setFill(Color.RED);
         gridPaneTop.add(circleRotonde,4,0);
-        ColumnConstraints column5 = new ColumnConstraints(10);
-        gridPaneTop.getColumnConstraints().add(column5);
         gridPaneTop.add(spacer,5,0); 
         
         ImageView rijbaanMetRijStroken = new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("image/RijbaanMetRijStroken.png")));
@@ -177,12 +174,7 @@ public class EvaStartScherm extends Stage{
 
         Scene scene = new Scene(borderPane);
         this.setScene(scene);
-
-        ScenicView.show(scene);
-
-        
-        
-        
+  
     }
     
     
