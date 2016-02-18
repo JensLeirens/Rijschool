@@ -162,6 +162,9 @@ public class HoofdEvaSchermController implements Initializable {
         }
     }
     // Center __________________________________________________________________
+    @FXML
+    private Button stuur;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -199,7 +202,13 @@ public class HoofdEvaSchermController implements Initializable {
         
         Image imgStop = new Image(getClass().getResourceAsStream("/image/Stop.png"));
         stop.setGraphic(new ImageView(imgStop));
+        
+        
         // Center __________________________________________________________________
+        Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurRRR.png"));
+        stuur.setGraphic(new ImageView(imgStuur));
+        
+        
     }
     
 }
