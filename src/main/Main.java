@@ -6,6 +6,8 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -14,18 +16,23 @@ import javafx.stage.Stage;
 public class Main extends Application{
     
      @Override
-    public void start(Stage primaryStage) {
-       // comments aanpassen en uit comment zetten eens er een gui class is
+    public void start(Stage stage) throws Exception {
+        //VOOR SCENE BUILDER-----------------------
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/HoofdEvaScherm.fxml"));
         
-        EvaStartScherm root = new EvaStartScherm();
+        Scene scene = new Scene(root);
         
-        // titel en grootte niet FINAL moet nog aangepast worden naarmate vooruitgang
+        stage.setScene(scene);
+        stage.show();
+        //--------------------------------------------
+       // voor handmatig ---------------------------
+
+        //EvaStartScherm root = new EvaStartScherm();
+        
         //Scene scene = new Scene(root);
-         root.setTitle("Evaluatie Leerling"); 
-         root.show();      
-        //primaryStage.setTitle("Basis Eva");
-        //primaryStage.setScene(scene);
-        //primaryStage.show();
+        // root.setTitle("Evaluatie Leerling"); 
+         //root.show();      
+        // --------------------------------------------
     }
 
     public static void main(String[] args) {
