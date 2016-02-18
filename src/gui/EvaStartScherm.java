@@ -1,9 +1,11 @@
 package gui;
 
+import com.sun.javafx.sg.prism.NGCanvas;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,7 +47,9 @@ public class EvaStartScherm extends Stage{
         
         // Vrije ruimte tussen rijen        
         gridPaneTop.setVgap(10);
-        
+        //A button with the specified text caption and icon.
+        Image imageOk = new Image(getClass().getResourceAsStream("/image/Gps.png"));
+        Button button3 = new Button("", new ImageView(imageOk));
         // Vrije ruimte rond de randen van de grid (boven, rechts, onder, links)        
         gridPaneTop.setPadding(new Insets(10, 50, 10, 10));
         
@@ -62,7 +66,7 @@ public class EvaStartScherm extends Stage{
                     circleRotonde.setFill(Color.RED);
             }
         });
-        gridPaneTop.add(rotonde,0,0,4,4);
+        gridPaneTop.add(button3,0,0,4,4);
         circleRotonde = new Circle();
         circleRotonde.setRadius(7);
         circleRotonde.setFill(Color.RED);
