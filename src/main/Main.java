@@ -1,7 +1,6 @@
 
 package main;
 
-import gui.EvaStartScherm;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -25,14 +24,6 @@ public class Main extends Application{
         stage.setScene(scene);
         stage.show();
         //--------------------------------------------
-       // voor handmatig ---------------------------
-
-        //EvaStartScherm root = new EvaStartScherm();
-        
-        //Scene scene = new Scene(root);
-        // root.setTitle("Evaluatie Leerling"); 
-         //root.show();      
-        // --------------------------------------------
     }
 
     public static void main(String[] args) {

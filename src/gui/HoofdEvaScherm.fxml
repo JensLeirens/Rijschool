@@ -43,14 +43,14 @@
     </GridPane>
   </center>
   <left>
-    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="125.0" BorderPane.alignment="CENTER">
+    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="150.0" BorderPane.alignment="CENTER">
       <children>
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+        <Circle fx:id="circleBanden" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+        <Circle fx:id="circleSchakelaar" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+        <Circle fx:id="circleVloeistof" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="schakelaar" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonSchakelaar" prefHeight="57.0" text="Button" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+            <Button fx:id="vloeistof" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonVloeiStof" prefHeight="57.0" text="Button" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="banden" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonBanden" prefHeight="57.0" text="Button" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -67,14 +67,14 @@
     </GridPane>
   </left>
   <right>
-    <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="250.0" prefWidth="125.0" BorderPane.alignment="CENTER">
+    <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="250.0" prefWidth="150.0" BorderPane.alignment="CENTER">
       <children>
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-        <Circle fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+        <Circle fx:id="circleTanken" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+        <Circle fx:id="circleGps" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+        <Circle fx:id="circleStop" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Button fx:id="tanken" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonTanken" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="gps" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonGps" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="stop" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonStop" prefHeight="57.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       </children>
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -94,13 +94,13 @@
     <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" vgap="5.0" BorderPane.alignment="CENTER">
       <children>
         <Circle fx:id="circleRotonde" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fx:id="circleRijBaanMetRijstroken" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+        <Circle fx:id="circleRijbaanMetRijStroken" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="0" GridPane.valignment="TOP" />
         <Circle fx:id="circleStad" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.rowIndex="0" GridPane.valignment="TOP" />
         <Circle fx:id="circleAutosnelweg" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-            <Button fx:id="rotonde" mnemonicParsing="false" onAction="#handleButtonRotonde" prefHeight="57.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="rijBaanMetRijStroken" mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="autoSnelweg" mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="stad" mnemonicParsing="false" prefHeight="57.0" text="Button" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+            <Button fx:id="rotonde" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRotonde" prefHeight="57.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+            <Button fx:id="rijBaanMetRijStroken" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRijBaanMetRijStroken" prefHeight="57.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+            <Button fx:id="autoSnelweg" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonAutoSnelweg" prefHeight="57.0" text="Button" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+            <Button fx:id="stad" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonStad" prefHeight="57.0" text="Button" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
