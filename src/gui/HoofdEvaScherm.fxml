@@ -13,14 +13,37 @@
   <bottom>
     <GridPane>
       <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="159.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="123.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="509.0" minWidth="10.0" prefWidth="499.0" />
       </columnConstraints>
       <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
+         <children>
+            <CheckBox mnemonicParsing="false" text="Eva 1" />
+            <CheckBox mnemonicParsing="false" text="Eva 2" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" text="Eva 3 " GridPane.rowIndex="2" />
+            <Slider blockIncrement="25.0" minorTickCount="10" prefHeight="14.0" prefWidth="391.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label text="B" GridPane.columnIndex="3">
+               <padding>
+                  <Insets left="130.0" />
+               </padding>
+            </Label>
+            <Label text="A" GridPane.columnIndex="3">
+               <padding>
+                  <Insets left="250.0" />
+               </padding>
+            </Label>
+            <Label text="X" GridPane.columnIndex="3">
+               <padding>
+                  <Insets left="375.0" />
+               </padding>
+            </Label>
+         </children>
     </GridPane>
   </bottom>
   <center>
@@ -28,6 +51,9 @@
       <children>
         <ImageView fitHeight="49.500012930923006" fitWidth="66.00001525878906" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="0" />
         <ImageView fitHeight="49.500012930923006" fitWidth="66.00001525878906" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
