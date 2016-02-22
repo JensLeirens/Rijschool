@@ -2,21 +2,36 @@
 package domain;
 
 import java.util.Date;
+import javafx.scene.image.Image;
 
 
 public class Leerling {
-    private final int id ; 
+    private int id ; 
     private String voornaam; 
     private String Achternaam; 
     private String email ; 
     private Date geboorteDatum ; 
+    private Image afbeelding; 
 
+    public Leerling(){
+        
+    }
+    
     public Leerling(int id, String voornaam, String Achternaam, String email, Date geboorteDatum) {
         this.id = id;
         this.voornaam = voornaam;
         this.Achternaam = Achternaam;
         this.email = email;
         this.geboorteDatum = geboorteDatum;
+        
+    }
+
+    public Image getAfbeelding() {
+        return afbeelding;
+    }
+
+    public void setAfbeelding(Image afbeelding) {
+        this.afbeelding = afbeelding;
     }
 
     public int getId() {

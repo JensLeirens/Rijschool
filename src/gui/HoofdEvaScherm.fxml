@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -47,25 +48,31 @@
                </padding>
             </Label>
          </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="5.0" />
+         </padding>
     </GridPane>
   </bottom>
   <center>
     <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="317.0" prefWidth="389.0">
       <children>
-            <Button fx:id="stuur" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="stuur1" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="stuur2" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+            <Button fx:id="stuur" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="172.0" prefWidth="167.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="stuur1" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="108.0" prefWidth="143.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="stuur2" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="179.0" prefWidth="181.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="97.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="73.0" minWidth="10.0" prefWidth="59.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       </columnConstraints>
       <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="209.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
   </center>
@@ -117,39 +124,70 @@
       </rowConstraints>
     </GridPane>
   </right>
-  <top>
-    <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" vgap="5.0" BorderPane.alignment="CENTER">
-      <children>
-        <Circle fx:id="circleRotonde" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fx:id="circleRijbaanMetRijStroken" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fx:id="circleStad" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-        <Circle fx:id="circleAutosnelweg" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-            <Button fx:id="rotonde" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRotonde" prefHeight="57.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="rijBaanMetRijStroken" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRijBaanMetRijStroken" prefHeight="57.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="autoSnelweg" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonAutoSnelweg" prefHeight="57.0" text="Button" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-            <Button fx:id="stad" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonStad" prefHeight="57.0" text="Button" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
-      </children>
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      </columnConstraints>
-      <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-      </padding>
-      <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-    </GridPane>
-  </top>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="239.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="625.0" minWidth="10.0" prefWidth="447.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="68.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="137.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" vgap="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <children>
+                  <Circle fx:id="circleRotonde" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+                  <Circle fx:id="circleRijbaanMetRijStroken" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+                  <Circle fx:id="circleStad" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+                  <Circle fx:id="circleAutosnelweg" fill="RED" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+                  <Button fx:id="rotonde" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRotonde" prefHeight="57.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+                  <Button fx:id="rijBaanMetRijStroken" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonRijBaanMetRijStroken" prefHeight="57.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+                  <Button fx:id="autoSnelweg" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonAutoSnelweg" prefHeight="57.0" text="Button" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+                  <Button fx:id="stad" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonStad" prefHeight="57.0" text="Button" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <ImageView fitHeight="96.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="3">
+               <image>
+                  <Image url="@../image/vbFoto.PNG" />
+               </image>
+            </ImageView>
+            <Label text="Voornaam Naam" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="5.0" top="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </padding>
+      </GridPane>
+   </top>
 </BorderPane>
