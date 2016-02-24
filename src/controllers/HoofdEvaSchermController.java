@@ -168,6 +168,9 @@ public class HoofdEvaSchermController implements Initializable {
     @FXML
     private Button rijtechniek;
     
+    @FXML
+    private Button attitude;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -213,6 +216,9 @@ public class HoofdEvaSchermController implements Initializable {
         
         Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/RijtechniekRRR.png"));
         rijtechniek.setGraphic(new ImageView(imgRijtechniek));
+        
+        Image imgAttitude = new Image(getClass().getResourceAsStream("/image/AttRood.png"));
+        attitude.setGraphic(new ImageView(imgAttitude));
         
         
     }
