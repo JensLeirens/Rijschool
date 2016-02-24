@@ -2,11 +2,15 @@
 package controllers;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -22,6 +26,8 @@ public class HoofdEvaSchermController implements Initializable {
     private Circle circleStad;
     @FXML
     private Circle circleAutosnelweg;
+    @FXML
+    ListView<String> listViewOpmerkingen = new ListView<String>();;
     
     @FXML
     private Circle circleBanden;
@@ -219,6 +225,10 @@ public class HoofdEvaSchermController implements Initializable {
         
         Image imgAttitude = new Image(getClass().getResourceAsStream("/image/AttRood.png"));
         attitude.setGraphic(new ImageView(imgAttitude));
+        
+        ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
+          "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
+        listViewOpmerkingen.setItems(listOpmerkingen);
         
         
     }
