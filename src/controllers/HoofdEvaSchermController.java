@@ -217,14 +217,15 @@ public class HoofdEvaSchermController implements Initializable {
         
         
         // Center __________________________________________________________________
-        Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurRRR.png"));
-        stuur.setGraphic(new ImageView(imgStuur));
         
-        Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/RijtechniekRRR.png"));
-        rijtechniek.setGraphic(new ImageView(imgRijtechniek));
+        //Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurRRR.png"));
+        //stuur.setGraphic(new ImageView(imgStuur));
         
-        Image imgAttitude = new Image(getClass().getResourceAsStream("/image/AttRood.png"));
-        attitude.setGraphic(new ImageView(imgAttitude));
+        //Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/RijtechniekRRR.png"));
+        //rijtechniek.setGraphic(new ImageView(imgRijtechniek));
+        
+        //Image imgAttitude = new Image(getClass().getResourceAsStream("/image/AttRood.png"));
+        //attitude.setGraphic(new ImageView(imgAttitude));
         
         ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
           "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
