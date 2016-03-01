@@ -7,23 +7,18 @@ import javafx.scene.image.Image;
 
 public class Leerling {
     private int id ; 
-    private String voornaam; 
-    private String Achternaam; 
+    private String naam;
     private String email ; 
-    private Date geboorteDatum ; 
+    private String geboorteDatum ; 
     private Image afbeelding; 
 
     public Leerling(){
         
     }
     
-    public Leerling(int id, String voornaam, String Achternaam, String email, Date geboorteDatum) {
+    public Leerling(int id, String naam) {
         this.id = id;
-        this.voornaam = voornaam;
-        this.Achternaam = Achternaam;
-        this.email = email;
-        this.geboorteDatum = geboorteDatum;
-        
+        this.naam = naam;
     }
 
     public Image getAfbeelding() {
@@ -39,20 +34,12 @@ public class Leerling {
     }
 
     
-    public String getVoornaam() {
-        return voornaam;
+    public String getnaam() {
+        return naam;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
-    }
-
-    public String getAchternaam() {
-        return Achternaam;
-    }
-
-    public void setAchternaam(String Achternaam) {
-        this.Achternaam = Achternaam;
+    public void setnaam(String naam) {
+        this.naam = naam;
     }
 
     public String getEmail() {
@@ -63,12 +50,17 @@ public class Leerling {
         this.email = email;
     }
 
-    public Date getGeboorteDatum() {
+    public String getGeboorteDatum() {
         return geboorteDatum;
     }
 
-    public void setGeboorteDatum(Date geboorteDatum) {
+    public void setGeboorteDatum(String geboorteDatum) {
         this.geboorteDatum = geboorteDatum;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", naam); 
     }
     
     
