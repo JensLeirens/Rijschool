@@ -27,7 +27,7 @@ public class HoofdEvaSchermController implements Initializable {
     @FXML
     private Circle circleAutosnelweg;
     @FXML
-    ListView<String> listViewOpmerkingen = new ListView<String>();;
+    ListView<String> listViewOpmerkingen = new ListView<String>();
     
     @FXML
     private Circle circleBanden;

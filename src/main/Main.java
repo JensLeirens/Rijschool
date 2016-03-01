@@ -17,7 +17,7 @@ public class Main extends Application{
      @Override
     public void start(Stage stage) throws Exception {
         //VOOR SCENE BUILDER-----------------------
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/HoofdEvaScherm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/StartScherm.fxml"));
         
         Scene scene = new Scene(root);
         
