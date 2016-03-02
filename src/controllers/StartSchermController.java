@@ -2,11 +2,11 @@
 package controllers;
 
 
+import domain.Leerling;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,50 +17,114 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
 
 public class StartSchermController implements Initializable {
-
+    private ArrayList<Leerling> listLeerlingen; 
+    
+    
     @FXML
-    private ListView<String> listViewLeerlingen = new ListView<String>();
-
-    @FXML
-    private Button zoeken;
+    private ListView<String> listViewLeerlingen = new ListView<>();
     
     @FXML
     private  Node startScherm ;
     
-     @FXML
-    private void handleButtonZoeken(ActionEvent event) throws IOException {
-         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdEvaScherm.fxml"));
-         Parent root1 = (Parent) fxmlLoader.load();
-         Stage stage = new Stage();
-         stage.setTitle("Evaluatie scherm");
-         stage.setScene(new Scene(root1));
-        
-         stage.show();
-         startScherm.getScene().getWindow().hide();
-         
-
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-        ObservableList<String> listLeerlingen = FXCollections.observableArrayList(
-          "Walter VandenPoorten", "Johnny Cash");
-        listViewLeerlingen.setItems(listLeerlingen);
-
-
+    @FXML
+    private Label lblMessage; 
+    
+    @FXML
+    private  TextField txtNaam ;
+    
+    @FXML
+    private TextField txtNummer; 
+    
+    @FXML
+    private void handleButtonZoeken(ActionEvent event) {
+        lblMessage.setVisible(true);
+        lblMessage.setText("deze knop zoekt een leerling in de online database en slaat deze lokaal op (TBI)");
     }
     
-    private void sluiten(){
-        Platform.exit();
+    @FXML
+    private void handleButtonSync(ActionEvent event) {
+        lblMessage.setVisible(true);
+        lblMessage.setText("synchroniseert lokale leerlingen met online database (TBI)");
+    }
+    
+    
+    @FXML
+    private void handleButtonOpenEva(ActionEvent event) throws IOException {
+        if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
+            sluiten();
+        }
+        else {
+            lblMessage.setVisible(true);
+            lblMessage.setText("gelieve een leerling te selecteren in de rechter kader");
+        }
+    }
+    
+    
+    
+    @FXML
+    private void handleButtonNieuw(ActionEvent event) {
+        try {
+        lblMessage.setTextFill(Color.web("#e42d2d"));   
+        
+        lblMessage.setVisible(true);
+        if (txtNaam.getText().isEmpty() == true   && txtNummer.getText().isEmpty() == true ){
+            lblMessage.setText("Gelieve een naam en een nummer in te geven!");
+        }
+        else if(txtNaam.getText().isEmpty() == true){
+            lblMessage.setText("gelieve een naam in te geven!");
+        }
+        else if(txtNummer.getText().isEmpty() == true){
+            lblMessage.setText("gelieve een nummer in te geven!");
+        }
+        
+        else {
+            lblMessage.setTextFill(Color.web("#006400"));
+            lblMessage.setText("Leerling aangemaakt");
+            listLeerlingen.add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText())); 
+        }
+        } catch (NumberFormatException e) {
+            lblMessage.setTextFill(Color.web("#006400"));
+            lblMessage.setText("GELIEVE EEN GELDIG NUMMER IN TE GEVEN!");
+        }
+        refreshList();
+    }
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        listLeerlingen = new ArrayList<Leerling>() ;  
+        listLeerlingen.add(new Leerling(0, "Johnny Cash")); 
+        listLeerlingen.add(new Leerling(1, "Walter Van Der Poorten"));
+       
+        refreshList();
+    }
+    
+    private void sluiten() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdEvaScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Evaluatie scherm");
+        stage.setScene(new Scene(root1));
+        
+        stage.show();
+        startScherm.getScene().getWindow().hide();
     }
 
+    public void refreshList(){
+        ArrayList<String> listLeerlingenNamen = new ArrayList<>() ; 
+        listLeerlingen.stream().forEach((leerling) -> {
+            listLeerlingenNamen.add(leerling.toString());
+        });
+        
+        ObservableList<String> olLeerlingen = FXCollections.observableArrayList(listLeerlingenNamen);
+        listViewLeerlingen.setItems(olLeerlingen);
+    }
 }
