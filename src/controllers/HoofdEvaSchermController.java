@@ -1,23 +1,33 @@
 
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 
 public class HoofdEvaSchermController implements Initializable {
+    
+    @FXML
+    private  Node hoofdEvaScherm ;
     @FXML
     private Circle circleRotonde ;
     @FXML
@@ -49,11 +59,11 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonRotonde(ActionEvent event) {
-        if (circleRotonde.getFill() == Color.RED) {
-            circleRotonde.setFill(Color.GREEN);
+        if (circleRotonde.getFill() == Color.GREEN) {
+            circleRotonde.setFill(Color.RED);
         } 
         else {
-            circleRotonde.setFill(Color.RED);
+            circleRotonde.setFill(Color.GREEN);
         }
     }
     
@@ -62,10 +72,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonRijBaanMetRijStroken(ActionEvent event) {
-         if (circleRijbaanMetRijStroken.getFill() == Color.RED) {
-            circleRijbaanMetRijStroken.setFill(Color.GREEN);
-        } else {
+         if (circleRijbaanMetRijStroken.getFill() == Color.GREEN) {
             circleRijbaanMetRijStroken.setFill(Color.RED);
+        } else {
+            circleRijbaanMetRijStroken.setFill(Color.GREEN);
         } 
     }
     
@@ -74,10 +84,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonStad (ActionEvent event) {
-         if (circleStad.getFill() == Color.RED) {
-            circleStad.setFill(Color.GREEN);
-        } else {
+         if (circleStad.getFill() == Color.GREEN) {
             circleStad.setFill(Color.RED);
+        } else {
+            circleStad.setFill(Color.GREEN);
         }
     }
     
@@ -86,10 +96,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonAutoSnelweg(ActionEvent event) {
-        if (circleAutosnelweg.getFill() == Color.RED) {
-            circleAutosnelweg.setFill(Color.GREEN);
-        } else {
+        if (circleAutosnelweg.getFill() == Color.GREEN) {
             circleAutosnelweg.setFill(Color.RED);
+        } else {
+            circleAutosnelweg.setFill(Color.GREEN);
         }       
     }
     
@@ -99,10 +109,10 @@ public class HoofdEvaSchermController implements Initializable {
       
     @FXML
     private void handleButtonSchakelaar(ActionEvent event) {
-        if (circleSchakelaar.getFill() == Color.RED) {
-            circleSchakelaar.setFill(Color.GREEN);
-        } else {
+        if (circleSchakelaar.getFill() == Color.GREEN) {
             circleSchakelaar.setFill(Color.RED);
+        } else {
+            circleSchakelaar.setFill(Color.GREEN);
         }
     }
          
@@ -111,10 +121,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonVloeiStof(ActionEvent event) {
-        if (circleVloeistof.getFill() == Color.RED) {
-            circleVloeistof.setFill(Color.GREEN);
-        } else {
+        if (circleVloeistof.getFill() == Color.GREEN) {
             circleVloeistof.setFill(Color.RED);
+        } else {
+            circleVloeistof.setFill(Color.GREEN);
         }
     }
     
@@ -123,10 +133,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonBanden (ActionEvent event) {
-        if (circleBanden.getFill() == Color.RED) {
-            circleBanden.setFill(Color.GREEN);
-        } else {
+        if (circleBanden.getFill() == Color.GREEN) {
             circleBanden.setFill(Color.RED);
+        } else {
+            circleBanden.setFill(Color.GREEN);
         }
     }
     
@@ -136,10 +146,10 @@ public class HoofdEvaSchermController implements Initializable {
         
     @FXML
     private void handleButtonTanken(ActionEvent event) {
-        if (circleTanken.getFill() == Color.RED) {
-            circleTanken.setFill(Color.GREEN);
-        } else {
+        if (circleTanken.getFill() == Color.GREEN) {
             circleTanken.setFill(Color.RED);
+        } else {
+            circleTanken.setFill(Color.GREEN);
         }
     }
        
@@ -149,10 +159,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonGps(ActionEvent event) {
-        if (circleGps.getFill() == Color.RED) {
-            circleGps.setFill(Color.GREEN);
-        } else {
+        if (circleGps.getFill() == Color.GREEN) {
             circleGps.setFill(Color.RED);
+        } else {
+            circleGps.setFill(Color.GREEN);
         }
     }
     
@@ -161,10 +171,10 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private void handleButtonStop (ActionEvent event) {
-        if (circleStop.getFill() == Color.RED) {
-            circleStop.setFill(Color.GREEN);
-        } else {
+        if (circleStop.getFill() == Color.GREEN) {
             circleStop.setFill(Color.RED);
+        } else {
+            circleStop.setFill(Color.GREEN);
         }
     }
     // Center __________________________________________________________________
@@ -176,6 +186,15 @@ public class HoofdEvaSchermController implements Initializable {
     
     @FXML
     private Button attitude;
+    
+    // bottom __________________________________________________________________
+    @FXML
+    private Button terugknop;
+    
+    @FXML
+    private void handleButtonTerugknop(ActionEvent event) throws IOException {
+        keerTerug();        
+    }
     
     
     @Override
@@ -224,14 +243,31 @@ public class HoofdEvaSchermController implements Initializable {
         //Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/RijtechniekRRR.png"));
         //rijtechniek.setGraphic(new ImageView(imgRijtechniek));
         
-        //Image imgAttitude = new Image(getClass().getResourceAsStream("/image/AttRood.png"));
-        //attitude.setGraphic(new ImageView(imgAttitude));
+        Image imgAttitude = new Image(getClass().getResourceAsStream("/image/Attitude.png"));
+        attitude.setGraphic(new ImageView(imgAttitude));
         
         ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
           "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
         listViewOpmerkingen.setItems(listOpmerkingen);
         
+        // Bottom ______________________________________________________________
+        Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
+        terugknop.setGraphic(new ImageView(imgTerugknop));
         
+        
+    }
+
+    private void keerTerug() throws IOException{
+        
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Start scherm");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
     
 }
