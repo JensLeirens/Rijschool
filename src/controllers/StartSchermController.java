@@ -108,6 +108,10 @@ public class StartSchermController implements Initializable {
     }
     
     private void sluiten() throws IOException{
+        Stage currentStage = new Stage();
+        currentStage = (Stage) startScherm.getScene().getWindow();
+        currentStage.close();
+        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdEvaScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -115,7 +119,7 @@ public class StartSchermController implements Initializable {
         stage.setScene(new Scene(root1));
         
         stage.show();
-        startScherm.getScene().getWindow().hide();
+        
     }
 
     public void refreshList(){

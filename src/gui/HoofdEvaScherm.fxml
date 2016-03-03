@@ -23,12 +23,12 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdEvaSchermController">
+<BorderPane fx:id="hoofdEvaScherm" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdEvaSchermController">
   <bottom>
     <GridPane>
       <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="131.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="84.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="10.0" prefWidth="332.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="469.0" />
       </columnConstraints>
       <rowConstraints>
@@ -37,9 +37,9 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
          <children>
-            <CheckBox mnemonicParsing="false" text="Eva 1" />
-            <CheckBox mnemonicParsing="false" text="Eva 2" GridPane.rowIndex="1" />
-            <CheckBox mnemonicParsing="false" text="Eva 3 " GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" text="1" GridPane.columnIndex="1" />
+            <CheckBox mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" text="3 " GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Slider minorTickCount="25" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <padding>
                   <Insets right="10.0" />
@@ -60,6 +60,11 @@
                   <Insets left="230.0" />
                </padding>
             </Label>
+            <Button fx:id="terugknop" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#handleButtonTerugknop" prefHeight="60.0" prefWidth="65.0" GridPane.rowSpan="3">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" />
+               </GridPane.margin>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" />
