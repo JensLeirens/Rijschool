@@ -187,6 +187,11 @@ public class HoofdEvaSchermController implements Initializable {
     @FXML
     private Button attitude;
     
+    @FXML
+    private void handleButtonAttitude(ActionEvent event) throws IOException {
+        openAttitude();        
+    }
+    
     // bottom __________________________________________________________________
     @FXML
     private Button terugknop;
@@ -266,6 +271,19 @@ public class HoofdEvaSchermController implements Initializable {
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Start scherm");
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
+    
+    private void openAttitude() throws IOException{
+        
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AttitudeScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Attitude scherm");
         stage.setScene(new Scene(root1));
         stage.show();
     }
