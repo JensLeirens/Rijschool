@@ -18,6 +18,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -27,10 +29,13 @@ import javafx.stage.Stage;
 
 public class AttitudeSchermController implements Initializable {
     
+    
+    private ArrayList<String> listVoorbeeldwaarden;
+    private ArrayList<String> listEigenschappen;
+    
     @FXML
     private Node attitudeScherm ;
     
-    //nr1
     @FXML
     private Button terugknop;
     
@@ -41,11 +46,47 @@ public class AttitudeSchermController implements Initializable {
     private ListView listViewEigenschappen;
     
     @FXML
-    private void handleButtonTerugknop(ActionEvent event) throws IOException {
+    private Button btnVoegVoorbeeldWaardenToe;
+    
+    @FXML
+    private Button btnVerwijderWaarden;
+    
+    @FXML
+    private TextField txtEigenschap;
+    
+    @FXML
+    private Button btnEigenAttribuut;
+    
+    @FXML
+    public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
     }
     
+    @FXML
+    public void handleVoegVoorbeeldwaardenToe(ActionEvent event){
+        List<String> checkList = new ArrayList<>();
+        checkList.addAll(listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems());
+        for(String s : checkList){
+            if(!listEigenschappen.contains(s)){
+                listEigenschappen.add(s);
+            }
+        }
+        refreshLists();
+    }
     
+    @FXML
+    public void handleVerwijderWaarden(ActionEvent event){
+        listEigenschappen.removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+        refreshLists();
+    }
+    
+    @FXML
+    public void handleVoegEigenAttribuutToe(ActionEvent event){
+        if(!listEigenschappen.contains(txtEigenschap.getText())){
+            listEigenschappen.add(txtEigenschap.getText());
+        }
+        refreshLists();
+    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,18 +94,24 @@ public class AttitudeSchermController implements Initializable {
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
         
-        List<String> listVoorbeelden = new ArrayList<>();
-        listVoorbeelden = new ArrayList<String>() ;  
-        listVoorbeelden.add("Rustig");
-        listVoorbeelden.add("Nonchalant");
-        listVoorbeelden.add("Aggresief");
-        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeelden);
+        listVoorbeeldwaarden = new ArrayList<>();  
+        listVoorbeeldwaarden.add("Rustig");
+        listVoorbeeldwaarden.add("Nonchalant");
+        listVoorbeeldwaarden.add("Aggresief");
+        listEigenschappen = new ArrayList<>(); 
+        listViewVoorbeeldwaarden.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        refreshLists();
+    }
+ 
+    public void refreshLists(){
+        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
         listViewVoorbeeldwaarden.setItems(olVoorbeelden);
         
-        
+        ObservableList<String> olEigenschappen = FXCollections.observableArrayList(listEigenschappen);
+        listViewEigenschappen.setItems(olEigenschappen);
     }
 
-    private void keerTerug() throws IOException{
+    public void keerTerug() throws IOException{
         Stage currentStage = (Stage) attitudeScherm.getScene().getWindow();
         currentStage.close();
         
