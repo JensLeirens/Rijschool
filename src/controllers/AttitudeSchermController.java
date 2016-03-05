@@ -1,7 +1,9 @@
 package controllers;
 
+import domain.Leerling;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -31,6 +33,13 @@ public class AttitudeSchermController implements Initializable {
     //nr1
     @FXML
     private Button terugknop;
+    
+    @FXML
+    private ListView listViewVoorbeeldwaarden;
+    
+    @FXML
+    private ListView listViewEigenschappen;
+    
     @FXML
     private void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
@@ -43,6 +52,16 @@ public class AttitudeSchermController implements Initializable {
         
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
+        
+        List<String> listVoorbeelden = new ArrayList<>();
+        listVoorbeelden = new ArrayList<String>() ;  
+        listVoorbeelden.add("Rustig");
+        listVoorbeelden.add("Nonchalant");
+        listVoorbeelden.add("Aggresief");
+        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeelden);
+        listViewVoorbeeldwaarden.setItems(olVoorbeelden);
+        
+        
     }
 
     private void keerTerug() throws IOException{
