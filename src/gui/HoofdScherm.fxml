@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="hoofdEvaScherm" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdEvaSchermController">
+<BorderPane fx:id="hoofdEvaScherm" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdSchermController">
   <bottom>
     <GridPane>
       <columnConstraints>
@@ -77,9 +77,9 @@
   <center>
     <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="361.0" prefWidth="389.0">
       <children>
-            <Button fx:id="stuur" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="172.0" prefWidth="167.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="attitude" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAttitude" prefHeight="108.0" prefWidth="143.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="rijtechniek" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="179.0" prefWidth="181.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" />
+            <Button fx:id="btnRijtechniek" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="172.0" prefWidth="167.0" text="Button" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btnAttitude" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAttitude" prefHeight="108.0" prefWidth="143.0" text="Button" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnVerkeerstechniek" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonVerkeerstechniek" prefHeight="179.0" prefWidth="181.0" text="Button" GridPane.columnIndex="3" GridPane.columnSpan="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
