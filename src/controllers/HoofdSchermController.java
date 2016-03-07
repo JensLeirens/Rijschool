@@ -24,7 +24,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 
-public class HoofdEvaSchermController implements Initializable {
+public class HoofdSchermController implements Initializable {
     
     @FXML
     private  Node hoofdEvaScherm ;
@@ -179,17 +179,22 @@ public class HoofdEvaSchermController implements Initializable {
     }
     // Center __________________________________________________________________
     @FXML
-    private Button stuur;
+    private Button btnRijtechniek;
     
     @FXML
-    private Button rijtechniek;
+    private Button btnVerkeerstechniek;
     
     @FXML
-    private Button attitude;
+    private Button btnAttitude;
     
     @FXML
     private void handleButtonAttitude(ActionEvent event) throws IOException {
         openAttitude();        
+    }
+    
+    @FXML
+    private void handleButtonVerkeerstechniek(ActionEvent event) throws IOException {
+        openVerkeerstechniek();        
     }
     
     // bottom __________________________________________________________________
@@ -243,13 +248,13 @@ public class HoofdEvaSchermController implements Initializable {
         // Center __________________________________________________________________
         
         //Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurRRR.png"));
-        //stuur.setGraphic(new ImageView(imgStuur));
+        //btnRijtechniek.setGraphic(new ImageView(imgStuur));
         
-        //Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/RijtechniekRRR.png"));
-        //rijtechniek.setGraphic(new ImageView(imgRijtechniek));
+        Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/Rijtechniek.png"));
+        btnVerkeerstechniek.setGraphic(new ImageView(imgRijtechniek));
         
         Image imgAttitude = new Image(getClass().getResourceAsStream("/image/Attitude.png"));
-        attitude.setGraphic(new ImageView(imgAttitude));
+        btnAttitude.setGraphic(new ImageView(imgAttitude));
         
         ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
           "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
@@ -262,7 +267,7 @@ public class HoofdEvaSchermController implements Initializable {
         
     }
 
-    private void keerTerug() throws IOException{
+    public void keerTerug() throws IOException{
         
         Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
         currentStage.close();
@@ -275,12 +280,24 @@ public class HoofdEvaSchermController implements Initializable {
         stage.show();
     }
     
-    private void openAttitude() throws IOException{
+    public void openAttitude() throws IOException{
         
         Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
         currentStage.close();
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AttitudeScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Attitude scherm");
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
+
+    public void openVerkeerstechniek() throws IOException{
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/VerkeerstechniekScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Attitude scherm");

@@ -112,7 +112,7 @@ public class StartSchermController implements Initializable {
         currentStage = (Stage) startScherm.getScene().getWindow();
         currentStage.close();
         
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdEvaScherm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Evaluatie scherm");
