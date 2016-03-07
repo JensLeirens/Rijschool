@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -193,13 +194,38 @@ public class HoofdSchermController implements Initializable {
     }
     
     @FXML
+    private void handleButtonRijtechniek(ActionEvent event) throws IOException {
+        openRijtechniek() ;        
+    }
+    
+    @FXML
     private void handleButtonVerkeerstechniek(ActionEvent event) throws IOException {
         openVerkeerstechniek();        
     }
     
     // bottom __________________________________________________________________
+    
+    @FXML 
+    private Button min ;
+    
+    @FXML 
+    private Button plus; 
+    
     @FXML
     private Button terugknop;
+    
+    @FXML
+    private Slider evolutie ; 
+    
+    @FXML
+    private void handleButtonMin(ActionEvent event) throws IOException {
+        evolutie.setValue(evolutie.getValue() - 5);
+    }
+    
+    @FXML
+    private void handleButtonPlus(ActionEvent event) throws IOException {
+        evolutie.setValue(evolutie.getValue() + 5);       
+    }
     
     @FXML
     private void handleButtonTerugknop(ActionEvent event) throws IOException {
@@ -247,8 +273,8 @@ public class HoofdSchermController implements Initializable {
         
         // Center __________________________________________________________________
         
-        //Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurRRR.png"));
-        //btnRijtechniek.setGraphic(new ImageView(imgStuur));
+        Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurWit.png"));
+        btnRijtechniek.setGraphic(new ImageView(imgStuur));
         
         Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/Rijtechniek.png"));
         btnVerkeerstechniek.setGraphic(new ImageView(imgRijtechniek));
@@ -260,6 +286,7 @@ public class HoofdSchermController implements Initializable {
           "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
         listViewOpmerkingen.setItems(listOpmerkingen);
         
+        evolutie.setValue(0);
         // Bottom ______________________________________________________________
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
@@ -300,7 +327,19 @@ public class HoofdSchermController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/VerkeerstechniekScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setTitle("Attitude scherm");
+        stage.setTitle("VerkeersTechniek");
+        stage.setScene(new Scene(root1));
+        stage.show();
+    }
+    
+     public void openRijtechniek() throws IOException{
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/RijtechniekScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Rijtechniek");
         stage.setScene(new Scene(root1));
         stage.show();
     }

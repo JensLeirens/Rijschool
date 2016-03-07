@@ -72,6 +72,7 @@ public class StartSchermController implements Initializable {
     
     @FXML
     private void handleButtonNieuw(ActionEvent event) {
+        boolean leerlingBestaatAl = true; 
         try {
         lblMessage.setTextFill(Color.web("#e42d2d"));   
         
@@ -87,12 +88,28 @@ public class StartSchermController implements Initializable {
         }
         
         else {
-            lblMessage.setTextFill(Color.web("#006400"));
-            lblMessage.setText("Leerling aangemaakt");
-            listLeerlingen.add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText())); 
+            for (Leerling l : listLeerlingen) {
+                if( l.getId() != Integer.parseInt(txtNummer.getText())){
+                    leerlingBestaatAl = false ; 
+                    System.out.println(" leerling is nieuw");
+                } 
+                else {
+                    leerlingBestaatAl = true ;
+                    lblMessage.setText("Leerling bestaat al");
+                }
+            }
+            
+            if (leerlingBestaatAl == false){
+                listLeerlingen.add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText()));
+                lblMessage.setTextFill(Color.web("#006400"));
+                lblMessage.setText("Leerling aangemaakt");
+            
+            }
+            
+           
         }
         } catch (NumberFormatException e) {
-            lblMessage.setTextFill(Color.web("#006400"));
+            lblMessage.setTextFill(Color.web("#e42d2d"));
             lblMessage.setText("GELIEVE EEN GELDIG NUMMER IN TE GEVEN!");
         }
         refreshList();
