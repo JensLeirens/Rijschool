@@ -2,6 +2,7 @@
 package controllers;
 
 
+import domain.DomainController;
 import domain.Leerling;
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 public class StartSchermController implements Initializable {
     private ArrayList<Leerling> listLeerlingen; 
-    
+    private DomainController dc = new DomainController(); 
     
     @FXML
     private ListView<String> listViewLeerlingen = new ListView<>();
@@ -59,7 +59,16 @@ public class StartSchermController implements Initializable {
     
     @FXML
     private void handleButtonOpenEva(ActionEvent event) throws IOException {
+        
+        
         if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
+            for (Leerling leerling : listLeerlingen) {
+                if(listViewLeerlingen.getSelectionModel().getSelectedItem().equalsIgnoreCase(leerling.getnaam())){
+                    System.out.println(leerling.toString());
+                    dc.setHuidigeLeerling(leerling);
+                }
+            }
+            
             sluiten();
         }
         else {
@@ -125,6 +134,7 @@ public class StartSchermController implements Initializable {
     }
     
     private void sluiten() throws IOException{
+        
         Stage currentStage = new Stage();
         currentStage = (Stage) startScherm.getScene().getWindow();
         currentStage.close();
@@ -134,6 +144,10 @@ public class StartSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Evaluatie scherm");
         stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
+        controller.initData(dc);
         
         stage.show();
         
