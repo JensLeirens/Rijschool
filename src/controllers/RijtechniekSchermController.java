@@ -1,6 +1,7 @@
 
 package controllers;
 
+import domain.DomainController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -19,7 +21,10 @@ import javafx.stage.Stage;
 
 
 public class RijtechniekSchermController implements Initializable {
+    private DomainController dc = new DomainController(); 
     
+    @FXML 
+    private Label naam ;
     @FXML
     private Node rijtechniekScherm ;
     
@@ -67,6 +72,16 @@ public class RijtechniekSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Hoofdscherm");
         stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
+        controller.initData(dc);
+        
         stage.show();
+    }
+
+    void initData(DomainController dc) {
+        this.dc = dc ; 
+        naam.setText(dc.getHuidigeLeerling().getnaam());
     }
 }

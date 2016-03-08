@@ -1,5 +1,6 @@
 package controllers;
 
+import domain.DomainController;
 import domain.Leerling;
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
@@ -29,13 +31,15 @@ import javafx.stage.Stage;
 
 public class AttitudeSchermController implements Initializable {
     
-    
+    private DomainController dc = new DomainController(); 
     private ArrayList<String> listVoorbeeldwaarden;
     private ArrayList<String> listEigenschappen;
     
     @FXML
     private Node attitudeScherm ;
     
+    @FXML 
+    private Label naam; 
     @FXML
     private Button terugknop;
     
@@ -120,7 +124,17 @@ public class AttitudeSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Hoofdscherm");
         stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
+        controller.initData(dc);
+        
         stage.show();
+    }
+
+    void initData(DomainController dc) {
+        this.dc = dc ; 
+        naam.setText(dc.getHuidigeLeerling().getnaam());
     }
 
     

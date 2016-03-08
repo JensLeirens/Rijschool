@@ -1,6 +1,7 @@
 
 package controllers;
 
+import domain.DomainController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -16,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
@@ -26,6 +28,7 @@ import javafx.stage.Stage;
 
 
 public class HoofdSchermController implements Initializable {
+    private DomainController dc = new DomainController(); 
     
     @FXML
     private  Node hoofdEvaScherm ;
@@ -55,6 +58,9 @@ public class HoofdSchermController implements Initializable {
     private Circle circleStop;
     
     // top _____________________________________________________________________
+    @FXML 
+    private Label naam ; 
+    
     @FXML 
     private Button rotonde ; 
     
@@ -249,6 +255,7 @@ public class HoofdSchermController implements Initializable {
         rijBaanMetRijStroken.setGraphic(new ImageView(imgRijBaanMetRijStroken));
         
         
+        
         // Left ____________________________________________________________________
         Image imgSchakelaar = new Image(getClass().getResourceAsStream("/image/Schakelaar.png"));
         schakelaar.setGraphic(new ImageView(imgSchakelaar));
@@ -304,6 +311,7 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Start scherm");
         stage.setScene(new Scene(root1));
+        
         stage.show();
     }
     
@@ -317,6 +325,11 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Attitude scherm");
         stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        AttitudeSchermController controller = fxmlLoader.<AttitudeSchermController>getController();
+        controller.initData(dc);
+        
         stage.show();
     }
 
@@ -341,7 +354,15 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Rijtechniek");
         stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
+        controller.initData(dc);
         stage.show();
     }
-    
+
+    void initData(DomainController dc) {
+        this.dc = dc ; 
+        naam.setText(dc.getHuidigeLeerling().getnaam());
+    }
 }
