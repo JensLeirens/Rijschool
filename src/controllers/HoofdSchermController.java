@@ -342,6 +342,8 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("VerkeersTechniek");
         stage.setScene(new Scene(root1));
+        VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
+        controller.initData(dc);
         stage.show();
     }
     
