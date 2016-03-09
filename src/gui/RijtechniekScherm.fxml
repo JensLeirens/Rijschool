@@ -120,23 +120,23 @@
             <Button fx:id="groen" contentDisplay="GRAPHIC_ONLY" layoutX="749.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Green;" text="Button" />
             <Button fx:id="oranje" contentDisplay="GRAPHIC_ONLY" layoutX="669.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Orange;" text="Button" />
             <Button fx:id="rood" contentDisplay="GRAPHIC_ONLY" layoutX="589.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Red;" text="Button" />
-            <Button fx:id="schakeltechniek" contentDisplay="GRAPHIC_ONLY" layoutX="388.0" layoutY="84.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="kijktechniek" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="165.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="parkeren" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="232.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="keren" contentDisplay="GRAPHIC_ONLY" layoutX="388.0" layoutY="301.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="stuurtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="koppeling" contentDisplay="GRAPHIC_ONLY" layoutX="118.0" layoutY="84.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="garage" contentDisplay="GRAPHIC_ONLY" layoutX="303.0" layoutY="367.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="achteruitrijden" contentDisplay="GRAPHIC_ONLY" layoutX="201.0" layoutY="367.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="stuuroefeningen" contentDisplay="GRAPHIC_ONLY" layoutX="118.0" layoutY="301.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="schakeltechniek" contentDisplay="GRAPHIC_ONLY" layoutX="388.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleButtonSchakel" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="kijktechniek" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonKijk" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="parkeren" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleButtonParkeren" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="keren" contentDisplay="GRAPHIC_ONLY" layoutX="388.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonKeren" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="stuurtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonStuur" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="koppeling" contentDisplay="GRAPHIC_ONLY" layoutX="118.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleButtonKoppeling" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="garage" contentDisplay="GRAPHIC_ONLY" layoutX="303.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleButtonGarage" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="achteruitrijden" contentDisplay="GRAPHIC_ONLY" layoutX="201.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleButtonAchteruit" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="stuuroefeningen" contentDisplay="GRAPHIC_ONLY" layoutX="118.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonStuurOef" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <Button fx:id="aanzettenHelling" contentDisplay="GRAPHIC_ONLY" layoutX="63.0" layoutY="232.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
-            <Button fx:id="remtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="201.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="remtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="201.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonRem" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="215.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/StuurWit.PNG" />
                </image>
             </ImageView>
-            <Button fx:id="zithouding" contentDisplay="GRAPHIC_ONLY" layoutX="63.0" layoutY="165.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" text="Button" />
+            <Button fx:id="zithouding" contentDisplay="GRAPHIC_ONLY" layoutX="63.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonHouding" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <TextArea fx:id="txaOpm" layoutX="589.0" layoutY="93.0" prefHeight="151.0" prefWidth="225.0" />
          </children>
       </AnchorPane>

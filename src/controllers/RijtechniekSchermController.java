@@ -176,32 +176,75 @@ public class RijtechniekSchermController implements Initializable {
     }
     @FXML
     public void handleButtonHouding(ActionEvent event) throws IOException {
-        keerTerug();        
+        if (isZithouding == false){
+            toonOpmerkingen();
+            isZithouding = true ;
+        }
+        else{
+            verdwijnOpmerkingen();
+            isZithouding = false;
+        } 
+                
     }
     
     @FXML
     public void handleButtonKoppeling(ActionEvent event) throws IOException {
-        keerTerug();        
+        if (isKoppeling == false){
+            toonOpmerkingen();
+            isKoppeling = true ; 
+        }
+        else{
+            verdwijnOpmerkingen();
+            isKoppeling = false;
+        } 
     }
     
     @FXML
     public void handleButtonRem(ActionEvent event) throws IOException {
-        keerTerug();        
+        if (isRemtechniek == false){
+            toonOpmerkingen();
+            isRemtechniek = true ; 
+        }
+        else{
+            verdwijnOpmerkingen();
+            isRemtechniek = false;
+        }                 
     }
     
     @FXML
     public void handleButtonStuur(ActionEvent event) throws IOException {
-        keerTerug();        
+       if (iStuurtechniek == false){
+            toonOpmerkingen();
+            iStuurtechniek = true ; 
+        }
+        else{
+            verdwijnOpmerkingen();
+            iStuurtechniek = false ;
+        }         
     }
     
     @FXML
     public void handleButtonSchakel(ActionEvent event) throws IOException {
-        keerTerug();        
+        if (isSchakeltechniek == false){
+            toonOpmerkingen();
+            isSchakeltechniek = true ;
+        }
+        else{
+            verdwijnOpmerkingen();
+            isSchakeltechniek = false ;
+        }      
     }
     
     @FXML
     public void handleButtonKijk(ActionEvent event) throws IOException {
-        keerTerug();        
+        if (isKijktechniek == false){
+            toonOpmerkingen();
+            isKijktechniek = true ; 
+        }
+        else{
+            verdwijnOpmerkingen();
+            isKijktechniek = false ;
+        }    
     }
     
     
@@ -210,25 +253,75 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     public void handleButtonParkeren(ActionEvent event) throws IOException {
-        keerTerug();        
+        if ("-fx-base: #FFA500".equals(parkeren.getStyle())) {
+            parkeren.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(parkeren.getStyle())) {
+                parkeren.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                parkeren.setStyle("-fx-base: #FFA500");
+            }
+        }      
     }
     
     @FXML
     public void handleButtonKeren(ActionEvent event) throws IOException {
-        keerTerug();        
+        if ("-fx-base: #FFA500".equals(keren.getStyle())) {
+            keren.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(keren.getStyle())) {
+                keren.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                keren.setStyle("-fx-base: #FFA500");
+            }
+        }        
     }
     
     @FXML
     public void handleButtonGarage(ActionEvent event) throws IOException {
-        keerTerug();        
+        if ("-fx-base: #FFA500".equals(garage.getStyle())) {
+            garage.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(garage.getStyle())) {
+                garage.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                garage.setStyle("-fx-base: #FFA500");
+            }
+        }        
     }
     
      @FXML
     public void handleButtonAchteruit(ActionEvent event) throws IOException {
-        keerTerug();        
+        if ("-fx-base: #FFA500".equals(achteruitrijden.getStyle())) {
+            achteruitrijden.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(achteruitrijden.getStyle())) {
+                achteruitrijden.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                achteruitrijden.setStyle("-fx-base: #FFA500");
+            }
+        }        
     }
      @FXML
     public void handleButtonStuurOef(ActionEvent event) throws IOException {
-        keerTerug();        
+        if ("-fx-base: #FFA500".equals(stuuroefeningen.getStyle())) {
+            stuuroefeningen.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(stuuroefeningen.getStyle())) {
+                stuuroefeningen.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                stuuroefeningen.setStyle("-fx-base: #FFA500");
+            }
+        }        
     }
 }
