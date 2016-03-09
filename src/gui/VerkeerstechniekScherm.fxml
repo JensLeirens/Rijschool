@@ -48,16 +48,16 @@
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
          <children>
-            <Button fx:id="btnVoorrang" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnVoorrang" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnOpenbareWeg" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnOpenbareWeg" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnAanwijzers" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnAanwijzers" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnRechtsaf" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnRechtsaf" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnKruisen" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnKruisen" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnTekens" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnTekens" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnSnelheid" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnSnelheid" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnAfstanden" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnAfstanden" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnInhalen" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnInhalen" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-            <Button fx:id="btnLinksaf" mnemonicParsing="false" prefHeight="65.0" prefWidth="65.0" text="btnLinksaf" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnVoorrang" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonVoorrang" prefHeight="65.0" prefWidth="65.0" text="btnVoorrang" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnOpenbareWeg" mnemonicParsing="false" onAction="#handleButtonOpenbareWeg" prefHeight="65.0" prefWidth="65.0" text="btnOpenbareWeg" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnAanwijzers" mnemonicParsing="false" onAction="#handleButtonAanwijzers" prefHeight="65.0" prefWidth="65.0" text="btnAanwijzers" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnRechtsaf" mnemonicParsing="false" onAction="#handleButtonRechtsaf" prefHeight="65.0" prefWidth="65.0" text="btnRechtsaf" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnKruisen" mnemonicParsing="false" onAction="#handleButtonKruisen" prefHeight="65.0" prefWidth="65.0" text="btnKruisen" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnTekens" mnemonicParsing="false" onAction="#handleButtonTekens" prefHeight="65.0" prefWidth="65.0" text="btnTekens" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnSnelheid" mnemonicParsing="false" onAction="#handleButtonSnelheid" prefHeight="65.0" prefWidth="65.0" text="btnSnelheid" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnAfstanden" mnemonicParsing="false" onAction="#handleButtonAfstanden" prefHeight="65.0" prefWidth="65.0" text="btnAfstanden" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnInhalen" mnemonicParsing="false" onAction="#handleButtonInhalen" prefHeight="65.0" prefWidth="65.0" text="btnInhalen" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <Button fx:id="btnLinksaf" mnemonicParsing="false" onAction="#handleButtonLinksaf" prefHeight="65.0" prefWidth="65.0" text="btnLinksaf" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
          </children>
       </GridPane>
       <AnchorPane maxWidth="195.0" prefHeight="538.0" prefWidth="195.0">
