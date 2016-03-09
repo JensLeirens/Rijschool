@@ -121,8 +121,7 @@ public class RijtechniekSchermController implements Initializable {
         
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
-       
-        
+  
     }
      
     public void toonOpmerkingen(){
@@ -246,9 +245,7 @@ public class RijtechniekSchermController implements Initializable {
             isKijktechniek = false ;
         }    
     }
-    
-    
-    
+
     
     
     @FXML

@@ -88,7 +88,7 @@
       <AnchorPane prefHeight="534.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
             <Rectangle fx:id="achtergrondBasis" arcHeight="5.0" arcWidth="5.0" fill="#979a9a" height="192.0" layoutX="589.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="223.0" />
-            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="675.0" layoutY="260.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="52.0" text="Button" />
+            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="661.0" layoutY="250.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="79.0" text="Button" />
             <CheckBox fx:id="basisopm5" layoutX="598.0" layoutY="453.0" mnemonicParsing="false" text="basis opmerking 5">
                <font>
                   <Font size="14.0" />
