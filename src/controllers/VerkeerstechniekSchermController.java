@@ -35,32 +35,190 @@ public class VerkeerstechniekSchermController implements Initializable{
     private Button btnVoorrang;
     
     @FXML
+    public void handleButtonVoorrang(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnVoorrang.getStyle())) {
+            btnVoorrang.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnVoorrang.getStyle())) {
+                btnVoorrang.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnVoorrang.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
+    
+    @FXML
     private Button btnOpenbareWeg;
+    
+    @FXML
+    public void handleButtonOpenbareWeg(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnOpenbareWeg.getStyle())) {
+            btnOpenbareWeg.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnOpenbareWeg.getStyle())) {
+                btnOpenbareWeg.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnOpenbareWeg.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
     
     @FXML
     private Button btnAanwijzers;
     
     @FXML
+    public void handleButtonAanwijzers(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnAanwijzers.getStyle())) {
+            btnAanwijzers.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnAanwijzers.getStyle())) {
+                btnAanwijzers.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnAanwijzers.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
+    
+    @FXML
     private Button btnRechtsaf;
     
     @FXML
+    public void handleButtonRechtsaf(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnRechtsaf.getStyle())) {
+            btnRechtsaf.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnRechtsaf.getStyle())) {
+                btnRechtsaf.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnRechtsaf.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
+    
+    @FXML
     private Button btnLinksaf;
+    @FXML
+    public void handleButtonLinksaf(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnLinksaf.getStyle())) {
+            btnLinksaf.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnLinksaf.getStyle())) {
+                btnLinksaf.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnLinksaf.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
     
     @FXML
     private Button btnKruisen;
     
     @FXML
+    public void handleButtonKruisen(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnKruisen.getStyle())) {
+            btnKruisen.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnKruisen.getStyle())) {
+                btnKruisen.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnKruisen.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
+    
+    @FXML
     private Button btnInhalen;
+    
+    @FXML
+    public void handleButtonInhalen(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnInhalen.getStyle())) {
+            btnInhalen.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnInhalen.getStyle())) {
+                btnInhalen.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnInhalen.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
     
     @FXML
     private Button btnAfstanden;
     
     @FXML
+    public void handleButtonAfstanden(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnAfstanden.getStyle())) {
+            btnAfstanden.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnAfstanden.getStyle())) {
+                btnAfstanden.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnAfstanden.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
+    
+    @FXML
     private Button btnSnelheid;
+    
+    @FXML
+    public void handleButtonSnelheid(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnSnelheid.getStyle())) {
+            btnSnelheid.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnSnelheid.getStyle())) {
+                btnSnelheid.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnSnelheid.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
     
     @FXML
     private Button btnTekens;
     
+    @FXML
+    public void handleButtonTekens(ActionEvent event) {
+
+        if ("-fx-base: #FFA500".equals(btnTekens.getStyle())) {
+            btnTekens.setStyle("-fx-base: #008000");
+        } 
+        else{ 
+            if ("-fx-base: #008000".equals(btnTekens.getStyle())) {
+                btnTekens.setStyle("-fx-base: #FFA500");
+            } 
+            else {
+                btnTekens.setStyle("-fx-base: #FFA500");
+            }
+        }
+    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
