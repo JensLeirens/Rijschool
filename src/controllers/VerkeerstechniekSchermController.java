@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 
 public class VerkeerstechniekSchermController implements Initializable{
@@ -29,6 +30,37 @@ public class VerkeerstechniekSchermController implements Initializable{
     
     @FXML
     private Label lblNaam;
+    
+    @FXML
+    private Button btnVoorrang;
+    
+    @FXML
+    private Button btnOpenbareWeg;
+    
+    @FXML
+    private Button btnAanwijzers;
+    
+    @FXML
+    private Button btnRechtsaf;
+    
+    @FXML
+    private Button btnLinksaf;
+    
+    @FXML
+    private Button btnKruisen;
+    
+    @FXML
+    private Button btnInhalen;
+    
+    @FXML
+    private Button btnAfstanden;
+    
+    @FXML
+    private Button btnSnelheid;
+    
+    @FXML
+    private Button btnTekens;
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,7 +84,7 @@ public class VerkeerstechniekSchermController implements Initializable{
         
         stage.show();
     }
-    
+
     void initData(DomainController dc) {
         this.dc = dc ; 
         lblNaam.setText(dc.getHuidigeLeerling().getnaam());
