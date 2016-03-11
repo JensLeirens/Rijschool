@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -33,8 +35,10 @@ public class RijtechniekSchermController implements Initializable {
     private boolean iStuurtechniek = false; 
     private boolean isKijktechniek = false; 
     
+    
     @FXML 
     private Label naam ;
+    
     @FXML
     private Node rijtechniekScherm ;
 
@@ -91,6 +95,21 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     private Button achteruitrijden ; 
+    @FXML
+    private Circle circleKeren;
+    
+    @FXML
+    private Circle circleParkeren; 
+    
+    @FXML
+    private Circle circleGarage; 
+    
+    
+    @FXML
+    private Circle circleStuuroefeningen;
+    
+    @FXML
+    private Circle circleAchteruitrijden;
     
     @FXML 
     private CheckBox basisopm1;
@@ -183,7 +202,6 @@ public class RijtechniekSchermController implements Initializable {
             verdwijnOpmerkingen();
             isZithouding = false;
         } 
-                
     }
     
     @FXML
@@ -250,75 +268,61 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     public void handleButtonParkeren(ActionEvent event) throws IOException {
-        if ("-fx-base: #FFA500".equals(parkeren.getStyle())) {
-            parkeren.setStyle("-fx-base: #008000");
+         if (circleParkeren.getFill() == Color.GREEN) {
+            circleParkeren.setFill(Color.RED);
+        } else if(circleParkeren.getFill() == Color.RED) {
+            circleParkeren.setFill(Color.ORANGE);
         } 
-        else{ 
-            if ("-fx-base: #008000".equals(parkeren.getStyle())) {
-                parkeren.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                parkeren.setStyle("-fx-base: #FFA500");
-            }
-        }      
+        else{
+            circleParkeren.setFill(Color.GREEN);
+        }
+        
     }
     
     @FXML
     public void handleButtonKeren(ActionEvent event) throws IOException {
-        if ("-fx-base: #FFA500".equals(keren.getStyle())) {
-            keren.setStyle("-fx-base: #008000");
+       if (circleKeren.getFill() == Color.GREEN) {
+            circleKeren.setFill(Color.RED);
+        } else if(circleKeren.getFill() == Color.RED) {
+            circleKeren.setFill(Color.ORANGE);
         } 
-        else{ 
-            if ("-fx-base: #008000".equals(keren.getStyle())) {
-                keren.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                keren.setStyle("-fx-base: #FFA500");
-            }
-        }        
+        else{
+            circleKeren.setFill(Color.GREEN);
+        }
     }
     
     @FXML
     public void handleButtonGarage(ActionEvent event) throws IOException {
-        if ("-fx-base: #FFA500".equals(garage.getStyle())) {
-            garage.setStyle("-fx-base: #008000");
+        if (circleGarage.getFill() == Color.GREEN) {
+            circleGarage.setFill(Color.RED);
+        } else if(circleGarage.getFill() == Color.RED) {
+            circleGarage.setFill(Color.ORANGE);
         } 
-        else{ 
-            if ("-fx-base: #008000".equals(garage.getStyle())) {
-                garage.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                garage.setStyle("-fx-base: #FFA500");
-            }
-        }        
+        else{
+            circleGarage.setFill(Color.GREEN);
+        }
     }
     
      @FXML
     public void handleButtonAchteruit(ActionEvent event) throws IOException {
-        if ("-fx-base: #FFA500".equals(achteruitrijden.getStyle())) {
-            achteruitrijden.setStyle("-fx-base: #008000");
+        if (circleAchteruitrijden.getFill() == Color.GREEN) {
+            circleAchteruitrijden.setFill(Color.RED);
+        } else if(circleAchteruitrijden.getFill() == Color.RED) {
+            circleAchteruitrijden.setFill(Color.ORANGE);
         } 
-        else{ 
-            if ("-fx-base: #008000".equals(achteruitrijden.getStyle())) {
-                achteruitrijden.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                achteruitrijden.setStyle("-fx-base: #FFA500");
-            }
-        }        
+        else{
+            circleAchteruitrijden.setFill(Color.GREEN);
+        }
     }
      @FXML
     public void handleButtonStuurOef(ActionEvent event) throws IOException {
-        if ("-fx-base: #FFA500".equals(stuuroefeningen.getStyle())) {
-            stuuroefeningen.setStyle("-fx-base: #008000");
+        if (circleStuuroefeningen.getFill() == Color.GREEN) {
+            circleStuuroefeningen.setFill(Color.RED);
+        } else if(circleStuuroefeningen.getFill() == Color.RED) {
+            circleStuuroefeningen.setFill(Color.ORANGE);
         } 
-        else{ 
-            if ("-fx-base: #008000".equals(stuuroefeningen.getStyle())) {
-                stuuroefeningen.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                stuuroefeningen.setStyle("-fx-base: #FFA500");
-            }
-        }        
+        else{
+            circleStuuroefeningen.setFill(Color.GREEN);
+        } 
     }
 }
