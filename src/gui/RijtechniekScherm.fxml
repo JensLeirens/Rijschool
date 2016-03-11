@@ -138,6 +138,11 @@
             </ImageView>
             <Button fx:id="zithouding" contentDisplay="GRAPHIC_ONLY" layoutX="63.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonHouding" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <TextArea fx:id="txaOpm" layoutX="589.0" layoutY="93.0" prefHeight="151.0" prefWidth="225.0" />
+            <Circle fx:id="circleStuuroefeningen" fill="WHITE" layoutX="190.0" layoutY="310.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleAchteruitrijden" fill="WHITE" layoutX="273.0" layoutY="377.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleGarage" fill="WHITE" layoutX="375.0" layoutY="377.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleKeren" fill="WHITE" layoutX="460.0" layoutY="310.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleParkeren" fill="WHITE" layoutX="523.0" layoutY="242.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </center>

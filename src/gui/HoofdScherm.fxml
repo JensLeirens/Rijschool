@@ -42,24 +42,24 @@
             <CheckBox mnemonicParsing="false" text="1" GridPane.columnIndex="1" />
             <CheckBox mnemonicParsing="false" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <CheckBox mnemonicParsing="false" text="3 " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Slider fx:id="evolutie" disable="true" minorTickCount="25" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Slider fx:id="evolutie" disable="true" minorTickCount="25" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-opacity: 100;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <padding>
                   <Insets right="10.0" />
                </padding>
             </Slider>
             <Label text="X" GridPane.columnIndex="3">
                <padding>
-                  <Insets left="295.0" />
+                  <Insets left="310.0" />
                </padding>
             </Label>
             <Label text="B" GridPane.columnIndex="3">
                <padding>
-                  <Insets left="100.0" />
+                  <Insets left="105.0" />
                </padding>
             </Label>
             <Label text="A" GridPane.columnIndex="3">
                <padding>
-                  <Insets left="195.0" />
+                  <Insets left="210.0" />
                </padding>
             </Label>
             <Button fx:id="plus" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonPlus" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">

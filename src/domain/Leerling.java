@@ -1,7 +1,7 @@
 
 package domain;
 
-import java.util.Date;
+import java.util.List;
 import javafx.scene.image.Image;
 
 
@@ -11,6 +11,11 @@ public class Leerling {
     private String email ; 
     private String geboorteDatum ; 
     private Image afbeelding; 
+    
+    private Verkeerstechniek VT; 
+    private Rijtechniek RT; 
+    private List<String> attitude; 
+    private List<Evalutatie> eval; 
 
     public Leerling(){
         
@@ -21,6 +26,31 @@ public class Leerling {
         this.naam = naam;
     }
 
+    public Verkeerstechniek getVT() {
+        return VT;
+    }
+
+    public void setVT(Verkeerstechniek VT) {
+        this.VT = VT;
+    }
+
+    public Rijtechniek getRT() {
+        return RT;
+    }
+
+    public void setRT(Rijtechniek RT) {
+        this.RT = RT;
+    }
+
+    
+    public List<String> getAttitude() {
+        return attitude;
+    }
+
+    public List<Evalutatie> getEval() {
+        return eval;
+    }
+    
     public Image getAfbeelding() {
         return afbeelding;
     }

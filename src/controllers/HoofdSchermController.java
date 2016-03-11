@@ -117,7 +117,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonSchakelaar(ActionEvent event) {
         if (circleSchakelaar.getFill() == Color.GREEN) {
-            circleSchakelaar.setFill(Color.RED);
+            circleSchakelaar.setFill(Color.WHITE);
         } else {
             circleSchakelaar.setFill(Color.GREEN);
         }
@@ -129,7 +129,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonVloeiStof(ActionEvent event) {
         if (circleVloeistof.getFill() == Color.GREEN) {
-            circleVloeistof.setFill(Color.RED);
+            circleVloeistof.setFill(Color.WHITE);
         } else {
             circleVloeistof.setFill(Color.GREEN);
         }
@@ -141,7 +141,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonBanden (ActionEvent event) {
         if (circleBanden.getFill() == Color.GREEN) {
-            circleBanden.setFill(Color.RED);
+            circleBanden.setFill(Color.WHITE);
         } else {
             circleBanden.setFill(Color.GREEN);
         }
@@ -154,7 +154,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonTanken(ActionEvent event) {
         if (circleTanken.getFill() == Color.GREEN) {
-            circleTanken.setFill(Color.RED);
+            circleTanken.setFill(Color.WHITE);
         } else {
             circleTanken.setFill(Color.GREEN);
         }
@@ -167,7 +167,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonGps(ActionEvent event) {
         if (circleGps.getFill() == Color.GREEN) {
-            circleGps.setFill(Color.RED);
+            circleGps.setFill(Color.WHITE);
         } else {
             circleGps.setFill(Color.GREEN);
         }
@@ -179,7 +179,7 @@ public class HoofdSchermController implements Initializable {
     @FXML
     private void handleButtonStop (ActionEvent event) {
         if (circleStop.getFill() == Color.GREEN) {
-            circleStop.setFill(Color.RED);
+            circleStop.setFill(Color.WHITE);
         } else {
             circleStop.setFill(Color.GREEN);
         }
