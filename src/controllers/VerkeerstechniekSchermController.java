@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class VerkeerstechniekSchermController implements Initializable{
@@ -34,6 +34,28 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     private Button btnVoorrang;
     
+    @FXML
+    private Circle circleVoorrang ;
+    @FXML
+    private Circle circleTekens ;
+    @FXML
+    private Circle circleSnelheid ;
+    @FXML
+    private Circle circleAfstanden ;
+    @FXML
+    private Circle circleInhalen ;
+    @FXML
+    private Circle circleKruisen ;
+    @FXML
+    private Circle circleLinksaf ;
+    @FXML
+    private Circle circleRechtsaf ;
+    @FXML
+    private Circle circleAanwijzers ;
+    @FXML
+    private Circle circleOpenbareWeg ;
+    
+   
     @FXML
     public void handleButtonVoorrang(ActionEvent event) {
 

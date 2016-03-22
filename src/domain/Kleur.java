@@ -10,5 +10,5 @@ package domain;
  * @author jens
  */
 public enum Kleur {
-    ROOD,ORANGE,GREEN
+    WHITE,RED,ORANGE,GREEN
 }
