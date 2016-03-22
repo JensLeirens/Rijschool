@@ -64,7 +64,6 @@ public class StartSchermController implements Initializable {
         if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
             for (Leerling leerling : listLeerlingen) {
                 if(listViewLeerlingen.getSelectionModel().getSelectedItem().equalsIgnoreCase(leerling.getnaam())){
-                    System.out.println(leerling.toString());
                     dc.setHuidigeLeerling(leerling);
                 }
             }
@@ -76,8 +75,6 @@ public class StartSchermController implements Initializable {
             lblMessage.setText("gelieve een leerling te selecteren in de rechter kader");
         }
     }
-    
-    
     
     @FXML
     private void handleButtonNieuw(ActionEvent event) {
@@ -100,7 +97,6 @@ public class StartSchermController implements Initializable {
             for (Leerling l : listLeerlingen) {
                 if( l.getId() != Integer.parseInt(txtNummer.getText())){
                     leerlingBestaatAl = false ; 
-                    System.out.println(" leerling is nieuw");
                 } 
                 else {
                     leerlingBestaatAl = true ;
