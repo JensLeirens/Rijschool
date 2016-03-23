@@ -12,6 +12,9 @@ package domain;
 public class KnopKleur {
     private Kleur kleur = Kleur.WHITE; 
 
+    public KnopKleur() {
+    }
+    
     public KnopKleur(Kleur kleur) {
         this.kleur = kleur;
     }
@@ -23,4 +26,5 @@ public class KnopKleur {
     public void setKleur(Kleur kleur) {
         this.kleur = kleur;
     }
+   
 }
