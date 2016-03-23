@@ -63,54 +63,54 @@
             <Button fx:id="btnAfstanden" mnemonicParsing="false" onAction="#handleButtonAfstanden" prefHeight="65.0" prefWidth="65.0" text="btnAfstanden" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
             <Button fx:id="btnInhalen" mnemonicParsing="false" onAction="#handleButtonInhalen" prefHeight="65.0" prefWidth="65.0" text="btnInhalen" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
             <Button fx:id="btnLinksaf" mnemonicParsing="false" onAction="#handleButtonLinksaf" prefHeight="65.0" prefWidth="65.0" text="btnLinksaf" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-            <Circle fx:id="circleAanwijzers" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <Circle fx:id="circleAanwijzers" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
-            <Circle fx:id="circleRechtsaf" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <Circle fx:id="circleRechtsaf" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
-            <Circle fx:id="circleOpenbareWeg" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <Circle fx:id="circleOpenbareWeg" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
-            <Circle fx:id="circleVoorrang" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <Circle fx:id="circleVoorrang" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
             <Circle fx:id="circleTekens" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="1" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
             <Circle fx:id="circleSnelheid" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
             <Circle fx:id="circleAfstanden" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
             <Circle fx:id="circleInhalen" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets left="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
-            <Circle fx:id="circleKruisen" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+            <Circle fx:id="circleKruisen" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
-            <Circle fx:id="circleLinksaf" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <Circle fx:id="circleLinksaf" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </GridPane.margin>
             </Circle>
          </children>
