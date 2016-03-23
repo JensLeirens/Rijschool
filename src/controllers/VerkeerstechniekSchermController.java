@@ -1,6 +1,7 @@
 package controllers;
 
 import domain.DomainController;
+import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -59,16 +61,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonVoorrang(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnVoorrang.getStyle())) {
-            btnVoorrang.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnVoorrang.getStyle())) {
-                btnVoorrang.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnVoorrang.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString()){
+            case "WHITE":
+                circleVoorrang.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleVoorrang.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleVoorrang.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -78,16 +83,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonOpenbareWeg(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnOpenbareWeg.getStyle())) {
-            btnOpenbareWeg.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnOpenbareWeg.getStyle())) {
-                btnOpenbareWeg.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnOpenbareWeg.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString()){
+            case "WHITE":
+                circleOpenbareWeg.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleOpenbareWeg.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleOpenbareWeg.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -97,16 +105,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonAanwijzers(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnAanwijzers.getStyle())) {
-            btnAanwijzers.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnAanwijzers.getStyle())) {
-                btnAanwijzers.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnAanwijzers.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString()){
+            case "WHITE":
+                circleAanwijzers.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleAanwijzers.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleAanwijzers.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -116,16 +127,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonRechtsaf(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnRechtsaf.getStyle())) {
-            btnRechtsaf.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnRechtsaf.getStyle())) {
-                btnRechtsaf.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnRechtsaf.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString()){
+            case "WHITE":
+                circleRechtsaf.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleRechtsaf.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleRechtsaf.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -134,16 +148,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonLinksaf(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnLinksaf.getStyle())) {
-            btnLinksaf.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnLinksaf.getStyle())) {
-                btnLinksaf.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnLinksaf.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString()){
+            case "WHITE":
+                circleLinksaf.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleLinksaf.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleLinksaf.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -153,16 +170,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonKruisen(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnKruisen.getStyle())) {
-            btnKruisen.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnKruisen.getStyle())) {
-                btnKruisen.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnKruisen.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString()){
+            case "WHITE":
+                circleKruisen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleKruisen.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleKruisen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -172,16 +192,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonInhalen(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnInhalen.getStyle())) {
-            btnInhalen.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnInhalen.getStyle())) {
-                btnInhalen.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnInhalen.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString()){
+            case "WHITE":
+                circleInhalen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleInhalen.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleInhalen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -191,16 +214,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonAfstanden(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnAfstanden.getStyle())) {
-            btnAfstanden.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnAfstanden.getStyle())) {
-                btnAfstanden.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnAfstanden.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString()){
+            case "WHITE":
+                circleAfstanden.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleAfstanden.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleAfstanden.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -210,16 +236,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonSnelheid(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnSnelheid.getStyle())) {
-            btnSnelheid.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnSnelheid.getStyle())) {
-                btnSnelheid.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnSnelheid.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString()){
+            case "WHITE":
+                circleSnelheid.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleSnelheid.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleSnelheid.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -229,16 +258,19 @@ public class VerkeerstechniekSchermController implements Initializable{
     @FXML
     public void handleButtonTekens(ActionEvent event) {
 
-        if ("-fx-base: #FFA500".equals(btnTekens.getStyle())) {
-            btnTekens.setStyle("-fx-base: #008000");
-        } 
-        else{ 
-            if ("-fx-base: #008000".equals(btnTekens.getStyle())) {
-                btnTekens.setStyle("-fx-base: #FFA500");
-            } 
-            else {
-                btnTekens.setStyle("-fx-base: #FFA500");
-            }
+        switch(dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString()){
+            case "WHITE":
+                circleTekens.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleTekens.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleTekens.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
@@ -268,5 +300,28 @@ public class VerkeerstechniekSchermController implements Initializable{
     void initData(DomainController dc) {
         this.dc = dc ; 
         lblNaam.setText(dc.getHuidigeLeerling().getnaam());
+        String kleur;
+        kleur = dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString();
+        circleAanwijzers.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString();
+        circleAfstanden.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString();
+        circleInhalen.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString();
+        circleKruisen.setFill(Color.valueOf(kleur));
+        
+        kleur = dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString();
+        circleLinksaf.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString();
+        circleOpenbareWeg.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString();
+        circleRechtsaf.setFill(Color.valueOf(kleur));
+        
+        kleur = dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString();
+        circleSnelheid.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString();
+        circleTekens.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString();
+        circleVoorrang.setFill(Color.valueOf(kleur));
     }
 }

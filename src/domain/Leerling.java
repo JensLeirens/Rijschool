@@ -26,6 +26,9 @@ public class Leerling {
         this.id = id;
         this.naam = naam;
         this.hoofdscherm = new Hoofdscherm();
+        this.RT = new Rijtechniek();
+        this.VT = new Verkeerstechniek();
+        
     }
 
     public Verkeerstechniek getVT() {
