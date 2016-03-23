@@ -13,7 +13,8 @@ public class Leerling {
     private Image afbeelding; 
     
     private Verkeerstechniek VT; 
-    private Rijtechniek RT; 
+    private Rijtechniek RT;
+    private Hoofdscherm hoofdscherm;
     private List<String> attitude; 
     private List<Evalutatie> eval; 
 
@@ -24,6 +25,7 @@ public class Leerling {
     public Leerling(int id, String naam) {
         this.id = id;
         this.naam = naam;
+        this.hoofdscherm = new Hoofdscherm();
     }
 
     public Verkeerstechniek getVT() {
@@ -61,6 +63,14 @@ public class Leerling {
 
     public int getId() {
         return id;
+    }
+
+    public Hoofdscherm getHoofdscherm() {
+        return hoofdscherm;
+    }
+
+    public void setHoofdscherm(Hoofdscherm hoofdscherm) {
+        this.hoofdscherm = hoofdscherm;
     }
 
     

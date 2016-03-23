@@ -2,6 +2,7 @@
 package controllers;
 
 import domain.DomainController;
+import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -66,12 +67,18 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonRotonde(ActionEvent event) {
-        if (circleRotonde.getFill() == Color.GREEN) {
-            circleRotonde.setFill(Color.RED);
-        } 
-        else {
-            circleRotonde.setFill(Color.GREEN);
+        if (dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.WHITE) {
+            circleRotonde.setFill(Color.ORANGE);
+            dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.ORANGE);
         }
+        else if(dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.ORANGE){
+                circleRotonde.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.GREEN);
+            } 
+            else if(dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.GREEN){
+                circleRotonde.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.ORANGE);
+            }
     }
     
     @FXML 
@@ -79,11 +86,18 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonRijBaanMetRijStroken(ActionEvent event) {
-         if (circleRijbaanMetRijStroken.getFill() == Color.GREEN) {
-            circleRijbaanMetRijStroken.setFill(Color.RED);
-        } else {
-            circleRijbaanMetRijStroken.setFill(Color.GREEN);
-        } 
+        if (dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.WHITE) {
+            circleRijbaanMetRijStroken.setFill(Color.ORANGE);
+            dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.ORANGE);
+        }
+        else if(dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.ORANGE){
+                circleRijbaanMetRijStroken.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.GREEN);
+            }  
+            else if(dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.GREEN){
+                circleRijbaanMetRijStroken.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.ORANGE);
+            }
     }
     
     @FXML 
@@ -91,11 +105,18 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonStad (ActionEvent event) {
-         if (circleStad.getFill() == Color.GREEN) {
-            circleStad.setFill(Color.RED);
-        } else {
-            circleStad.setFill(Color.GREEN);
+        if (dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.WHITE) {
+            circleStad.setFill(Color.ORANGE);
+            dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.ORANGE);
         }
+        else if(dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.ORANGE){
+                circleStad.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.GREEN);
+            }
+            else if(dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.GREEN){
+                circleStad.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.ORANGE);
+            }
     }
     
     @FXML 
@@ -103,11 +124,18 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonAutoSnelweg(ActionEvent event) {
-        if (circleAutosnelweg.getFill() == Color.GREEN) {
-            circleAutosnelweg.setFill(Color.RED);
-        } else {
-            circleAutosnelweg.setFill(Color.GREEN);
-        }       
+        if (dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.WHITE) {
+            circleAutosnelweg.setFill(Color.ORANGE);
+            dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.ORANGE);
+        }
+        else if(dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.ORANGE){
+                circleAutosnelweg.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.GREEN);
+            }  
+            else if(dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.GREEN){
+                circleAutosnelweg.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.ORANGE);
+            }
     }
     
     // Left ____________________________________________________________________
@@ -116,10 +144,9 @@ public class HoofdSchermController implements Initializable {
       
     @FXML
     private void handleButtonSchakelaar(ActionEvent event) {
-        if (circleSchakelaar.getFill() == Color.GREEN) {
-            circleSchakelaar.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().getKleur() == Kleur.WHITE) {
             circleSchakelaar.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.GREEN);
         }
     }
          
@@ -128,10 +155,9 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonVloeiStof(ActionEvent event) {
-        if (circleVloeistof.getFill() == Color.GREEN) {
-            circleVloeistof.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().getKleur() == Kleur.WHITE) {
             circleVloeistof.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.GREEN);
         }
     }
     
@@ -140,10 +166,9 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonBanden (ActionEvent event) {
-        if (circleBanden.getFill() == Color.GREEN) {
-            circleBanden.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getBanden().getKleur() == Kleur.WHITE) {
             circleBanden.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.GREEN);
         }
     }
     
@@ -153,10 +178,9 @@ public class HoofdSchermController implements Initializable {
         
     @FXML
     private void handleButtonTanken(ActionEvent event) {
-        if (circleTanken.getFill() == Color.GREEN) {
-            circleTanken.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getTanken().getKleur() == Kleur.WHITE) {
             circleTanken.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.GREEN);
         }
     }
        
@@ -166,10 +190,9 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonGps(ActionEvent event) {
-        if (circleGps.getFill() == Color.GREEN) {
-            circleGps.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getGps().getKleur() == Kleur.WHITE) {
             circleGps.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.GREEN);
         }
     }
     
@@ -178,10 +201,9 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonStop (ActionEvent event) {
-        if (circleStop.getFill() == Color.GREEN) {
-            circleStop.setFill(Color.WHITE);
-        } else {
+        if (dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur() == Kleur.WHITE) {
             circleStop.setFill(Color.GREEN);
+            dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.GREEN);
         }
     }
     // Center __________________________________________________________________
@@ -364,7 +386,31 @@ public class HoofdSchermController implements Initializable {
     }
 
     void initData(DomainController dc) {
-        this.dc = dc ; 
+        this.dc = dc ;
+        String kleur;
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur().toString();
+        circleRotonde.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur().toString();
+        circleRijbaanMetRijStroken.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur().toString();
+        circleStad.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur().toString();
+        circleAutosnelweg.setFill(Color.valueOf(kleur));
+        
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().getKleur().toString();
+        circleSchakelaar.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().getKleur().toString();
+        circleVloeistof.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getBanden().getKleur().toString();
+        circleBanden.setFill(Color.valueOf(kleur));
+        
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getTanken().getKleur().toString();
+        circleTanken.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getGps().getKleur().toString();
+        circleGps.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur().toString();
+        circleStop.setFill(Color.valueOf(kleur));
+        
         naam.setText(dc.getHuidigeLeerling().getnaam());
     }
 }
