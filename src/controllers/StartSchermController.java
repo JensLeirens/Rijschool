@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 public class StartSchermController implements Initializable {
     private ArrayList<Leerling> listLeerlingen; 
-    private DomainController dc = new DomainController(); 
+    private DomainController dc; 
     
     @FXML
     private ListView<String> listViewLeerlingen = new ListView<>();
@@ -62,7 +62,7 @@ public class StartSchermController implements Initializable {
         
         
         if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
-            for (Leerling leerling : listLeerlingen) {
+            for (Leerling leerling : dc.getLeerlingen()) {
                 if(listViewLeerlingen.getSelectionModel().getSelectedItem().equalsIgnoreCase(leerling.getnaam())){
                     dc.setHuidigeLeerling(leerling);
                 }
@@ -94,7 +94,7 @@ public class StartSchermController implements Initializable {
         }
         
         else {
-            for (Leerling l : listLeerlingen) {
+            for (Leerling l : dc.getLeerlingen()) {
                 if( l.getId() != Integer.parseInt(txtNummer.getText())){
                     leerlingBestaatAl = false ; 
                 } 
@@ -105,7 +105,7 @@ public class StartSchermController implements Initializable {
             }
             
             if (leerlingBestaatAl == false){
-                listLeerlingen.add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText()));
+                dc.getLeerlingen().add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText()));
                 lblMessage.setTextFill(Color.web("#006400"));
                 lblMessage.setText("Leerling aangemaakt");
             
@@ -121,11 +121,11 @@ public class StartSchermController implements Initializable {
     }
     
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        listLeerlingen = new ArrayList<Leerling>() ;  
-        listLeerlingen.add(new Leerling(0, "Johnny Cash")); 
-        listLeerlingen.add(new Leerling(1, "Walter Van Der Poorten"));
-       
+    public void initialize(URL location, ResourceBundle resources) {  
+        if(dc == null){
+            dc = new DomainController(); 
+            dc.generateData();
+        }
         refreshList();
     }
     
@@ -151,11 +151,16 @@ public class StartSchermController implements Initializable {
 
     public void refreshList(){
         ArrayList<String> listLeerlingenNamen = new ArrayList<>() ; 
-        listLeerlingen.stream().forEach((leerling) -> {
+        dc.getLeerlingen().stream().forEach((leerling) -> {
             listLeerlingenNamen.add(leerling.toString());
         });
         
         ObservableList<String> olLeerlingen = FXCollections.observableArrayList(listLeerlingenNamen);
         listViewLeerlingen.setItems(olLeerlingen);
+    }
+    
+    public void initData(DomainController dc) {
+        this.dc = dc ;
+        refreshList();
     }
 }
