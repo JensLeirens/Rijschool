@@ -330,9 +330,13 @@ public class HoofdSchermController implements Initializable {
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
+        
         Stage stage = new Stage();
         stage.setTitle("Start scherm");
         stage.setScene(new Scene(root1));
+        
+        StartSchermController controller = fxmlLoader.<StartSchermController>getController();
+        controller.initData(dc);
         
         stage.show();
     }

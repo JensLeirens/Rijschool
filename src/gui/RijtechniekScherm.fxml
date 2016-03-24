@@ -117,9 +117,9 @@
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <Button fx:id="groen" contentDisplay="GRAPHIC_ONLY" layoutX="749.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Green;" text="Button" />
-            <Button fx:id="oranje" contentDisplay="GRAPHIC_ONLY" layoutX="669.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Orange;" text="Button" />
-            <Button fx:id="rood" contentDisplay="GRAPHIC_ONLY" layoutX="589.0" layoutY="14.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Red;" text="Button" />
+            <Button fx:id="groen" contentDisplay="GRAPHIC_ONLY" layoutX="749.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonGroen" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Green;" text="Button" />
+            <Button fx:id="oranje" contentDisplay="GRAPHIC_ONLY" layoutX="669.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonOranje" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Orange;" text="Button" />
+            <Button fx:id="rood" contentDisplay="GRAPHIC_ONLY" layoutX="589.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonRood" prefHeight="56.0" prefWidth="63.0" style="-fx-background-color: Red;" text="Button" />
             <Button fx:id="schakeltechniek" contentDisplay="GRAPHIC_ONLY" layoutX="388.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleButtonSchakel" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <Button fx:id="kijktechniek" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonKijk" prefHeight="56.0" prefWidth="63.0" text="Button" />
             <Button fx:id="parkeren" contentDisplay="GRAPHIC_ONLY" layoutX="451.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleButtonParkeren" prefHeight="56.0" prefWidth="63.0" text="Button" />

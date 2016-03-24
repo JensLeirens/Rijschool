@@ -2,6 +2,7 @@
 package controllers;
 
 import domain.DomainController;
+import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,12 +29,15 @@ import javafx.stage.Stage;
 public class RijtechniekSchermController implements Initializable {
     private DomainController dc = new DomainController(); 
     
-    private boolean isZithouding = false ;
-    private boolean isKoppeling = false;
-    private boolean isRemtechniek = false;
-    private boolean isSchakeltechniek= false;
-    private boolean iStuurtechniek = false; 
-    private boolean isKijktechniek = false; 
+    private boolean toon = false ;
+    private boolean houding = false ;
+    private boolean iskoppeling = false ;
+    private boolean remmen = false ;
+    private boolean sturen = false ;
+    private boolean schakel = false ;
+    private boolean kijk = false ;
+    
+
     
     
     @FXML 
@@ -142,7 +146,73 @@ public class RijtechniekSchermController implements Initializable {
         terugknop.setGraphic(new ImageView(imgTerugknop));
   
     }
+    
+    @FXML
+    public void handleButtonGroen(ActionEvent event) throws IOException {
+        geefKleur("#008000");
+        houding = false;
+        iskoppeling = false;
+        remmen = false;
+        sturen = false;
+        schakel = false;
+        kijk = false;
+    }
+    
+    @FXML
+    public void handleButtonOranje(ActionEvent event) throws IOException {
+        geefKleur("#FFA500");
+        houding = false;
+        iskoppeling = false;
+        remmen = false;
+        sturen = false;
+        schakel = false;
+        kijk = false;
+    }
      
+    @FXML
+    public void handleButtonRood(ActionEvent event) throws IOException {
+        geefKleur("#FF0000");
+        houding = false;
+        iskoppeling = false;
+        remmen = false;
+        sturen = false;
+        schakel = false;
+        kijk = false;
+    }
+    
+    
+    //"-fx-base: #FFA500" ROOD
+    //"-fx-base: #FFA500" // oranje
+   // "-fx-base: #008000" // groen
+    public void geefKleur(String kleur) {
+        if (toon == true) {
+            if (houding == true) {
+                zithouding.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getZithouding().setKleurCode(kleur);
+            }
+            if (iskoppeling == true) {
+                koppeling.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getKoppeling().setKleurCode(kleur);
+            }
+            if (remmen == true) {
+                remtechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getRem().setKleurCode(kleur);
+            }
+            if (sturen == true) {
+                stuurtechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getStuurtechniek().setKleurCode(kleur);
+            }
+            if (schakel == true) {
+                schakeltechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getSchakel().setKleurCode(kleur);
+            }
+            if (kijk == true) {
+                kijktechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getKijk().setKleurCode(kleur);
+            }
+        }
+    }
+    
     public void toonOpmerkingen(){
         opm.setVisible(true);
         txaOpm.setVisible(true);   
@@ -191,76 +261,135 @@ public class RijtechniekSchermController implements Initializable {
     void initData(DomainController dc) {
         this.dc = dc ; 
         naam.setText(dc.getHuidigeLeerling().getnaam());
+        
+        String kleur;
+        
+        kleur = dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString();
+        circleAchteruitrijden.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString();
+        circleGarage.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString();
+        circleKeren.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString();
+        circleParkeren.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString();
+        circleStuuroefeningen.setFill(Color.valueOf(kleur));
+        
+        if (dc.getHuidigeLeerling().getRT().getZithouding().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getZithouding().getKleurCode();
+            zithouding.setStyle("-fx-base: " + kleur);
+        }
+
+        if (dc.getHuidigeLeerling().getRT().getKoppeling().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getKoppeling().getKleurCode();
+            koppeling.setStyle("-fx-base: " + kleur);
+        }
+
+        if (dc.getHuidigeLeerling().getRT().getRem().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getRem().getKleurCode();
+            remtechniek.setStyle("-fx-base: " + kleur);
+        }
+
+        if (dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleurCode();
+            stuurtechniek.setStyle("-fx-base: " + kleur);
+        }
+
+        if (dc.getHuidigeLeerling().getRT().getSchakel().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getSchakel().getKleurCode();
+            schakeltechniek.setStyle("-fx-base: " + kleur);
+        }
+
+        if (dc.getHuidigeLeerling().getRT().getKijk().getKleurCode() != null) {
+            kleur = dc.getHuidigeLeerling().getRT().getKijk().getKleurCode();
+            kijktechniek.setStyle("-fx-base: " + kleur);
+        }
+
     }
+        
     @FXML
     public void handleButtonHouding(ActionEvent event) throws IOException {
-        if (isZithouding == false){
+        if (toon == false){
             toonOpmerkingen();
-            isZithouding = true ;
+            toon = true ;
+            houding = true ; 
         }
         else{
+            
             verdwijnOpmerkingen();
-            isZithouding = false;
+            toon = false;
+            houding = false ;
         } 
     }
     
     @FXML
     public void handleButtonKoppeling(ActionEvent event) throws IOException {
-        if (isKoppeling == false){
+        if (toon == false){
             toonOpmerkingen();
-            isKoppeling = true ; 
+            toon = true ; 
+            iskoppeling = true ; 
         }
         else{
             verdwijnOpmerkingen();
-            isKoppeling = false;
+            toon = false;
+            iskoppeling = false ; 
         } 
     }
     
     @FXML
     public void handleButtonRem(ActionEvent event) throws IOException {
-        if (isRemtechniek == false){
+        if (toon == false){
             toonOpmerkingen();
-            isRemtechniek = true ; 
+            toon = true ; 
+            remmen = true ; 
         }
         else{
             verdwijnOpmerkingen();
-            isRemtechniek = false;
+            toon = false;
+            remmen = false ; 
         }                 
     }
     
     @FXML
     public void handleButtonStuur(ActionEvent event) throws IOException {
-       if (iStuurtechniek == false){
+       if (toon == false){
             toonOpmerkingen();
-            iStuurtechniek = true ; 
+            toon = true ; 
+            sturen = true ; 
         }
         else{
             verdwijnOpmerkingen();
-            iStuurtechniek = false ;
+            toon = false ;
+            sturen = false ; 
         }         
     }
     
     @FXML
     public void handleButtonSchakel(ActionEvent event) throws IOException {
-        if (isSchakeltechniek == false){
+        if (toon == false){
             toonOpmerkingen();
-            isSchakeltechniek = true ;
+            toon = true ;
+            schakel = true ;
+                    
         }
         else{
             verdwijnOpmerkingen();
-            isSchakeltechniek = false ;
+            toon = false ;
+            schakel = false ; 
         }      
     }
     
     @FXML
     public void handleButtonKijk(ActionEvent event) throws IOException {
-        if (isKijktechniek == false){
+        if (toon == false){
             toonOpmerkingen();
-            isKijktechniek = true ; 
+            toon = true ; 
+            kijk = true ; 
         }
         else{
             verdwijnOpmerkingen();
-            isKijktechniek = false ;
+            toon = false ;
+            kijk = false ; 
         }    
     }
 
@@ -268,61 +397,94 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     public void handleButtonParkeren(ActionEvent event) throws IOException {
-         if (circleParkeren.getFill() == Color.GREEN) {
-            circleParkeren.setFill(Color.RED);
-        } else if(circleParkeren.getFill() == Color.RED) {
-            circleParkeren.setFill(Color.ORANGE);
-        } 
-        else{
-            circleParkeren.setFill(Color.GREEN);
+                
+         switch(dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString()){
+            case "WHITE":
+                circleParkeren.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleParkeren.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleParkeren.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.ORANGE);
+                break;  
         }
         
     }
     
     @FXML
     public void handleButtonKeren(ActionEvent event) throws IOException {
-       if (circleKeren.getFill() == Color.GREEN) {
-            circleKeren.setFill(Color.RED);
-        } else if(circleKeren.getFill() == Color.RED) {
-            circleKeren.setFill(Color.ORANGE);
-        } 
-        else{
-            circleKeren.setFill(Color.GREEN);
+       switch(dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString()){
+            case "WHITE":
+                circleKeren.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleKeren.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleKeren.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
     @FXML
-    public void handleButtonGarage(ActionEvent event) throws IOException {
-        if (circleGarage.getFill() == Color.GREEN) {
-            circleGarage.setFill(Color.RED);
-        } else if(circleGarage.getFill() == Color.RED) {
-            circleGarage.setFill(Color.ORANGE);
-        } 
-        else{
-            circleGarage.setFill(Color.GREEN);
+    public void handleButtonGarage(ActionEvent event) throws IOException {      
+        switch(dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString()){
+            case "WHITE":
+                circleGarage.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleGarage.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleGarage.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
     
      @FXML
     public void handleButtonAchteruit(ActionEvent event) throws IOException {
-        if (circleAchteruitrijden.getFill() == Color.GREEN) {
-            circleAchteruitrijden.setFill(Color.RED);
-        } else if(circleAchteruitrijden.getFill() == Color.RED) {
-            circleAchteruitrijden.setFill(Color.ORANGE);
-        } 
-        else{
-            circleAchteruitrijden.setFill(Color.GREEN);
+        
+        switch(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString()){
+            case "WHITE":
+                circleAchteruitrijden.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleAchteruitrijden.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleAchteruitrijden.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.ORANGE);
+                break;  
         }
     }
      @FXML
     public void handleButtonStuurOef(ActionEvent event) throws IOException {
-        if (circleStuuroefeningen.getFill() == Color.GREEN) {
-            circleStuuroefeningen.setFill(Color.RED);
-        } else if(circleStuuroefeningen.getFill() == Color.RED) {
-            circleStuuroefeningen.setFill(Color.ORANGE);
-        } 
-        else{
-            circleStuuroefeningen.setFill(Color.GREEN);
-        } 
+      
+        switch(dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString()){
+            case "WHITE":
+                circleStuuroefeningen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.ORANGE);
+                break;
+            case "ORANGE":
+                circleStuuroefeningen.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleStuuroefeningen.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.ORANGE);
+                break;  
+        }
     }
 }

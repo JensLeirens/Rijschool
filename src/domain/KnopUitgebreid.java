@@ -1,15 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
-/**
- *
- * @author jens
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class KnopUitgebreid {
     private Kleur kleur ; 
-    private String opmerking; 
+    private String kleurCode; 
+    private List<String> opmerking; 
+
+    public KnopUitgebreid() {
+        this.kleur = Kleur.WHITE;
+        this.opmerking = new ArrayList<>();
+        
+    }
+
+    public String getKleurCode() {
+        return kleurCode;
+    }
+
+    public void setKleurCode(String kleurCode) {
+        this.kleurCode = kleurCode;
+    }
+    
+    public Kleur getKleur() {
+        return kleur;
+    }
+
+    public void setKleur(Kleur kleur) {
+        this.kleur = kleur;
+    }
+
+    public List<String> getOpmerking() {
+        return opmerking;
+    }
+
+    public void setOpmerking(List<String> opmerking) {
+        this.opmerking = opmerking;
+    }
+    
 }
