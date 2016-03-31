@@ -1,6 +1,7 @@
 
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.Image;
 
@@ -16,7 +17,7 @@ public class Leerling {
     private Rijtechniek RT;
     private Hoofdscherm hoofdscherm;
     private List<String> attitude; 
-    private List<Evalutatie> eval; 
+    private List<Evaluatie> evaluaties; 
 
     public Leerling(){
         
@@ -28,7 +29,7 @@ public class Leerling {
         this.hoofdscherm = new Hoofdscherm();
         this.RT = new Rijtechniek();
         this.VT = new Verkeerstechniek();
-        
+        evaluaties = new ArrayList<>();
     }
 
     public Verkeerstechniek getVT() {
@@ -52,8 +53,8 @@ public class Leerling {
         return attitude;
     }
 
-    public List<Evalutatie> getEval() {
-        return eval;
+    public List<Evaluatie> getEvaluaties() {
+        return evaluaties;
     }
     
     public Image getAfbeelding() {
@@ -105,7 +106,5 @@ public class Leerling {
     public String toString() {
         return String.format("%s", naam); 
     }
-    
-    
-    
+ 
 }
