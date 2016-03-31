@@ -2,6 +2,7 @@
 package controllers;
 
 import domain.DomainController;
+import domain.Evaluatie;
 import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -262,6 +264,33 @@ public class HoofdSchermController implements Initializable {
         keerTerug();        
     }
     
+    @FXML
+    private CheckBox evaluatie1;
+    
+    @FXML
+    private void handleCheckButtonEvaluatie1(ActionEvent event) throws IOException {
+        if(dc.getHuidigeLeerling().getEvaluaties().isEmpty()){
+            dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm()));
+        } else evaluatie1.setSelected(false);
+    }
+    @FXML
+    private CheckBox evaluatie2;
+    
+    @FXML
+    private void handleCheckButtonEvaluatie2(ActionEvent event) throws IOException {
+        if(dc.getHuidigeLeerling().getEvaluaties().size() == 1){
+            dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm()));
+        } else evaluatie2.setSelected(false);
+    }
+    @FXML
+    private CheckBox evaluatie3;
+    
+    @FXML
+    private void handleCheckButtonEvaluatie3(ActionEvent event) throws IOException {
+        if(dc.getHuidigeLeerling().getEvaluaties().size() == 2){
+            dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm()));
+        } else evaluatie3.setSelected(false);
+    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -418,5 +447,17 @@ public class HoofdSchermController implements Initializable {
         circleStop.setFill(Color.valueOf(kleur));
         evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
         naam.setText(dc.getHuidigeLeerling().getnaam());
+        
+        if(dc.getHuidigeLeerling().getEvaluaties().size() > 0){
+            evaluatie1.setSelected(true);
+        }   
+        if(dc.getHuidigeLeerling().getEvaluaties().size() > 1){
+            evaluatie2.setSelected(true);
+        }
+        if(dc.getHuidigeLeerling().getEvaluaties().size() > 2){
+            evaluatie3.setSelected(true);
+        }
+        
+        
     }
 }
