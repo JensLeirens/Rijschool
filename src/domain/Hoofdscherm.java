@@ -23,6 +23,7 @@ public class Hoofdscherm {
     private KnopKleur tanken;
     private KnopKleur gps;
     private KnopKleur stop;
+    private double evolutie;
 
     public Hoofdscherm() {
         banden = new KnopKleur();
@@ -37,10 +38,19 @@ public class Hoofdscherm {
         tanken = new KnopKleur();
         gps = new KnopKleur();
         stop = new KnopKleur();
+        evolutie = 0;
     }
     
     public KnopKleur getBanden() {
         return banden;
+    }
+
+    public double getEvolutie() {
+        return evolutie;
+    }
+
+    public void setEvolutie(double evolutie) {
+        this.evolutie = evolutie;
     }
 
     public void setBanden(KnopKleur banden) {
