@@ -247,12 +247,14 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonMin(ActionEvent event) throws IOException {
-        evolutie.setValue(evolutie.getValue() - 5);
+        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() - 5);
+        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
     }
     
     @FXML
     private void handleButtonPlus(ActionEvent event) throws IOException {
-        evolutie.setValue(evolutie.getValue() + 5);       
+        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() + 5);
+        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());       
     }
     
     @FXML
@@ -414,7 +416,7 @@ public class HoofdSchermController implements Initializable {
         circleGps.setFill(Color.valueOf(kleur));
         kleur = dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur().toString();
         circleStop.setFill(Color.valueOf(kleur));
-        
+        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
         naam.setText(dc.getHuidigeLeerling().getnaam());
     }
 }
