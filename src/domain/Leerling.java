@@ -30,6 +30,7 @@ public class Leerling {
         this.RT = new Rijtechniek();
         this.VT = new Verkeerstechniek();
         evaluaties = new ArrayList<>();
+        attitude = new ArrayList<>();
     }
 
     public Verkeerstechniek getVT() {
