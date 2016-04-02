@@ -33,7 +33,6 @@ public class AttitudeSchermController implements Initializable {
     
     private DomainController dc = new DomainController(); 
     private ArrayList<String> listVoorbeeldwaarden;
-    private ArrayList<String> listEigenschappen;
     
     @FXML
     private Node attitudeScherm ;
@@ -71,8 +70,8 @@ public class AttitudeSchermController implements Initializable {
         List<String> checkList = new ArrayList<>();
         checkList.addAll(listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems());
         for(String s : checkList){
-            if(!listEigenschappen.contains(s)){
-                listEigenschappen.add(s);
+            if(!dc.getHuidigeLeerling().getAttitude().contains(s)){
+                dc.getHuidigeLeerling().getAttitude().add(s);
             }
         }
         refreshLists();
@@ -80,14 +79,14 @@ public class AttitudeSchermController implements Initializable {
     
     @FXML
     public void handleVerwijderWaarden(ActionEvent event){
-        listEigenschappen.removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+        dc.getHuidigeLeerling().getAttitude().removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
         refreshLists();
     }
     
     @FXML
     public void handleVoegEigenAttribuutToe(ActionEvent event){
-        if(!listEigenschappen.contains(txtEigenschap.getText())){
-            listEigenschappen.add(txtEigenschap.getText());
+        if(!dc.getHuidigeLeerling().getAttitude().contains(txtEigenschap.getText())){
+            dc.getHuidigeLeerling().getAttitude().add(txtEigenschap.getText());
         }
         refreshLists();
     }
@@ -102,16 +101,14 @@ public class AttitudeSchermController implements Initializable {
         listVoorbeeldwaarden.add("Rustig");
         listVoorbeeldwaarden.add("Nonchalant");
         listVoorbeeldwaarden.add("Aggresief");
-        listEigenschappen = new ArrayList<>(); 
         listViewVoorbeeldwaarden.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        refreshLists();
     }
  
     public void refreshLists(){
         ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
         listViewVoorbeeldwaarden.setItems(olVoorbeelden);
         
-        ObservableList<String> olEigenschappen = FXCollections.observableArrayList(listEigenschappen);
+        ObservableList<String> olEigenschappen = FXCollections.observableArrayList(dc.getHuidigeLeerling().getAttitude());
         listViewEigenschappen.setItems(olEigenschappen);
     }
 
@@ -133,8 +130,9 @@ public class AttitudeSchermController implements Initializable {
     }
 
     void initData(DomainController dc) {
-        this.dc = dc ; 
+        this.dc = dc; 
         naam.setText(dc.getHuidigeLeerling().getnaam());
+        refreshLists();
     }
 
     
