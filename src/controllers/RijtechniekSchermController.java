@@ -19,6 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -99,6 +104,10 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     private Button achteruitrijden ; 
+    
+    @FXML
+    private Button Opslaan ; 
+    
     @FXML
     private Circle circleKeren;
     
@@ -133,10 +142,48 @@ public class RijtechniekSchermController implements Initializable {
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
     }
+   
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         verdwijnOpmerkingen(); 
+        rijtechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        
+        BackgroundImage imgZithouding = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/zithouding.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        zithouding.setBackground(new Background(imgZithouding));
+        
+        BackgroundImage imgKoppeling = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/koppeling.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        koppeling.setBackground(new Background(imgKoppeling));
+        
+        BackgroundImage imgRem = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/rem.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        remtechniek.setBackground(new Background(imgRem));
+        
+        BackgroundImage imgSchakelen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/schakelen.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        schakeltechniek.setBackground(new Background(imgSchakelen));
+        
+        BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Stuur.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        stuurtechniek.setBackground(new Background(imgStuur));
+        
+        BackgroundImage imgKijktechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/kijktechniek.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        kijktechniek.setBackground(new Background(imgKijktechniek));
+        
+        BackgroundImage imgGarage = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Garage.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        garage.setBackground(new Background(imgGarage));
+        
+        BackgroundImage imgKeren = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Keren.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        keren.setBackground(new Background(imgKeren));
+        
+        BackgroundImage imgParkeren = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Parkeren.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        parkeren.setBackground(new Background(imgParkeren));
+        
+        BackgroundImage imgVertrekken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Vertrekken.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        aanzettenHelling.setBackground(new Background(imgVertrekken));
+        
+        BackgroundImage imgStuurOefeningen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/StuurOefeningen.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        stuuroefeningen.setBackground(new Background(imgStuurOefeningen));
+        
+        BackgroundImage imgAchteruit = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Achteruit.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        achteruitrijden.setBackground(new Background(imgAchteruit));
         
         Image uitRoepTeken = new Image(getClass().getResourceAsStream("/image/Uitroepteken.jpg"));
         opm.setGraphic(new ImageView(uitRoepTeken));
@@ -147,117 +194,6 @@ public class RijtechniekSchermController implements Initializable {
   
     }
     
-    @FXML
-    public void handleButtonGroen(ActionEvent event) throws IOException {
-        geefKleur("#008000");
-        houding = false;
-        iskoppeling = false;
-        remmen = false;
-        sturen = false;
-        schakel = false;
-        kijk = false;
-    }
-    
-    @FXML
-    public void handleButtonOranje(ActionEvent event) throws IOException {
-        geefKleur("#FFA500");
-        houding = false;
-        iskoppeling = false;
-        remmen = false;
-        sturen = false;
-        schakel = false;
-        kijk = false;
-    }
-     
-    @FXML
-    public void handleButtonRood(ActionEvent event) throws IOException {
-        geefKleur("#FF0000");
-        houding = false;
-        iskoppeling = false;
-        remmen = false;
-        sturen = false;
-        schakel = false;
-        kijk = false;
-    }
-    
-    
-    //"-fx-base: #FFA500" ROOD
-    //"-fx-base: #FFA500" // oranje
-   // "-fx-base: #008000" // groen
-    public void geefKleur(String kleur) {
-        if (toon == true) {
-            if (houding == true) {
-                zithouding.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getZithouding().setKleurCode(kleur);
-            }
-            if (iskoppeling == true) {
-                koppeling.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getKoppeling().setKleurCode(kleur);
-            }
-            if (remmen == true) {
-                remtechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getRem().setKleurCode(kleur);
-            }
-            if (sturen == true) {
-                stuurtechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getStuurtechniek().setKleurCode(kleur);
-            }
-            if (schakel == true) {
-                schakeltechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getSchakel().setKleurCode(kleur);
-            }
-            if (kijk == true) {
-                kijktechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getKijk().setKleurCode(kleur);
-            }
-        }
-    }
-    
-    public void toonOpmerkingen(){
-        opm.setVisible(true);
-        txaOpm.setVisible(true);   
-        rood .setVisible(true);
-        oranje.setVisible(true);
-        groen.setVisible(true);
-        achtergrondBasis.setVisible(true);
-        basisopm1.setVisible(true);
-        basisopm2.setVisible(true);
-        basisopm3.setVisible(true);
-        basisopm4.setVisible(true);
-        basisopm5.setVisible(true);
-    }
-    
-    public void verdwijnOpmerkingen(){
-        opm.setVisible(false);
-        txaOpm.setVisible(false);   
-        rood .setVisible(false);
-        oranje.setVisible(false);
-        groen.setVisible(false);
-        achtergrondBasis.setVisible(false);
-         basisopm1.setVisible(false);
-        basisopm2.setVisible(false);
-        basisopm3.setVisible(false);
-        basisopm4.setVisible(false);
-        basisopm5.setVisible(false);
-    }
-    
-    public void keerTerug() throws IOException{
-        Stage currentStage = (Stage) rijtechniekScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Hoofdscherm");
-        stage.setScene(new Scene(root1));
-        
-        // DC meegeven aan de volgende controller 
-        HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
-        controller.initData(dc);
-        
-        stage.show();
-    }
-
     void initData(DomainController dc) {
         this.dc = dc ; 
         naam.setText(dc.getHuidigeLeerling().getnaam());
@@ -304,8 +240,117 @@ public class RijtechniekSchermController implements Initializable {
             kleur = dc.getHuidigeLeerling().getRT().getKijk().getKleurCode();
             kijktechniek.setStyle("-fx-base: " + kleur);
         }
+    }
+    
+    @FXML
+    public void handleButtonOpslaan(ActionEvent event) throws IOException {
+        houding = false;
+        iskoppeling = false;
+        remmen = false;
+        sturen = false;
+        schakel = false;
+        kijk = false;   
+        toon = false;
+        verdwijnOpmerkingen();
+    }
+    
+    @FXML
+    public void handleButtonGroen(ActionEvent event) throws IOException {
+        geefKleur("#008000");
+    }
+    
+    @FXML
+    public void handleButtonOranje(ActionEvent event) throws IOException {
+        geefKleur("#FFA500");
 
     }
+     
+    @FXML
+    public void handleButtonRood(ActionEvent event) throws IOException {
+        geefKleur("#FF0000");
+
+    }
+    
+    //"-fx-base: #FFA500" ROOD
+    //"-fx-base: #FFA500" // oranje
+   // "-fx-base: #008000" // groen
+    public void geefKleur(String kleur) {
+        if (toon == true) {
+            if (houding == true) {
+                zithouding.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getZithouding().setKleurCode(kleur);
+            }
+            if (iskoppeling == true) {
+                koppeling.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getKoppeling().setKleurCode(kleur);
+            }
+            if (remmen == true) {
+                remtechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getRem().setKleurCode(kleur);
+            }
+            if (sturen == true) {
+                stuurtechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getStuurtechniek().setKleurCode(kleur);
+            }
+            if (schakel == true) {
+                schakeltechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getSchakel().setKleurCode(kleur);
+            }
+            if (kijk == true) {
+                kijktechniek.setStyle("-fx-base: "+kleur);
+                dc.getHuidigeLeerling().getRT().getKijk().setKleurCode(kleur);
+            }
+        }
+    }
+    
+    public void toonOpmerkingen(){
+        opm.setVisible(true);
+        txaOpm.setVisible(true);   
+        rood .setVisible(true);
+        oranje.setVisible(true);
+        groen.setVisible(true);
+        achtergrondBasis.setVisible(true);
+        basisopm1.setVisible(true);
+        basisopm2.setVisible(true);
+        basisopm3.setVisible(true);
+        basisopm4.setVisible(true);
+        basisopm5.setVisible(true);
+        Opslaan.setVisible(true);
+    }
+    
+    public void verdwijnOpmerkingen(){
+        opm.setVisible(false);
+        txaOpm.setVisible(false);   
+        rood .setVisible(false);
+        oranje.setVisible(false);
+        groen.setVisible(false);
+        achtergrondBasis.setVisible(false);
+         basisopm1.setVisible(false);
+        basisopm2.setVisible(false);
+        basisopm3.setVisible(false);
+        basisopm4.setVisible(false);
+        basisopm5.setVisible(false);
+        Opslaan.setVisible(false);
+    }
+    
+    public void keerTerug() throws IOException{
+        Stage currentStage = (Stage) rijtechniekScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Hoofdscherm");
+        stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
+        controller.initData(dc);
+        
+        stage.show();
+    }
+
+    
         
     @FXML
     public void handleButtonHouding(ActionEvent event) throws IOException {
@@ -314,12 +359,6 @@ public class RijtechniekSchermController implements Initializable {
             toon = true ;
             houding = true ; 
         }
-        else{
-            
-            verdwijnOpmerkingen();
-            toon = false;
-            houding = false ;
-        } 
     }
     
     @FXML
@@ -329,11 +368,7 @@ public class RijtechniekSchermController implements Initializable {
             toon = true ; 
             iskoppeling = true ; 
         }
-        else{
-            verdwijnOpmerkingen();
-            toon = false;
-            iskoppeling = false ; 
-        } 
+        
     }
     
     @FXML
@@ -342,12 +377,7 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             remmen = true ; 
-        }
-        else{
-            verdwijnOpmerkingen();
-            toon = false;
-            remmen = false ; 
-        }                 
+        }         
     }
     
     @FXML
@@ -356,12 +386,7 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             sturen = true ; 
-        }
-        else{
-            verdwijnOpmerkingen();
-            toon = false ;
-            sturen = false ; 
-        }         
+        }        
     }
     
     @FXML
@@ -369,14 +394,8 @@ public class RijtechniekSchermController implements Initializable {
         if (toon == false){
             toonOpmerkingen();
             toon = true ;
-            schakel = true ;
-                    
-        }
-        else{
-            verdwijnOpmerkingen();
-            toon = false ;
-            schakel = false ; 
-        }      
+            schakel = true ;         
+        }   
     }
     
     @FXML
@@ -386,11 +405,6 @@ public class RijtechniekSchermController implements Initializable {
             toon = true ; 
             kijk = true ; 
         }
-        else{
-            verdwijnOpmerkingen();
-            toon = false ;
-            kijk = false ; 
-        }    
     }
 
     

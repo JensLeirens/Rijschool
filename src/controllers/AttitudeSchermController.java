@@ -93,7 +93,7 @@ public class AttitudeSchermController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        attitudeScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
         

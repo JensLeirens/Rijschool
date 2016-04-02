@@ -276,6 +276,7 @@ public class VerkeerstechniekSchermController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        verkeerstechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         Image imgBtnTerug = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         btnTerug.setGraphic(new ImageView(imgBtnTerug));
     }
