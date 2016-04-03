@@ -278,10 +278,11 @@ public class HoofdSchermController implements Initializable {
         if(dc.getHuidigeLeerling().getEvaluaties().isEmpty()){
             dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm()));
         } else evaluatie1.setSelected(false);
-        if(dc.getHuidigeLeerling().getEvaluaties().size() == 1){
+        if(dc.getHuidigeLeerling().getEvaluaties().size() >= 1){
             evaluatie1.setSelected(true);
         }
     }
+    
     @FXML
     private CheckBox evaluatie2;
     
@@ -290,7 +291,7 @@ public class HoofdSchermController implements Initializable {
         if(dc.getHuidigeLeerling().getEvaluaties().size() == 1){
             dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm()));
         } else evaluatie2.setSelected(false);
-        if(dc.getHuidigeLeerling().getEvaluaties().size() == 2){
+        if(dc.getHuidigeLeerling().getEvaluaties().size() >= 2){
             evaluatie2.setSelected(true);
         }
     }
