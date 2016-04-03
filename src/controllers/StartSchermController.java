@@ -20,6 +20,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -122,11 +128,14 @@ public class StartSchermController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {  
+        startScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        listViewLeerlingen.setStyle("-fx-font: 12pt \"Arial\";");
         if(dc == null){
             dc = new DomainController(); 
             dc.generateData();
         }
         refreshList();
+        
     }
     
     private void sluiten() throws IOException{

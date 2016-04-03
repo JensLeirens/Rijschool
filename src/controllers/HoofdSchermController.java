@@ -25,6 +25,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -33,8 +34,13 @@ import javafx.stage.Stage;
 public class HoofdSchermController implements Initializable {
     private DomainController dc = new DomainController(); 
     
+    
     @FXML
     private  Node hoofdEvaScherm ;
+    
+    @FXML
+    private ImageView dashboard ; 
+    
     @FXML
     private Circle circleRotonde ;
     @FXML
@@ -303,53 +309,54 @@ public class HoofdSchermController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        hoofdEvaScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        
         // top _____________________________________________________________________________________________________
-        Image imgRotonde = new Image(getClass().getResourceAsStream("/image/Rotonde.png"));
-        rotonde.setGraphic(new ImageView(imgRotonde));
+        BackgroundImage imgRotonde = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rotonde.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        rotonde.setBackground(new Background(imgRotonde));
         
-        Image imgStad = new Image(getClass().getResourceAsStream("/image/Stad.png"));
-        stad.setGraphic(new ImageView(imgStad));
+        BackgroundImage imgStad = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Stad.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        stad.setBackground(new Background(imgStad));
         
-        Image imgAutoSnelweg = new Image(getClass().getResourceAsStream("/image/Autosnelweg.png"));
-        autoSnelweg.setGraphic(new ImageView(imgAutoSnelweg));
+        BackgroundImage imgAutoSnelweg = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Autosnelweg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        autoSnelweg.setBackground(new Background(imgAutoSnelweg));
         
-        Image imgRijBaanMetRijStroken = new Image(getClass().getResourceAsStream("/image/RijbaanMetRijStroken.png"));
-        rijBaanMetRijStroken.setGraphic(new ImageView(imgRijBaanMetRijStroken));
-        
-        
+        BackgroundImage imgRijBaanMetRijStroken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/RijbaanMetRijStroken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        rijBaanMetRijStroken.setBackground(new Background(imgRijBaanMetRijStroken));
+               
         
         // Left ____________________________________________________________________
-        Image imgSchakelaar = new Image(getClass().getResourceAsStream("/image/Schakelaar.png"));
-        schakelaar.setGraphic(new ImageView(imgSchakelaar));
+        BackgroundImage imgSchakelaar = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Schakelaar.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        schakelaar.setBackground(new Background(imgSchakelaar));
         
-        Image imgVloeistof = new Image(getClass().getResourceAsStream("/image/Vloeistof.png"));
-        vloeistof.setGraphic(new ImageView(imgVloeistof));
         
-        Image imgBanden = new Image(getClass().getResourceAsStream("/image/Banden.png"));
-        banden.setGraphic(new ImageView(imgBanden));
+        BackgroundImage imgVloeistof = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Vloeistof.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        vloeistof.setBackground(new Background(imgVloeistof));
         
+        BackgroundImage imgBanden = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Banden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        banden.setBackground(new Background(imgBanden));
         
         // Right ___________________________________________________________________
-        Image imgTanken = new Image(getClass().getResourceAsStream("/image/Tanken.png"));
-        tanken.setGraphic(new ImageView(imgTanken));
+        BackgroundImage imgTanken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tanken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        tanken.setBackground(new Background(imgTanken));
         
-        Image imgGps = new Image(getClass().getResourceAsStream("/image/Gps.png"));
-        gps.setGraphic(new ImageView(imgGps));
-        
-        Image imgStop = new Image(getClass().getResourceAsStream("/image/Stop.png"));
-        stop.setGraphic(new ImageView(imgStop));
+        BackgroundImage imgGps = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Gps.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        gps.setBackground(new Background(imgGps));
+
+        BackgroundImage imgStop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Stop.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        stop.setBackground(new Background(imgStop));
         
         
         // Center __________________________________________________________________
         
-        Image imgStuur = new Image(getClass().getResourceAsStream("/image/StuurWit.png"));
-        btnRijtechniek.setGraphic(new ImageView(imgStuur));
+        BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/StuurWit.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnRijtechniek.setBackground(new Background(imgStuur));
         
-        Image imgRijtechniek = new Image(getClass().getResourceAsStream("/image/Rijtechniek.png"));
-        btnVerkeerstechniek.setGraphic(new ImageView(imgRijtechniek));
-        
-        Image imgAttitude = new Image(getClass().getResourceAsStream("/image/Attitude.png"));
-        btnAttitude.setGraphic(new ImageView(imgAttitude));
+        BackgroundImage imgRijtechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rijtechniek.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnVerkeerstechniek.setBackground(new Background(imgRijtechniek));
+
+        BackgroundImage imgAttitude = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Attitude.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnAttitude.setBackground(new Background(imgAttitude));
         
         ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
           "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
