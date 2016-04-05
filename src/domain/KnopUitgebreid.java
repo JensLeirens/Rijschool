@@ -6,21 +6,12 @@ import java.util.List;
 
 public class KnopUitgebreid {
     private Kleur kleur ; 
-    private String kleurCode; 
     private List<String> opmerking; 
 
     public KnopUitgebreid() {
         this.kleur = Kleur.WHITE;
         this.opmerking = new ArrayList<>();
         
-    }
-
-    public String getKleurCode() {
-        return kleurCode;
-    }
-
-    public void setKleurCode(String kleurCode) {
-        this.kleurCode = kleurCode;
     }
     
     public Kleur getKleur() {

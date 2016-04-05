@@ -117,12 +117,29 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private Circle circleGarage; 
     
-    
     @FXML
     private Circle circleStuuroefeningen;
     
     @FXML
     private Circle circleAchteruitrijden;
+    
+    @FXML
+    private Circle circleZithouding;
+     
+    @FXML
+    private Circle circleKoppeling;
+    
+    @FXML
+    private Circle circleRemtechniek;
+    
+    @FXML
+    private Circle circleStuurtechniek;
+    
+    @FXML
+    private Circle circleSchakeltechniek;
+
+    @FXML
+    private Circle circleKijktechniek;
     
     @FXML 
     private CheckBox basisopm1;
@@ -134,6 +151,9 @@ public class RijtechniekSchermController implements Initializable {
     private CheckBox basisopm4;
     @FXML 
     private CheckBox basisopm5;
+    
+    @FXML
+    private Label lblOpm ; 
     
     @FXML
     private Rectangle achtergrondBasis; 
@@ -185,8 +205,8 @@ public class RijtechniekSchermController implements Initializable {
         BackgroundImage imgAchteruit = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Achteruit.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         achteruitrijden.setBackground(new Background(imgAchteruit));
         
-        Image uitRoepTeken = new Image(getClass().getResourceAsStream("/image/Uitroepteken.jpg"));
-        opm.setGraphic(new ImageView(uitRoepTeken));
+        BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/uitroepteken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        opm.setBackground(new Background(uitRoepTeken));
         
         
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
@@ -211,35 +231,24 @@ public class RijtechniekSchermController implements Initializable {
         kleur = dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString();
         circleStuuroefeningen.setFill(Color.valueOf(kleur));
         
-        if (dc.getHuidigeLeerling().getRT().getZithouding().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getZithouding().getKleurCode();
-            zithouding.setStyle("-fx-base: " + kleur);
-        }
-
-        if (dc.getHuidigeLeerling().getRT().getKoppeling().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getKoppeling().getKleurCode();
-            koppeling.setStyle("-fx-base: " + kleur);
-        }
-
-        if (dc.getHuidigeLeerling().getRT().getRem().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getRem().getKleurCode();
-            remtechniek.setStyle("-fx-base: " + kleur);
-        }
-
-        if (dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleurCode();
-            stuurtechniek.setStyle("-fx-base: " + kleur);
-        }
-
-        if (dc.getHuidigeLeerling().getRT().getSchakel().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getSchakel().getKleurCode();
-            schakeltechniek.setStyle("-fx-base: " + kleur);
-        }
-
-        if (dc.getHuidigeLeerling().getRT().getKijk().getKleurCode() != null) {
-            kleur = dc.getHuidigeLeerling().getRT().getKijk().getKleurCode();
-            kijktechniek.setStyle("-fx-base: " + kleur);
-        }
+        kleur = dc.getHuidigeLeerling().getRT().getKijk().getKleur().toString();
+        circleKijktechniek.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getSchakel().getKleur().toString();
+        circleSchakeltechniek.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleur().toString();
+        circleStuurtechniek.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getRem().getKleur().toString();
+        circleRemtechniek.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getKoppeling().getKleur().toString();
+        circleKoppeling.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getRT().getZithouding().getKleur().toString();
+        circleZithouding.setFill(Color.valueOf(kleur));
+    }
+    
+     @FXML
+    public void handleButtonOpm(ActionEvent event) throws IOException {
+        lblOpm.setText("Opmerking is opgeslaan als belangrijk.");
+        dc.getHuidigeLeerling().getOpmerkingen().add(txaOpm.getText()); 
     }
     
     @FXML
@@ -252,53 +261,76 @@ public class RijtechniekSchermController implements Initializable {
         kijk = false;   
         toon = false;
         verdwijnOpmerkingen();
+        geefOpmerking(txaOpm.getText());
+        txaOpm.setText("");
+        lblOpm.setText("");
     }
     
     @FXML
     public void handleButtonGroen(ActionEvent event) throws IOException {
-        geefKleur("#008000");
+        geefKleur("GREEN");
     }
     
     @FXML
     public void handleButtonOranje(ActionEvent event) throws IOException {
-        geefKleur("#FFA500");
+        geefKleur("ORANGE");
 
     }
      
     @FXML
     public void handleButtonRood(ActionEvent event) throws IOException {
-        geefKleur("#FF0000");
+        geefKleur("RED");
 
     }
     
-    //"-fx-base: #FFA500" ROOD
-    //"-fx-base: #FFA500" // oranje
-   // "-fx-base: #008000" // groen
     public void geefKleur(String kleur) {
         if (toon == true) {
             if (houding == true) {
-                zithouding.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getZithouding().setKleurCode(kleur);
+                circleZithouding.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getZithouding().setKleur(Kleur.valueOf(kleur));
             }
             if (iskoppeling == true) {
-                koppeling.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getKoppeling().setKleurCode(kleur);
+                circleKoppeling.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getKoppeling().setKleur(Kleur.valueOf(kleur));
             }
             if (remmen == true) {
-                remtechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getRem().setKleurCode(kleur);
+                circleRemtechniek.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getRem().setKleur(Kleur.valueOf(kleur));
             }
             if (sturen == true) {
-                stuurtechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getStuurtechniek().setKleurCode(kleur);
+                circleStuurtechniek.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getStuurtechniek().setKleur(Kleur.valueOf(kleur));
             }
             if (schakel == true) {
-                schakeltechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getSchakel().setKleurCode(kleur);
+                circleSchakeltechniek.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getSchakel().setKleur(Kleur.valueOf(kleur));
             }
             if (kijk == true) {
-                kijktechniek.setStyle("-fx-base: "+kleur);
-                dc.getHuidigeLeerling().getRT().getKijk().setKleurCode(kleur);
+                circleKijktechniek.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getKijk().setKleur(Kleur.valueOf(kleur));
+            }
+        }
+    }
+    
+    public void geefOpmerking(String opmerking) {
+        if (toon == true) {
+            if (houding == true) {
+                dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking().add(opmerking);
+            }
+            if (iskoppeling == true) {
+                dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking().add(opmerking);
+            }
+            if (remmen == true) {
+                dc.getHuidigeLeerling().getRT().getRem().getOpmerking().add(opmerking);
+            }
+            if (sturen == true) {
+                dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking().add(opmerking);
+            }
+            if (schakel == true) {
+                dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking().add(opmerking);
+            }
+            if (kijk == true) {
+                dc.getHuidigeLeerling().getRT().getKijk().getOpmerking().add(opmerking);
             }
         }
     }
@@ -407,8 +439,6 @@ public class RijtechniekSchermController implements Initializable {
         }
     }
 
-    
-    
     @FXML
     public void handleButtonParkeren(ActionEvent event) throws IOException {
                 
