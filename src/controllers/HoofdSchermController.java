@@ -308,6 +308,72 @@ public class HoofdSchermController implements Initializable {
         }
     }
     
+    public void keerTerug() throws IOException{
+        
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Start scherm");
+        stage.setScene(new Scene(root1));
+        
+        StartSchermController controller = fxmlLoader.<StartSchermController>getController();
+        controller.initData(dc);
+        
+        stage.show();
+    }
+    
+    public void openAttitude() throws IOException{
+        
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AttitudeScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Attitude scherm");
+        stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        AttitudeSchermController controller = fxmlLoader.<AttitudeSchermController>getController();
+        controller.initData(dc);
+        
+        stage.show();
+    }
+
+    public void openVerkeerstechniek() throws IOException{
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/VerkeerstechniekScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("VerkeersTechniek");
+        stage.setScene(new Scene(root1));
+        VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
+        controller.initData(dc);
+        stage.show();
+    }
+    
+    public void openRijtechniek() throws IOException{
+        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+        currentStage.close();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/RijtechniekScherm.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Rijtechniek");
+        stage.setScene(new Scene(root1));
+        
+        // DC meegeven aan de volgende controller 
+        RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
+        controller.initData(dc);
+        stage.show();
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hoofdEvaScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
@@ -370,73 +436,7 @@ public class HoofdSchermController implements Initializable {
         
         
     }
-
-    public void keerTerug() throws IOException{
-        
-        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        
-        Stage stage = new Stage();
-        stage.setTitle("Start scherm");
-        stage.setScene(new Scene(root1));
-        
-        StartSchermController controller = fxmlLoader.<StartSchermController>getController();
-        controller.initData(dc);
-        
-        stage.show();
-    }
     
-    public void openAttitude() throws IOException{
-        
-        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AttitudeScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Attitude scherm");
-        stage.setScene(new Scene(root1));
-        
-        // DC meegeven aan de volgende controller 
-        AttitudeSchermController controller = fxmlLoader.<AttitudeSchermController>getController();
-        controller.initData(dc);
-        
-        stage.show();
-    }
-
-    public void openVerkeerstechniek() throws IOException{
-        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/VerkeerstechniekScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("VerkeersTechniek");
-        stage.setScene(new Scene(root1));
-        VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
-        controller.initData(dc);
-        stage.show();
-    }
-    
-     public void openRijtechniek() throws IOException{
-        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/RijtechniekScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Rijtechniek");
-        stage.setScene(new Scene(root1));
-        
-        // DC meegeven aan de volgende controller 
-        RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
-        controller.initData(dc);
-        stage.show();
-    }
-
     void initData(DomainController dc) {
         this.dc = dc ;
         String kleur;
@@ -475,6 +475,8 @@ public class HoofdSchermController implements Initializable {
             evaluatie3.setSelected(true);
         }
         
+        ObservableList<String> olOpmerking = FXCollections.observableArrayList(dc.getHuidigeLeerling().getOpmerkingen());
+        listViewOpmerkingen.setItems(olOpmerking);
         
     }
 }

@@ -18,7 +18,9 @@ public class Leerling {
     private Hoofdscherm hoofdscherm;
     private List<String> attitude; 
     private List<Evaluatie> evaluaties; 
+    private List<String> opmerkingen;
 
+  
     public Leerling(){
         
     }
@@ -31,6 +33,7 @@ public class Leerling {
         this.VT = new Verkeerstechniek();
         evaluaties = new ArrayList<>();
         attitude = new ArrayList<>();
+        opmerkingen = new ArrayList<>();
     }
 
     public Verkeerstechniek getVT() {
@@ -49,6 +52,9 @@ public class Leerling {
         this.RT = RT;
     }
 
+    public List<String> getOpmerkingen() {
+        return opmerkingen;
+    }
     
     public List<String> getAttitude() {
         return attitude;
