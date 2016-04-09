@@ -419,7 +419,7 @@ public class HoofdSchermController implements Initializable {
         BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/StuurWit.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         btnRijtechniek.setBackground(new Background(imgStuur));
         
-        BackgroundImage imgRijtechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rijtechniek.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        BackgroundImage imgRijtechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Verkeerstechniek.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         btnVerkeerstechniek.setBackground(new Background(imgRijtechniek));
 
         BackgroundImage imgAttitude = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Attitude.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
