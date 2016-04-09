@@ -16,6 +16,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -63,17 +68,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString()){
             case "WHITE":
-                circleVoorrang.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.ORANGE);
+                circleVoorrang.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleVoorrang.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleVoorrang.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.RED);
+                break;
+            case "RED":
                 circleVoorrang.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.ORANGE);
-                break;  
+                break;    
         }
     }
     
@@ -85,17 +94,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString()){
             case "WHITE":
-                circleOpenbareWeg.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.ORANGE);
+                circleOpenbareWeg.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleOpenbareWeg.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleOpenbareWeg.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleOpenbareWeg.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -107,17 +120,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString()){
             case "WHITE":
-                circleAanwijzers.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.ORANGE);
+                circleAanwijzers.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleAanwijzers.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleAanwijzers.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleAanwijzers.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -129,17 +146,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString()){
             case "WHITE":
-                circleRechtsaf.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.ORANGE);
+                circleRechtsaf.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleRechtsaf.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleRechtsaf.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleRechtsaf.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -150,17 +171,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString()){
             case "WHITE":
-                circleLinksaf.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.ORANGE);
+                circleLinksaf.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleLinksaf.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleLinksaf.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleLinksaf.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -172,17 +197,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString()){
             case "WHITE":
-                circleKruisen.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.ORANGE);
+                circleKruisen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleKruisen.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleKruisen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleKruisen.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -194,17 +223,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString()){
             case "WHITE":
-                circleInhalen.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.ORANGE);
+                circleInhalen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleInhalen.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleInhalen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleInhalen.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -216,17 +249,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString()){
             case "WHITE":
-                circleAfstanden.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.ORANGE);
+                circleAfstanden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleAfstanden.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleAfstanden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.RED);
+                break; 
+            case "RED":
                 circleAfstanden.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -238,17 +275,21 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString()){
             case "WHITE":
-                circleSnelheid.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.ORANGE);
+                circleSnelheid.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleSnelheid.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleSnelheid.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleSnelheid.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -260,23 +301,49 @@ public class VerkeerstechniekSchermController implements Initializable{
 
         switch(dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString()){
             case "WHITE":
-                circleTekens.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.ORANGE);
+                circleTekens.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleTekens.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleTekens.setFill(Color.RED);
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleTekens.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         verkeerstechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        
+        BackgroundImage imgAanwijzers = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Aanwijzers.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnAanwijzers.setBackground(new Background(imgAanwijzers));
+        BackgroundImage imgAfstanden = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnAfstanden.setBackground(new Background(imgAfstanden));
+        BackgroundImage imgInhalen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnInhalen.setBackground(new Background(imgInhalen));
+        BackgroundImage imgKruisen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnKruisen.setBackground(new Background(imgKruisen));
+        BackgroundImage imgLinksaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnLinksaf.setBackground(new Background(imgLinksaf));
+        BackgroundImage imgOpenbareWeg = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnOpenbareWeg.setBackground(new Background(imgOpenbareWeg));
+        BackgroundImage imgRechtsaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnRechtsaf.setBackground(new Background(imgRechtsaf));
+        BackgroundImage imgSnelheid = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnSnelheid.setBackground(new Background(imgSnelheid));
+        BackgroundImage imgTekens = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnTekens.setBackground(new Background(imgTekens));
+        BackgroundImage imgVoorrang = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnVoorrang.setBackground(new Background(imgVoorrang));
+        
         Image imgBtnTerug = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         btnTerug.setGraphic(new ImageView(imgBtnTerug));
     }

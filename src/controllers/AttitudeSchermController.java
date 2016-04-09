@@ -96,6 +96,8 @@ public class AttitudeSchermController implements Initializable {
         attitudeScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
+        listViewVoorbeeldwaarden.setStyle("-fx-font: 12pt \"Arial\";");
+        listViewEigenschappen.setStyle("-fx-font: 12pt \"Arial\";");
         
         listVoorbeeldwaarden = new ArrayList<>();  
         listVoorbeeldwaarden.add("Rustig");
