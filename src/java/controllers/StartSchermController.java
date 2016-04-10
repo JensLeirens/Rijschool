@@ -1,9 +1,9 @@
 
-package controllers;
+package java.controllers;
 
 
-import domain.DomainController;
-import domain.Leerling;
+import java.domain.DomainController;
+import java.domain.Leerling;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
