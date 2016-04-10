@@ -1,5 +1,5 @@
 
-package main;
+package java.main;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -17,7 +17,7 @@ public class Main extends Application{
      @Override
     public void start(Stage stage) throws Exception {
         //VOOR SCENE BUILDER-----------------------
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/StartScherm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Resources.gui/StartScherm.fxml"));
         
         Scene scene = new Scene(root);
         

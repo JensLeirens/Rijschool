@@ -1,7 +1,7 @@
-package controllers;
+package java.controllers;
 
-import domain.DomainController;
-import domain.Kleur;
+import java.domain.DomainController;
+import java.domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

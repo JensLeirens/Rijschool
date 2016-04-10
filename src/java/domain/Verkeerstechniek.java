@@ -1,4 +1,4 @@
-package domain;
+package java.domain;
 
 
 public class Verkeerstechniek {
