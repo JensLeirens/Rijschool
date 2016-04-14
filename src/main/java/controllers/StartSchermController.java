@@ -152,7 +152,7 @@ public class StartSchermController implements Initializable {
         stage.setTitle("Evaluatie scherm");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424, 768);
         
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
