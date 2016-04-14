@@ -22,7 +22,7 @@ public class Main extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("/gui/StartScherm.fxml"));
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root, 1424, 768); // 1424 768 width and heigth tablet 
         
         stage.setScene(scene);
         stage.show();

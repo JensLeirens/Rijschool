@@ -377,7 +377,7 @@ public class RijtechniekSchermController implements Initializable {
         stage.setTitle("Hoofdscherm");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424,768);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();

@@ -321,7 +321,7 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Start scherm");
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424, 768);
         stage.setScene(scene);
         StartSchermController controller = fxmlLoader.<StartSchermController>getController();
         controller.initData(dc);
@@ -339,7 +339,7 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Attitude scherm");
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424 ,768);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         AttitudeSchermController controller = fxmlLoader.<AttitudeSchermController>getController();
@@ -358,7 +358,7 @@ public class HoofdSchermController implements Initializable {
         stage.setTitle("VerkeersTechniek");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424, 768);
         stage.setScene(scene);
         VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
         controller.initData(dc);
@@ -375,7 +375,7 @@ public class HoofdSchermController implements Initializable {
         stage.setTitle("Rijtechniek");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, bounds.getWidth(), bounds.getHeight());
+        Scene scene = new Scene(root1, 1424 ,768);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
