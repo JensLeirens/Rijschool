@@ -22,7 +22,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="verkeerstechniekScherm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VerkeerstechniekSchermController">
+<HBox fx:id="verkeerstechniekScherm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VerkeerstechniekSchermController">
    <children>
       <AnchorPane minWidth="195.0" prefHeight="538.0" prefWidth="195.0">
          <children>
@@ -141,7 +141,7 @@
             </Circle>
             <Circle fx:id="circleKruisen" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
                <GridPane.margin>
-                  <Insets top="28.0" />
+                  <Insets top="70.0" />
                </GridPane.margin>
             </Circle>
             <Circle fx:id="circleLinksaf" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
@@ -157,7 +157,7 @@
                   <DropShadow color="#0013ff" height="44.0" radius="29.75" width="77.0" />
                </effect>
                <GridPane.margin>
-                  <Insets left="3.0" top="46.0" />
+                  <Insets left="3.0" top="76.0" />
                </GridPane.margin>
             </ImageView>
          </children>

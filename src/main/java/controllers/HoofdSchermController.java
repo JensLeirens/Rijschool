@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -73,22 +74,37 @@ public class HoofdSchermController implements Initializable {
     private Label naam ; 
     
     @FXML 
+    private Button verwijder ;
+    
+    @FXML
+    private void handleButtonVerwijder(ActionEvent event) {
+        dc.getHuidigeLeerling().getOpmerkingen().removeAll(listViewOpmerkingen.getSelectionModel().getSelectedItems());
+        refreshList();
+    }
+   
+    @FXML 
     private Button rotonde ; 
     
     @FXML
     private void handleButtonRotonde(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.WHITE) {
-            circleRotonde.setFill(Color.ORANGE);
-            dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.ORANGE);
-        }
-        else if(dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.ORANGE){
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur().toString()){
+            case "WHITE":
+                circleRotonde.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
                 circleRotonde.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.GREEN);
-            } 
-            else if(dc.getHuidigeLeerling().getHoofdscherm().getRotonde().getKleur() == Kleur.GREEN){
+                break;
+            case "GREEN":
+                circleRotonde.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleRotonde.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getHoofdscherm().getRotonde().setKleur(Kleur.ORANGE);
-            }
+                break;
+        }
     }
     
     @FXML 
@@ -96,18 +112,24 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonRijBaanMetRijStroken(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.WHITE) {
-            circleRijbaanMetRijStroken.setFill(Color.ORANGE);
-            dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.ORANGE);
-        }
-        else if(dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.ORANGE){
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur().toString()){
+            case "WHITE":
+                circleRijbaanMetRijStroken.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
                 circleRijbaanMetRijStroken.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.GREEN);
-            }  
-            else if(dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().getKleur() == Kleur.GREEN){
+                break;
+            case "GREEN":
+                circleRijbaanMetRijStroken.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleRijbaanMetRijStroken.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getHoofdscherm().getRijBaanMetRijstroken().setKleur(Kleur.ORANGE);
-            }
+                break;
+        }
     }
     
     @FXML 
@@ -115,18 +137,24 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonStad (ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.WHITE) {
-            circleStad.setFill(Color.ORANGE);
-            dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.ORANGE);
-        }
-        else if(dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.ORANGE){
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur().toString()){
+            case "WHITE":
+                circleStad.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
                 circleStad.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.GREEN);
-            }
-            else if(dc.getHuidigeLeerling().getHoofdscherm().getStad().getKleur() == Kleur.GREEN){
+                break;
+            case "GREEN":
+                circleStad.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleStad.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getHoofdscherm().getStad().setKleur(Kleur.ORANGE);
-            }
+                break;
+        }
     }
     
     @FXML 
@@ -134,18 +162,24 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonAutoSnelweg(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.WHITE) {
-            circleAutosnelweg.setFill(Color.ORANGE);
-            dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.ORANGE);
-        }
-        else if(dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.ORANGE){
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur().toString()){
+            case "WHITE":
+                circleAutosnelweg.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
                 circleAutosnelweg.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.GREEN);
-            }  
-            else if(dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().getKleur() == Kleur.GREEN){
+                break;
+            case "GREEN":
+                circleAutosnelweg.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleAutosnelweg.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getHoofdscherm().getAutoSnelweg().setKleur(Kleur.ORANGE);
-            }
+                break;
+        }
     }
     
     // Left ____________________________________________________________________
@@ -154,9 +188,23 @@ public class HoofdSchermController implements Initializable {
       
     @FXML
     private void handleButtonSchakelaar(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().getKleur() == Kleur.WHITE) {
-            circleSchakelaar.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.GREEN);
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().getKleur().toString()){
+            case "WHITE":
+                circleSchakelaar.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleSchakelaar.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleSchakelaar.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleSchakelaar.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getSchakelaar().setKleur(Kleur.ORANGE);
+                break;
         }
     }
          
@@ -165,9 +213,23 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonVloeiStof(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().getKleur() == Kleur.WHITE) {
-            circleVloeistof.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.GREEN);
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().getKleur().toString()){
+            case "WHITE":
+                circleVloeistof.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleVloeistof.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleVloeistof.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleVloeistof.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getVloeistof().setKleur(Kleur.ORANGE);
+                break;
         }
     }
     
@@ -176,9 +238,23 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonBanden (ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getBanden().getKleur() == Kleur.WHITE) {
-            circleBanden.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.GREEN);
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getBanden().getKleur().toString()){
+            case "WHITE":
+                circleBanden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleBanden.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleBanden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleBanden.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getBanden().setKleur(Kleur.ORANGE);
+                break;
         }
     }
     
@@ -188,9 +264,23 @@ public class HoofdSchermController implements Initializable {
         
     @FXML
     private void handleButtonTanken(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getTanken().getKleur() == Kleur.WHITE) {
-            circleTanken.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.GREEN);
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getTanken().getKleur().toString()){
+            case "WHITE":
+                circleTanken.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleTanken.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleTanken.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleTanken.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getTanken().setKleur(Kleur.ORANGE);
+                break;
         }
     }
        
@@ -200,9 +290,23 @@ public class HoofdSchermController implements Initializable {
     
     @FXML
     private void handleButtonGps(ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getGps().getKleur() == Kleur.WHITE) {
-            circleGps.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.GREEN);
+         switch(dc.getHuidigeLeerling().getHoofdscherm().getGps().getKleur().toString()){
+            case "WHITE":
+                circleGps.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleGps.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleGps.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleGps.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getGps().setKleur(Kleur.ORANGE);
+                break;
         }
     }
     
@@ -210,10 +314,24 @@ public class HoofdSchermController implements Initializable {
     private Button stop; 
     
     @FXML
-    private void handleButtonStop (ActionEvent event) {
-        if (dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur() == Kleur.WHITE) {
-            circleStop.setFill(Color.GREEN);
-            dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.GREEN);
+    private void handleButtonStop (ActionEvent event) {     
+        switch(dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur().toString()){
+            case "WHITE":
+                circleStop.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.RED);
+                break;
+            case "ORANGE":
+                circleStop.setFill(Color.GREEN);
+                dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.GREEN);
+                break;
+            case "GREEN":
+                circleStop.setFill(Color.RED);
+                dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.RED);
+                break;  
+            case "RED":
+                circleStop.setFill(Color.ORANGE);
+                dc.getHuidigeLeerling().getHoofdscherm().getStop().setKleur(Kleur.ORANGE);
+                break;
         }
     }
     // Center __________________________________________________________________
@@ -253,18 +371,18 @@ public class HoofdSchermController implements Initializable {
     private Button terugknop;
     
     @FXML
-    private Slider evolutie ; 
+    private ProgressBar evolutie ; 
     
     @FXML
     private void handleButtonMin(ActionEvent event) throws IOException {
-        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() - 5);
-        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
+        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() - 0.05);
+        evolutie.setProgress(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
     }
     
     @FXML
     private void handleButtonPlus(ActionEvent event) throws IOException {
-        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() + 5);
-        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());       
+        dc.getHuidigeLeerling().getHoofdscherm().setEvolutie(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie() + 0.05);
+        evolutie.setProgress(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());       
     }
     
     @FXML
@@ -321,7 +439,7 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Start scherm");
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424, 768);
+        Scene scene = new Scene(root1, 1024, 743);
         stage.setScene(scene);
         StartSchermController controller = fxmlLoader.<StartSchermController>getController();
         controller.initData(dc);
@@ -339,7 +457,7 @@ public class HoofdSchermController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Attitude scherm");
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424 ,768);
+        Scene scene = new Scene(root1, 1024, 743);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         AttitudeSchermController controller = fxmlLoader.<AttitudeSchermController>getController();
@@ -358,7 +476,7 @@ public class HoofdSchermController implements Initializable {
         stage.setTitle("VerkeersTechniek");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424, 768);
+        Scene scene = new Scene(root1, 1024, 743);
         stage.setScene(scene);
         VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
         controller.initData(dc);
@@ -375,7 +493,7 @@ public class HoofdSchermController implements Initializable {
         stage.setTitle("Rijtechniek");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424 ,768);
+        Scene scene = new Scene(root1, 1024, 743);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
@@ -386,7 +504,7 @@ public class HoofdSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hoofdEvaScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
-        
+        listViewOpmerkingen.setStyle("-fx-font: 16pt \"Arial\";");
         // top _____________________________________________________________________________________________________
         BackgroundImage imgRotonde = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rotonde.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         rotonde.setBackground(new Background(imgRotonde));
@@ -434,11 +552,7 @@ public class HoofdSchermController implements Initializable {
         BackgroundImage imgAttitude = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Attitude.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         btnAttitude.setBackground(new Background(imgAttitude));
         
-        ObservableList<String> listOpmerkingen = FXCollections.observableArrayList(
-          "Hier komen later alle opmerkingen", "die gemaakt zijn in de vorige les.");
-        listViewOpmerkingen.setItems(listOpmerkingen);
-        
-        evolutie.setValue(0);
+        evolutie.setProgress(0);
         // Bottom ______________________________________________________________
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
@@ -471,7 +585,7 @@ public class HoofdSchermController implements Initializable {
         circleGps.setFill(Color.valueOf(kleur));
         kleur = dc.getHuidigeLeerling().getHoofdscherm().getStop().getKleur().toString();
         circleStop.setFill(Color.valueOf(kleur));
-        evolutie.setValue(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
+        evolutie.setProgress(dc.getHuidigeLeerling().getHoofdscherm().getEvolutie());
         naam.setText(dc.getHuidigeLeerling().getnaam());
         
         if(dc.getHuidigeLeerling().getEvaluaties().size() > 0){
@@ -484,8 +598,13 @@ public class HoofdSchermController implements Initializable {
             evaluatie3.setSelected(true);
         }
         
-        ObservableList<String> olOpmerking = FXCollections.observableArrayList(dc.getHuidigeLeerling().getOpmerkingen());
-        listViewOpmerkingen.setItems(olOpmerking);
+       refreshList();
         
+    }
+    
+     
+    public void refreshList(){
+        ObservableList<String> olOpmerkingen = FXCollections.observableArrayList(dc.getHuidigeLeerling().getOpmerkingen());
+        listViewOpmerkingen.setItems(olOpmerkingen);
     }
 }

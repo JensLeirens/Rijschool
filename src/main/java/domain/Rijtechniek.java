@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 /**
@@ -10,13 +5,14 @@ package domain;
  * @author jens
  */
 public class Rijtechniek {
-    private KnopKleur parkeren;
-    private KnopKleur keren;
-    private KnopKleur garage;
-    private KnopKleur achteruit;
-    private KnopKleur stuurOef;
+    private KnopUitgebreid parkeren;
+    private KnopUitgebreid keren;
+    private KnopUitgebreid garage;
+    private KnopUitgebreid achteruit;
+    private KnopUitgebreid stuurOef;
     
     private KnopUitgebreid kijk;
+    private KnopUitgebreid aanzettenHelling;
     private KnopUitgebreid schakel;
     private KnopUitgebreid stuurtechniek;
     private KnopUitgebreid rem;
@@ -24,12 +20,13 @@ public class Rijtechniek {
     private KnopUitgebreid zithouding;
 
     public Rijtechniek() {
-        this.parkeren = new KnopKleur();
-        this.keren = new KnopKleur();
-        this.garage = new KnopKleur();
-        this.achteruit = new KnopKleur();
-        this.stuurOef = new KnopKleur();
+        this.parkeren = new KnopUitgebreid();
+        this.keren = new KnopUitgebreid();
+        this.garage = new KnopUitgebreid();
+        this.achteruit = new KnopUitgebreid();
+        this.stuurOef = new KnopUitgebreid();
         
+        this.aanzettenHelling = new KnopUitgebreid();
         this.kijk = new KnopUitgebreid();
         this.schakel = new KnopUitgebreid();
         this.stuurtechniek = new KnopUitgebreid();
@@ -38,45 +35,51 @@ public class Rijtechniek {
         this.zithouding = new KnopUitgebreid();
     }
 
-    
-    
-    public KnopKleur getParkeren() {
+    public KnopUitgebreid getAanzettenHelling() {
+        return aanzettenHelling;
+    }
+
+    public void setAanzettenHelling(KnopUitgebreid aanzettenHelling) {
+        this.aanzettenHelling = aanzettenHelling;
+    }
+
+    public KnopUitgebreid getParkeren() {
         return parkeren;
     }
 
-    public void setParkeren(KnopKleur parkeren) {
+    public void setParkeren(KnopUitgebreid parkeren) {
         this.parkeren = parkeren;
     }
 
-    public KnopKleur getKeren() {
+    public KnopUitgebreid getKeren() {
         return keren;
     }
 
-    public void setKeren(KnopKleur keren) {
+    public void setKeren(KnopUitgebreid keren) {
         this.keren = keren;
     }
 
-    public KnopKleur getGarage() {
+    public KnopUitgebreid getGarage() {
         return garage;
     }
 
-    public void setGarage(KnopKleur garage) {
+    public void setGarage(KnopUitgebreid garage) {
         this.garage = garage;
     }
 
-    public KnopKleur getAchteruit() {
+    public KnopUitgebreid getAchteruit() {
         return achteruit;
     }
 
-    public void setAchteruit(KnopKleur achteruit) {
+    public void setAchteruit(KnopUitgebreid achteruit) {
         this.achteruit = achteruit;
     }
 
-    public KnopKleur getStuurOef() {
+    public KnopUitgebreid getStuurOef() {
         return stuurOef;
     }
 
-    public void setStuurOef(KnopKleur stuurOef) {
+    public void setStuurOef(KnopUitgebreid stuurOef) {
         this.stuurOef = stuurOef;
     }
 

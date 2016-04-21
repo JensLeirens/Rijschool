@@ -2,6 +2,7 @@
 package controllers;
 
 
+import com.gluonhq.charm.glisten.control.Alert;
 import domain.DomainController;
 import domain.Leerling;
 import java.io.IOException;
@@ -18,15 +19,10 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -52,6 +48,20 @@ public class StartSchermController implements Initializable {
     @FXML
     private TextField txtNummer; 
     
+    @FXML 
+    private Button afsluiten ; 
+    
+    @FXML 
+    private void handleButtonAfsluiten(ActionEvent event) {
+        Stage currentStage = new Stage();
+        currentStage = (Stage) startScherm.getScene().getWindow();
+        currentStage.close();
+        
+//        Alert alert = new Alert(AlertType.CONFIRMATION, "Afluiten? ");
+//        alert.setContentText("ben je zeker datje wil aflsuiten? ");
+//
+//        alert.showAndWait();
+    }
     @FXML
     private void handleButtonZoeken(ActionEvent event) {
         lblMessage.setVisible(true);
@@ -76,7 +86,7 @@ public class StartSchermController implements Initializable {
                 }
             }
             
-            sluiten();
+            openHoofdScherm();
         }
         else {
             lblMessage.setVisible(true);
@@ -131,16 +141,21 @@ public class StartSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {  
         startScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
-        listViewLeerlingen.setStyle("-fx-font: 12pt \"Arial\";");
+        listViewLeerlingen.setStyle("-fx-font: 18pt \"Arial\";");
         if(dc == null){
             dc = new DomainController(); 
             dc.generateData();
         }
         refreshList();
         
+        // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+        lblMessage.setVisible(true);
+        lblMessage.setText( "width: " + String.valueOf(bounds.getWidth()) + " height: " + String.valueOf(bounds.getHeight()));
+        // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
     }
     
-    private void sluiten() throws IOException{
+    private void openHoofdScherm() throws IOException{
         
         Stage currentStage = new Stage();
         currentStage = (Stage) startScherm.getScene().getWindow();
@@ -152,7 +167,7 @@ public class StartSchermController implements Initializable {
         stage.setTitle("Evaluatie scherm");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424, 768);
+        Scene scene = new Scene(root1, 1024, 743);
         
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 

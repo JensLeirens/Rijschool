@@ -23,9 +23,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="hoofdEvaScherm" prefHeight="701.0" prefWidth="952.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdSchermController">
+<BorderPane fx:id="hoofdEvaScherm" prefHeight="743.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HoofdSchermController">
   <bottom>
-    <GridPane prefHeight="105.0" prefWidth="900.0">
+    <GridPane prefHeight="115.0" prefWidth="952.0">
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="150.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.0" minWidth="10.0" prefWidth="150.0" />
@@ -41,21 +41,19 @@
          <children>
             <CheckBox fx:id="evaluatie1" mnemonicParsing="false" onAction="#handleCheckButtonEvaluatie1" text="1" textFill="WHITE" GridPane.columnIndex="1">
                <font>
-                  <Font size="18.0" />
-               </font></CheckBox>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
             <CheckBox fx:id="evaluatie2" mnemonicParsing="false" onAction="#handleCheckButtonEvaluatie2" text="2" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
-               </font></CheckBox>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
             <CheckBox fx:id="evaluatie3" mnemonicParsing="false" onAction="#handleCheckButtonEvaluatie3" text="3 " textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
-               </font></CheckBox>
-            <Slider fx:id="evolutie" disable="true" minorTickCount="25" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-opacity: 100; -fx-font-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </Slider>
+                  <Font size="21.0" />
+               </font>
+            </CheckBox>
             <Label text="X" textFill="WHITE" GridPane.columnIndex="3">
                <padding>
                   <Insets left="310.0" />
@@ -71,15 +69,15 @@
                   <Insets left="210.0" />
                </padding>
             </Label>
-            <Button fx:id="plus" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonPlus" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="plus" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonPlus" prefHeight="70.0" prefWidth="70.0" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <GridPane.margin>
-                  <Insets right="50.0" />
+                  <Insets left="10.0" right="50.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="min" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonMin" text="-" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="min" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonMin" prefHeight="73.0" prefWidth="62.0" text="-" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -88,6 +86,7 @@
                </GridPane.margin>
             </Button>
             <Button fx:id="terugknop" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#handleButtonTerugknop" prefHeight="37.0" prefWidth="65.0" GridPane.rowSpan="3" />
+            <ProgressBar fx:id="evolutie" prefHeight="18.0" prefWidth="466.0" progress="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" />
@@ -146,21 +145,22 @@
     </GridPane>
   </right>
    <top>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane prefHeight="214.0" prefWidth="952.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="239.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="625.0" minWidth="10.0" prefWidth="447.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="277.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="625.0" minWidth="10.0" prefWidth="435.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="1.0" prefWidth="1.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="204.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints />
+          <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="87.0" minHeight="31.0" prefHeight="36.0" />
+            <RowConstraints maxHeight="51.0" minHeight="15.0" prefHeight="15.0" />
         </rowConstraints>
          <children>
-            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" vgap="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" vgap="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER">
                <children>
                   <Circle fx:id="circleRotonde" fill="WHITE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP" />
                   <Circle fx:id="circleRijbaanMetRijStroken" fill="WHITE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="0" GridPane.valignment="TOP" />
@@ -209,11 +209,24 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="listViewOpmerkingen" prefHeight="200.0" prefWidth="238.0" style="-fx-border-color: black;" GridPane.rowSpan="3">
+            <ListView fx:id="listViewOpmerkingen" prefHeight="86.0" prefWidth="224.0" style="-fx-border-color: black;" GridPane.rowSpan="3">
                <GridPane.margin>
                   <Insets left="15.0" top="15.0" />
                </GridPane.margin>
             </ListView>
+            <Button fx:id="verwijder" mnemonicParsing="false" onAction="#handleButtonVerwijder" prefHeight="46.0" prefWidth="122.0" text="Verwijder" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="119.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="15.0" top="50.0" />
+               </GridPane.margin>
+               <image>
+                  <Image url="@../image/beoordeling.png" />
+               </image>
+            </ImageView>
          </children>
          <padding>
             <Insets left="5.0" right="5.0" top="10.0" />
@@ -223,20 +236,20 @@
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="dashboard" fitHeight="284.0" fitWidth="679.0" layoutX="34.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="dashboard" fitHeight="284.0" fitWidth="679.0" layoutX="54.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/Dashboard.png" />
                </image>
                <effect>
-                  <DropShadow color="#1a00ff" height="68.08" radius="35.855000000000004" width="77.34" />
+                  <DropShadow color="#1a00ff" height="54.27" radius="32.4025" width="77.34" />
                </effect>
             </ImageView>
-            <Button fx:id="btnRijtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="82.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonRijtechniek" prefHeight="180.0" prefWidth="180.0" text="Button" />
-            <Button fx:id="btnAttitude" contentDisplay="GRAPHIC_ONLY" layoutX="254.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAttitude" prefHeight="150.0" prefWidth="150.0" text="Button">
+            <Button fx:id="btnRijtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="102.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonRijtechniek" prefHeight="180.0" prefWidth="180.0" text="Button" />
+            <Button fx:id="btnAttitude" contentDisplay="GRAPHIC_ONLY" layoutX="274.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAttitude" prefHeight="150.0" prefWidth="150.0" text="Button">
                <effect>
                   <DropShadow color="WHITE" height="57.33" radius="27.237499999999997" width="53.62" />
                </effect></Button>
-            <Button fx:id="btnVerkeerstechniek" contentDisplay="GRAPHIC_ONLY" layoutX="393.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonVerkeerstechniek" prefHeight="180.0" prefWidth="180.0" text="Button" />
+            <Button fx:id="btnVerkeerstechniek" contentDisplay="GRAPHIC_ONLY" layoutX="413.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonVerkeerstechniek" prefHeight="180.0" prefWidth="180.0" text="Button" />
          </children>
       </AnchorPane>
    </center>

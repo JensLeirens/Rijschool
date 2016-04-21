@@ -9,8 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -22,7 +20,7 @@ public class Main extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("/gui/StartScherm.fxml"));
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root, 1424, 768); // 1424 768 width and heigth tablet 
+        Scene scene = new Scene(root, 1024, 743); // 1024 743 width and heigth tablet 
         
         stage.setScene(scene);
         stage.show();

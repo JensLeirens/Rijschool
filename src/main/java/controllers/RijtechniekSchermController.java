@@ -5,7 +5,11 @@ import domain.DomainController;
 import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +19,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -27,7 +31,6 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -43,9 +46,9 @@ public class RijtechniekSchermController implements Initializable {
     private boolean sturen = false ;
     private boolean schakel = false ;
     private boolean kijk = false ;
-    
-
-    
+    private boolean helling = false ;
+    private List<String> listVoorbeeldwaarden ;
+    private List<String> listOpmerkingen = new ArrayList(); 
     
     @FXML 
     private Label naam ;
@@ -58,9 +61,6 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     private Button opm ; 
-    
-    @FXML
-    private TextArea txaOpm ; 
     
     @FXML
     private Button rood ; 
@@ -144,22 +144,26 @@ public class RijtechniekSchermController implements Initializable {
     private Circle circleKijktechniek;
     
     @FXML 
-    private CheckBox basisopm1;
-    @FXML 
-    private CheckBox basisopm2;
-    @FXML 
-    private CheckBox basisopm3;
-    @FXML 
-    private CheckBox basisopm4;
-    @FXML 
-    private CheckBox basisopm5;
+    private Circle circleHelling;
     
     @FXML
     private Label lblOpm ; 
     
     @FXML
-    private Rectangle achtergrondBasis; 
+    private ListView listviewStandaardOpm; 
     
+    @FXML
+    private ListView listviewOpm; 
+          
+    @FXML
+    private Button addOpm; 
+    
+    @FXML
+    private Button addWaarde; 
+    
+    @FXML
+    private TextField txfOpm; 
+            
     @FXML
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
@@ -213,7 +217,13 @@ public class RijtechniekSchermController implements Initializable {
         
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
-  
+        
+        listVoorbeeldwaarden = new ArrayList<>();  
+        listVoorbeeldwaarden.add("Rustig");
+        listVoorbeeldwaarden.add("Nonchalant");
+        listVoorbeeldwaarden.add("Aggresief");
+        
+        refreshList();
     }
     
     void initData(DomainController dc) {
@@ -247,10 +257,53 @@ public class RijtechniekSchermController implements Initializable {
         circleZithouding.setFill(Color.valueOf(kleur));
     }
     
+      public void refreshList(){
+        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
+        listviewStandaardOpm.setItems(olVoorbeelden);
+    }
+      
      @FXML
     public void handleButtonOpm(ActionEvent event) throws IOException {
+        lblOpm.setVisible(true);
         lblOpm.setText("Opmerking is opgeslaan als belangrijk.");
-        dc.getHuidigeLeerling().getOpmerkingen().add(txaOpm.getText()); 
+        dc.getHuidigeLeerling().getOpmerkingen().addAll(listviewOpm.getSelectionModel().getSelectedItems()); 
+    }
+    
+    @FXML
+    public void handleButtonAddWaarde(ActionEvent event) throws IOException {
+        lblOpm.setText("");
+        List<String> check = new ArrayList(); 
+        check.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
+        
+        if(!listOpmerkingen.contains(check.get(0))){
+            listOpmerkingen.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
+            ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+            listviewOpm.setItems(ol);
+            geefOpmerking(check.get(0));
+        }
+        else{
+            lblOpm.setVisible(true);
+            lblOpm.setText("de gewenste opmerking staat er al in");
+        }
+    }
+    
+    @FXML
+    public void handleButtonAddOpm(ActionEvent event) throws IOException {
+        lblOpm.setText("");
+        List<String> check = new ArrayList(); 
+        check.add(txfOpm.getText());
+        
+        if(!listOpmerkingen.contains(check.get(0))){
+            listOpmerkingen.add(txfOpm.getText());
+            ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+            listviewOpm.setItems(ol);
+            geefOpmerking(check.get(0));
+        }
+        else{
+            lblOpm.setVisible(true);
+            lblOpm.setText("de gewenste opmerking staat er al in");
+        }
+
     }
     
     @FXML
@@ -262,10 +315,12 @@ public class RijtechniekSchermController implements Initializable {
         schakel = false;
         kijk = false;   
         toon = false;
+        helling = false; 
         verdwijnOpmerkingen();
-        geefOpmerking(txaOpm.getText());
-        txaOpm.setText("");
         lblOpm.setText("");
+        listOpmerkingen.clear();
+        listviewOpm.getItems().clear();
+        txfOpm.setText("");
     }
     
     @FXML
@@ -311,6 +366,10 @@ public class RijtechniekSchermController implements Initializable {
                 circleKijktechniek.setFill(Color.valueOf(kleur));
                 dc.getHuidigeLeerling().getRT().getKijk().setKleur(Kleur.valueOf(kleur));
             }
+            if (helling == true) {
+                circleHelling.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getRT().getAanzettenHelling().setKleur(Kleur.valueOf(kleur));
+            }
         }
     }
     
@@ -334,37 +393,36 @@ public class RijtechniekSchermController implements Initializable {
             if (kijk == true) {
                 dc.getHuidigeLeerling().getRT().getKijk().getOpmerking().add(opmerking);
             }
+            if (helling == true){
+                dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking().add(opmerking);
+            }
         }
     }
     
     public void toonOpmerkingen(){
-        opm.setVisible(true);
-        txaOpm.setVisible(true);   
+        addOpm.setVisible(true);
+        addWaarde.setVisible(true);
+        opm.setVisible(true);  
         rood .setVisible(true);
         oranje.setVisible(true);
         groen.setVisible(true);
-        achtergrondBasis.setVisible(true);
-        basisopm1.setVisible(true);
-        basisopm2.setVisible(true);
-        basisopm3.setVisible(true);
-        basisopm4.setVisible(true);
-        basisopm5.setVisible(true);
         Opslaan.setVisible(true);
+        listviewStandaardOpm.setVisible(true); 
+        listviewOpm.setVisible(true);
+        txfOpm.setVisible(true);
     }
     
     public void verdwijnOpmerkingen(){
-        opm.setVisible(false);
-        txaOpm.setVisible(false);   
+        addOpm.setVisible(false);
+        addWaarde.setVisible(false);
+        opm.setVisible(false);   
         rood .setVisible(false);
         oranje.setVisible(false);
         groen.setVisible(false);
-        achtergrondBasis.setVisible(false);
-         basisopm1.setVisible(false);
-        basisopm2.setVisible(false);
-        basisopm3.setVisible(false);
-        basisopm4.setVisible(false);
-        basisopm5.setVisible(false);
         Opslaan.setVisible(false);
+        listviewStandaardOpm.setVisible(false); 
+        listviewOpm.setVisible(false);
+        txfOpm.setVisible(false);
     }
     
     public void keerTerug() throws IOException{
@@ -377,7 +435,7 @@ public class RijtechniekSchermController implements Initializable {
         stage.setTitle("Hoofdscherm");
         
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1424,768);
+        Scene scene = new Scene(root1, 1024, 743);
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
@@ -385,16 +443,28 @@ public class RijtechniekSchermController implements Initializable {
         
         stage.show();
     }
-
-    
+       
+    @FXML
+    public void handleButtonAanzettenHelling(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            helling = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking());
+        }
         
+    }
     @FXML
     public void handleButtonHouding(ActionEvent event) throws IOException {
         if (toon == false){
             toonOpmerkingen();
             toon = true ;
             houding = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking());
         }
+        
     }
     
     @FXML
@@ -403,6 +473,8 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             iskoppeling = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking());
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking());
         }
         
     }
@@ -413,6 +485,8 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             remmen = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getRem().getOpmerking());
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getRem().getOpmerking()); 
         }         
     }
     
@@ -422,6 +496,8 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             sturen = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking());
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking());
         }        
     }
     
@@ -430,7 +506,9 @@ public class RijtechniekSchermController implements Initializable {
         if (toon == false){
             toonOpmerkingen();
             toon = true ;
-            schakel = true ;         
+            schakel = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking());
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking());
         }   
     }
     
@@ -440,6 +518,8 @@ public class RijtechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ; 
             kijk = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getKijk().getOpmerking());
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getKijk().getOpmerking());
         }
     }
 
@@ -448,36 +528,43 @@ public class RijtechniekSchermController implements Initializable {
                 
          switch(dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString()){
             case "WHITE":
-                circleParkeren.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.ORANGE);
+                circleParkeren.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleParkeren.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleParkeren.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.RED);
+                break; 
+            case "RED":
                 circleParkeren.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getRT().getParkeren().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
-        
     }
     
     @FXML
     public void handleButtonKeren(ActionEvent event) throws IOException {
        switch(dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString()){
             case "WHITE":
-                circleKeren.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.ORANGE);
+                circleKeren.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleKeren.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleKeren.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleKeren.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getRT().getKeren().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -485,17 +572,21 @@ public class RijtechniekSchermController implements Initializable {
     public void handleButtonGarage(ActionEvent event) throws IOException {      
         switch(dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString()){
             case "WHITE":
-                circleGarage.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.ORANGE);
+                circleGarage.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleGarage.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleGarage.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleGarage.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getRT().getGarage().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
     
@@ -504,17 +595,21 @@ public class RijtechniekSchermController implements Initializable {
         
         switch(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString()){
             case "WHITE":
-                circleAchteruitrijden.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.ORANGE);
+                circleAchteruitrijden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleAchteruitrijden.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleAchteruitrijden.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleAchteruitrijden.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getRT().getAchteruit().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
      @FXML
@@ -522,17 +617,21 @@ public class RijtechniekSchermController implements Initializable {
       
         switch(dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString()){
             case "WHITE":
-                circleStuuroefeningen.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.ORANGE);
+                circleStuuroefeningen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.RED);
                 break;
             case "ORANGE":
                 circleStuuroefeningen.setFill(Color.GREEN);
                 dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.GREEN);
                 break;
             case "GREEN":
+                circleStuuroefeningen.setFill(Color.RED);
+                dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.RED);
+                break;  
+            case "RED":
                 circleStuuroefeningen.setFill(Color.ORANGE);
                 dc.getHuidigeLeerling().getRT().getStuurOef().setKleur(Kleur.ORANGE);
-                break;  
+                break;
         }
     }
 }
