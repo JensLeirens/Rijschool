@@ -43,7 +43,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </ListView>
-            <Button fx:id="btnVoegVoorbeeldWaardenToe" mnemonicParsing="false" onAction="#handleVoegVoorbeeldwaardenToe" text="Voeg aangeduide waarden toe" />
+            <Button fx:id="btnVoegVoorbeeldWaardenToe" mnemonicParsing="false" onAction="#handleVoegVoorbeeldwaardenToe" prefHeight="56.0" prefWidth="179.0" text="Voeg aangeduide waarden toe" />
          </children>
          <HBox.margin>
             <Insets left="12.5" right="25.0" />
@@ -64,19 +64,22 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </ListView>
-            <Button fx:id="btnVerwijderWaarden" mnemonicParsing="false" onAction="#handleVerwijderWaarden" text="Verwijder aangeduide attributen">
+            <Button fx:id="btnVerwijderWaarden" mnemonicParsing="false" onAction="#handleVerwijderWaarden" prefHeight="56.0" prefWidth="188.0" text="Verwijder aangeduide attributen">
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="15.0" />
                </VBox.margin>
             </Button>
-            <TextField fx:id="txtEigenschap" alignment="CENTER" promptText="vul hier de eigenschap in">
+            <TextField fx:id="txtEigenschap" alignment="CENTER" prefHeight="49.0" prefWidth="155.0" promptText="vul hier de eigenschap in">
                <VBox.margin>
-                  <Insets bottom="5.0" left="50.0" right="50.0" />
+                  <Insets bottom="5.0" left="40.0" right="40.0" />
                </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </TextField>
-            <Button fx:id="btnEigenAttribuut" mnemonicParsing="false" onAction="#handleVoegEigenAttribuutToe" text="Voeg eigenschap toe">
+            <Button fx:id="btnEigenAttribuut" mnemonicParsing="false" onAction="#handleVoegEigenAttribuutToe" prefHeight="56.0" prefWidth="188.0" text="Voeg eigenschap toe">
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </Button>
          </children>
