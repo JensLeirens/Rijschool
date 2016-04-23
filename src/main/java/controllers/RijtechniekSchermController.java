@@ -47,7 +47,7 @@ public class RijtechniekSchermController implements Initializable {
     private boolean schakel = false ;
     private boolean kijk = false ;
     private boolean helling = false ;
-    private List<String> listVoorbeeldwaarden ;
+    private List<String> listVoorbeeldwaarden = new ArrayList();
     private List<String> listOpmerkingen = new ArrayList(); 
     
     @FXML 
@@ -109,6 +109,9 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     private Button Opslaan ; 
+    
+    @FXML 
+    private Button huidigeKnop;
     
     @FXML
     private Circle circleKeren;
@@ -218,12 +221,6 @@ public class RijtechniekSchermController implements Initializable {
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
         
-        listVoorbeeldwaarden = new ArrayList<>();  
-        listVoorbeeldwaarden.add("Rustig");
-        listVoorbeeldwaarden.add("Nonchalant");
-        listVoorbeeldwaarden.add("Aggresief");
-        
-        refreshList();
     }
     
     void initData(DomainController dc) {
@@ -292,18 +289,21 @@ public class RijtechniekSchermController implements Initializable {
         lblOpm.setText("");
         List<String> check = new ArrayList(); 
         check.add(txfOpm.getText());
-        
-        if(!listOpmerkingen.contains(check.get(0))){
-            listOpmerkingen.add(txfOpm.getText());
-            ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
-            listviewOpm.setItems(ol);
-            geefOpmerking(check.get(0));
+        if (!txfOpm.getText().equals("")) {
+            if (!listOpmerkingen.contains(check.get(0))) {
+                listOpmerkingen.add(txfOpm.getText());
+                ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+                listviewOpm.setItems(ol);
+                geefOpmerking(check.get(0));
+            } else {
+                lblOpm.setVisible(true);
+                lblOpm.setText("de gewenste opmerking staat er al in");
+            }
         }
-        else{
+        else {
             lblOpm.setVisible(true);
-            lblOpm.setText("de gewenste opmerking staat er al in");
+            lblOpm.setText("gelieve een waarde in te geven");
         }
-
     }
     
     @FXML
@@ -410,6 +410,7 @@ public class RijtechniekSchermController implements Initializable {
         listviewStandaardOpm.setVisible(true); 
         listviewOpm.setVisible(true);
         txfOpm.setVisible(true);
+        huidigeKnop.setVisible(true);
     }
     
     public void verdwijnOpmerkingen(){
@@ -423,11 +424,11 @@ public class RijtechniekSchermController implements Initializable {
         listviewStandaardOpm.setVisible(false); 
         listviewOpm.setVisible(false);
         txfOpm.setVisible(false);
+        huidigeKnop.setVisible(false);
     }
     
     public void keerTerug() throws IOException{
         Stage currentStage = (Stage) rijtechniekScherm.getScene().getWindow();
-        currentStage.close();
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -442,6 +443,8 @@ public class RijtechniekSchermController implements Initializable {
         controller.initData(dc);
         
         stage.show();
+        currentStage.close();
+
     }
        
     @FXML
@@ -452,6 +455,15 @@ public class RijtechniekSchermController implements Initializable {
             helling = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking());
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("B"); 
+            listVoorbeeldwaarden.add("H"); 
+            listVoorbeeldwaarden.add("V"); 
+            refreshList();
+            
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Vertrekken.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
+            
         }
         
     }
@@ -463,6 +475,15 @@ public class RijtechniekSchermController implements Initializable {
             houding = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking());
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Zithouding"); 
+            listVoorbeeldwaarden.add("Gordel"); 
+            listVoorbeeldwaarden.add("Spiegels"); 
+            listVoorbeeldwaarden.add("Handrem"); 
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/zithouding.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
         }
         
     }
@@ -475,6 +496,16 @@ public class RijtechniekSchermController implements Initializable {
             iskoppeling = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking());
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking());
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Dosering"); 
+            listVoorbeeldwaarden.add("Volledig"); 
+            listVoorbeeldwaarden.add("Plaatsing voet"); 
+            listVoorbeeldwaarden.add("Onnodig"); 
+            listVoorbeeldwaarden.add("bocht"); 
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/koppeling.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
         }
         
     }
@@ -487,6 +518,15 @@ public class RijtechniekSchermController implements Initializable {
             remmen = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getRem().getOpmerking());
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getRem().getOpmerking()); 
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Dosering"); 
+            listVoorbeeldwaarden.add("Volgorde"); 
+            listVoorbeeldwaarden.add("Te laat"); 
+            listVoorbeeldwaarden.add("Afremmen op motor"); 
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/rem.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
         }         
     }
     
@@ -498,7 +538,14 @@ public class RijtechniekSchermController implements Initializable {
             sturen = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking());
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking());
-        }        
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Dosering"); 
+            listVoorbeeldwaarden.add("Houding");  
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Stuur.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
+       }        
     }
     
     @FXML
@@ -509,6 +556,13 @@ public class RijtechniekSchermController implements Initializable {
             schakel = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking());
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking());
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Bediening"); 
+            listVoorbeeldwaarden.add("Aangepaste versnelling"); 
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/schakelen.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
         }   
     }
     
@@ -520,6 +574,16 @@ public class RijtechniekSchermController implements Initializable {
             kijk = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getRT().getKijk().getOpmerking());
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getRT().getKijk().getOpmerking());
+            listVoorbeeldwaarden.clear();
+            listVoorbeeldwaarden.add("Ver/dichtbij"); 
+            listVoorbeeldwaarden.add("Meer vergewissen"); 
+            listVoorbeeldwaarden.add("Spiegels"); 
+            listVoorbeeldwaarden.add("Dode Hoeken"); 
+            listVoorbeeldwaarden.add("Scannen/Selecteren"); 
+            listVoorbeeldwaarden.add("Andere: "); 
+            refreshList();
+            BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/kijktechniek.jpg")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(uitRoepTeken));
         }
     }
 
@@ -590,7 +654,7 @@ public class RijtechniekSchermController implements Initializable {
         }
     }
     
-     @FXML
+    @FXML
     public void handleButtonAchteruit(ActionEvent event) throws IOException {
         
         switch(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString()){

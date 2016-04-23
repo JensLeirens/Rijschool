@@ -2,7 +2,6 @@
 package controllers;
 
 
-import com.gluonhq.charm.glisten.control.Alert;
 import domain.DomainController;
 import domain.Leerling;
 import java.io.IOException;
@@ -49,19 +48,23 @@ public class StartSchermController implements Initializable {
     private TextField txtNummer; 
     
     @FXML 
-    private Button afsluiten ; 
+    private Button afsluiten ;
+    
+    private int alert = 2 ; 
     
     @FXML 
     private void handleButtonAfsluiten(ActionEvent event) {
-        Stage currentStage = new Stage();
-        currentStage = (Stage) startScherm.getScene().getWindow();
-        currentStage.close();
-        
-//        Alert alert = new Alert(AlertType.CONFIRMATION, "Afluiten? ");
-//        alert.setContentText("ben je zeker datje wil aflsuiten? ");
-//
-//        alert.showAndWait();
+        if (alert == 3 ){
+            Stage currentStage = new Stage();
+            currentStage = (Stage) startScherm.getScene().getWindow();
+            currentStage.close();
+        }
+        else {
+            alert +=1 ; 
+            afsluiten.setStyle("-fx-background-color: Red;");
+        }
     }
+    
     @FXML
     private void handleButtonZoeken(ActionEvent event) {
         lblMessage.setVisible(true);
@@ -146,20 +149,16 @@ public class StartSchermController implements Initializable {
             dc = new DomainController(); 
             dc.generateData();
         }
-        refreshList();
         
-        // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
-        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        lblMessage.setVisible(true);
-        lblMessage.setText( "width: " + String.valueOf(bounds.getWidth()) + " height: " + String.valueOf(bounds.getHeight()));
-        // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
+        refreshList();
+       
     }
     
     private void openHoofdScherm() throws IOException{
         
         Stage currentStage = new Stage();
         currentStage = (Stage) startScherm.getScene().getWindow();
-        currentStage.close();
+        
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -175,6 +174,7 @@ public class StartSchermController implements Initializable {
         controller.initData(dc);
         
         stage.show();
+        currentStage.close();
         
     }
 
