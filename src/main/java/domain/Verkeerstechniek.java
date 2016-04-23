@@ -3,107 +3,107 @@ package domain;
 
 public class Verkeerstechniek {
     
-    private KnopKleur aanwijzers;
-    private KnopKleur rechtsaf;
-    private KnopKleur openbareWeg;
-    private KnopKleur voorrang;
-    private KnopKleur tekens;
-    private KnopKleur snelheid;
-    private KnopKleur afstanden;
-    private KnopKleur inhalen;
-    private KnopKleur kruisen;
-    private KnopKleur linksaf;
+    private KnopUitgebreid aanwijzers;
+    private KnopUitgebreid rechtsaf;
+    private KnopUitgebreid openbareWeg;
+    private KnopUitgebreid voorrang;
+    private KnopUitgebreid tekens;
+    private KnopUitgebreid snelheid;
+    private KnopUitgebreid afstanden;
+    private KnopUitgebreid inhalen;
+    private KnopUitgebreid kruisen;
+    private KnopUitgebreid linksaf;
 
     public Verkeerstechniek() {
-        this.aanwijzers = new KnopKleur();
-        this.rechtsaf = new KnopKleur();
-        this.openbareWeg = new KnopKleur();
-        this.voorrang = new KnopKleur();
-        this.tekens = new KnopKleur();
-        this.snelheid = new KnopKleur();
-        this.afstanden = new KnopKleur();
-        this.inhalen = new KnopKleur();
-        this.kruisen = new KnopKleur();
-        this.linksaf = new KnopKleur();
+        this.aanwijzers = new KnopUitgebreid();
+        this.rechtsaf = new KnopUitgebreid();
+        this.openbareWeg = new KnopUitgebreid();
+        this.voorrang = new KnopUitgebreid();
+        this.tekens = new KnopUitgebreid();
+        this.snelheid = new KnopUitgebreid();
+        this.afstanden = new KnopUitgebreid();
+        this.inhalen = new KnopUitgebreid();
+        this.kruisen = new KnopUitgebreid();
+        this.linksaf = new KnopUitgebreid();
     }
 
-    public KnopKleur getAanwijzers() {
+    public KnopUitgebreid getAanwijzers() {
         return aanwijzers;
     }
 
-    public void setAanwijzers(KnopKleur aanwijzer) {
+    public void setAanwijzers(KnopUitgebreid aanwijzer) {
         this.aanwijzers = aanwijzer;
     }
 
-    public KnopKleur getRechtsaf() {
+    public KnopUitgebreid getRechtsaf() {
         return rechtsaf;
     }
 
-    public void setRechtsaf(KnopKleur rechtsaf) {
+    public void setRechtsaf(KnopUitgebreid rechtsaf) {
         this.rechtsaf = rechtsaf;
     }
 
-    public KnopKleur getOpenbareWeg() {
+    public KnopUitgebreid getOpenbareWeg() {
         return openbareWeg;
     }
 
-    public void setOpenbareWeg(KnopKleur openbareWeg) {
+    public void setOpenbareWeg(KnopUitgebreid openbareWeg) {
         this.openbareWeg = openbareWeg;
     }
 
-    public KnopKleur getVoorrang() {
+    public KnopUitgebreid getVoorrang() {
         return voorrang;
     }
 
-    public void setVoorrang(KnopKleur voorrang) {
+    public void setVoorrang(KnopUitgebreid voorrang) {
         this.voorrang = voorrang;
     }
 
-    public KnopKleur getTekens() {
+    public KnopUitgebreid getTekens() {
         return tekens;
     }
 
-    public void setTekens(KnopKleur tekens) {
+    public void setTekens(KnopUitgebreid tekens) {
         this.tekens = tekens;
     }
 
-    public KnopKleur getSnelheid() {
+    public KnopUitgebreid getSnelheid() {
         return snelheid;
     }
 
-    public void setSnelheid(KnopKleur snelheid) {
+    public void setSnelheid(KnopUitgebreid snelheid) {
         this.snelheid = snelheid;
     }
 
-    public KnopKleur getAfstanden() {
+    public KnopUitgebreid getAfstanden() {
         return afstanden;
     }
 
-    public void setAfstanden(KnopKleur afstanden) {
+    public void setAfstanden(KnopUitgebreid afstanden) {
         this.afstanden = afstanden;
     }
 
-    public KnopKleur getInhalen() {
+    public KnopUitgebreid getInhalen() {
         return inhalen;
     }
 
-    public void setInhalen(KnopKleur inhalen) {
+    public void setInhalen(KnopUitgebreid inhalen) {
         this.inhalen = inhalen;
     }
 
-    public KnopKleur getKruisen() {
+    public KnopUitgebreid getKruisen() {
         return kruisen;
     }
 
-    public void setKruisen(KnopKleur kruisen) {
+    public void setKruisen(KnopUitgebreid kruisen) {
         this.kruisen = kruisen;
     }
 
-    public KnopKleur getLinksaf() {
+    public KnopUitgebreid getLinksaf() {
         return linksaf;
     }
 
-    public void setLinksaf(KnopKleur linksaf) {
+    public void setLinksaf(KnopUitgebreid linksaf) {
         this.linksaf = linksaf;
     }
     

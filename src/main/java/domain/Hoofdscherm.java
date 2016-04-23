@@ -11,37 +11,37 @@ package domain;
  */
 public class Hoofdscherm {
     
-    private KnopKleur banden;
-    private KnopKleur vloeistof;
-    private KnopKleur schakelaar;
+    private KnopUitgebreid banden;
+    private KnopUitgebreid vloeistof;
+    private KnopUitgebreid schakelaar;
     
-    private KnopKleur rotonde;
-    private KnopKleur rijBaanMetRijstroken;
-    private KnopKleur stad;
-    private KnopKleur autoSnelweg;
+    private KnopUitgebreid rotonde;
+    private KnopUitgebreid rijBaanMetRijstroken;
+    private KnopUitgebreid stad;
+    private KnopUitgebreid autoSnelweg;
     
-    private KnopKleur tanken;
-    private KnopKleur gps;
-    private KnopKleur stop;
+    private KnopUitgebreid tanken;
+    private KnopUitgebreid gps;
+    private KnopUitgebreid stop;
     private double evolutie;
 
     public Hoofdscherm() {
-        banden = new KnopKleur();
-        vloeistof = new KnopKleur();
-        schakelaar = new KnopKleur();
+        banden = new KnopUitgebreid();
+        vloeistof = new KnopUitgebreid();
+        schakelaar = new KnopUitgebreid();
         
-        rotonde = new KnopKleur();
-        rijBaanMetRijstroken = new KnopKleur();
-        stad = new KnopKleur();
-        autoSnelweg = new KnopKleur();
+        rotonde = new KnopUitgebreid();
+        rijBaanMetRijstroken = new KnopUitgebreid();
+        stad = new KnopUitgebreid();
+        autoSnelweg = new KnopUitgebreid();
         
-        tanken = new KnopKleur();
-        gps = new KnopKleur();
-        stop = new KnopKleur();
+        tanken = new KnopUitgebreid();
+        gps = new KnopUitgebreid();
+        stop = new KnopUitgebreid();
         evolutie = 0;
     }
     
-    public KnopKleur getBanden() {
+    public KnopUitgebreid getBanden() {
         return banden;
     }
 
@@ -53,79 +53,79 @@ public class Hoofdscherm {
         this.evolutie = evolutie;
     }
 
-    public void setBanden(KnopKleur banden) {
+    public void setBanden(KnopUitgebreid banden) {
         this.banden = banden;
     }
 
-    public KnopKleur getVloeistof() {
+    public KnopUitgebreid getVloeistof() {
         return vloeistof;
     }
 
-    public void setVloeistof(KnopKleur vloeistof) {
+    public void setVloeistof(KnopUitgebreid vloeistof) {
         this.vloeistof = vloeistof;
     }
 
-    public KnopKleur getSchakelaar() {
+    public KnopUitgebreid getSchakelaar() {
         return schakelaar;
     }
 
-    public void setSchakelaar(KnopKleur schakelaar) {
+    public void setSchakelaar(KnopUitgebreid schakelaar) {
         this.schakelaar = schakelaar;
     }
 
-    public KnopKleur getRotonde() {
+    public KnopUitgebreid getRotonde() {
         return rotonde;
     }
 
-    public void setRotonde(KnopKleur rotonde) {
+    public void setRotonde(KnopUitgebreid rotonde) {
         this.rotonde = rotonde;
     }
 
-    public KnopKleur getRijBaanMetRijstroken() {
+    public KnopUitgebreid getRijBaanMetRijstroken() {
         return rijBaanMetRijstroken;
     }
 
-    public void setRijBaanMetRijstroken(KnopKleur rijBaanMetRijstroken) {
+    public void setRijBaanMetRijstroken(KnopUitgebreid rijBaanMetRijstroken) {
         this.rijBaanMetRijstroken = rijBaanMetRijstroken;
     }
 
-    public KnopKleur getStad() {
+    public KnopUitgebreid getStad() {
         return stad;
     }
 
-    public void setStad(KnopKleur stad) {
+    public void setStad(KnopUitgebreid stad) {
         this.stad = stad;
     }
 
-    public KnopKleur getAutoSnelweg() {
+    public KnopUitgebreid getAutoSnelweg() {
         return autoSnelweg;
     }
 
-    public void setAutoSnelweg(KnopKleur autoSnelweg) {
+    public void setAutoSnelweg(KnopUitgebreid autoSnelweg) {
         this.autoSnelweg = autoSnelweg;
     }
 
-    public KnopKleur getTanken() {
+    public KnopUitgebreid getTanken() {
         return tanken;
     }
 
-    public void setTanken(KnopKleur tanken) {
+    public void setTanken(KnopUitgebreid tanken) {
         this.tanken = tanken;
     }
 
-    public KnopKleur getGps() {
+    public KnopUitgebreid getGps() {
         return gps;
     }
 
-    public void setGps(KnopKleur gps) {
+    public void setGps(KnopUitgebreid gps) {
         this.gps = gps;
     }
 
-    public KnopKleur getStop() {
+    public KnopUitgebreid getStop() {
         return stop;
     }
 
-    public void setStop(KnopKleur stop) {
+    public void setStop(KnopUitgebreid stop) {
         this.stop = stop;
     }
 

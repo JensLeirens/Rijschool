@@ -352,8 +352,7 @@ public class VerkeerstechniekSchermController implements Initializable{
     
     public void handleButtonTerugknop(ActionEvent event)throws IOException{
         Stage currentStage = (Stage) verkeerstechniekScherm.getScene().getWindow();
-        currentStage.close();
-        
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -367,6 +366,7 @@ public class VerkeerstechniekSchermController implements Initializable{
         controller.initData(dc);
         
         stage.show();
+        currentStage.close();
     }
 
     void initData(DomainController dc) {

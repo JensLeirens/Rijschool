@@ -427,30 +427,36 @@ public class HoofdSchermController implements Initializable {
             evaluatie3.setSelected(true);
         }
     }
+    private int alert = 2; 
     
     public void keerTerug() throws IOException{
-        
-        Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        
-        Stage stage = new Stage();
-        stage.setTitle("Start scherm");
-        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root1, 1024, 743);
-        stage.setScene(scene);
-        StartSchermController controller = fxmlLoader.<StartSchermController>getController();
-        controller.initData(dc);
-        
-        stage.show();
+        if (alert == 3) {
+            Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/StartScherm.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Start scherm");
+            Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(root1, 1024, 743);
+            stage.setScene(scene);
+            StartSchermController controller = fxmlLoader.<StartSchermController>getController();
+            controller.initData(dc);
+
+            stage.show();
+            currentStage.close();
+        } else {
+            terugknop.setStyle("-fx-background-color: Red;");
+            alert += 1;
+
+        }
     }
     
     public void openAttitude() throws IOException{
         
         Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
+        
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AttitudeScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -464,11 +470,11 @@ public class HoofdSchermController implements Initializable {
         controller.initData(dc);
         
         stage.show();
+        currentStage.close();
     }
 
     public void openVerkeerstechniek() throws IOException{
         Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/VerkeerstechniekScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -481,11 +487,12 @@ public class HoofdSchermController implements Initializable {
         VerkeerstechniekSchermController controller = fxmlLoader.<VerkeerstechniekSchermController>getController();
         controller.initData(dc);
         stage.show();
+        currentStage.close();
     }
     
     public void openRijtechniek() throws IOException{
         Stage currentStage = (Stage) hoofdEvaScherm.getScene().getWindow();
-        currentStage.close();
+
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/RijtechniekScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -499,6 +506,7 @@ public class HoofdSchermController implements Initializable {
         RijtechniekSchermController controller = fxmlLoader.<RijtechniekSchermController>getController();
         controller.initData(dc);
         stage.show();
+        currentStage.close();
     }
     
     @Override

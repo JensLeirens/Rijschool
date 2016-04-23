@@ -118,7 +118,7 @@ public class AttitudeSchermController implements Initializable {
 
     public void keerTerug() throws IOException{
         Stage currentStage = (Stage) attitudeScherm.getScene().getWindow();
-        currentStage.close();
+        
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -133,6 +133,7 @@ public class AttitudeSchermController implements Initializable {
         controller.initData(dc);
         
         stage.show();
+        currentStage.close();
     }
 
     void initData(DomainController dc) {
