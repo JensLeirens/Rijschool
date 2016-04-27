@@ -175,6 +175,10 @@ public class RijtechniekSchermController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+         listviewOpm.setStyle("-fx-font: 12pt \"Arial\";");
+         listviewStandaardOpm.setStyle("-fx-font: 12pt \"Arial\";");
+          
         verdwijnOpmerkingen(); 
         rijtechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         
@@ -268,6 +272,7 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     public void handleButtonAddWaarde(ActionEvent event) throws IOException {
+        txfOpm.setText("");
         lblOpm.setText("");
         List<String> check = new ArrayList(); 
         check.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
@@ -287,23 +292,34 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     public void handleButtonAddOpm(ActionEvent event) throws IOException {
         lblOpm.setText("");
-        List<String> check = new ArrayList(); 
-        check.add(txfOpm.getText());
-        if (!txfOpm.getText().equals("")) {
-            if (!listOpmerkingen.contains(check.get(0))) {
-                listOpmerkingen.add(txfOpm.getText());
-                ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
-                listviewOpm.setItems(ol);
-                geefOpmerking(check.get(0));
-            } else {
-                lblOpm.setVisible(true);
-                lblOpm.setText("de gewenste opmerking staat er al in");
+        String voegOpmToe = txfOpm.getText();
+        List<String> check = new ArrayList();
+        check.addAll(listviewOpm.getSelectionModel().getSelectedItems());
+        if (!check.isEmpty()) {
+            if (check.get(0) != null) {
+                if (!txfOpm.getText().equals("")) {
+                    verwijderOpmerking(listviewOpm.getSelectionModel().getSelectedItems());
+                    listOpmerkingen.removeAll(check);
+                    txfOpm.setText(check.get(0) + ": " + voegOpmToe);
+                    voegOpmToe = txfOpm.getText();
+                    listOpmerkingen.add(voegOpmToe);
+                    ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+                    listviewOpm.setItems(ol);
+                    geefOpmerking(voegOpmToe);
+                } else {
+                    lblOpm.setVisible(true);
+                    lblOpm.setText("gelieve een opmerking in te geven!");
+                }
             }
         }
-        else {
-            lblOpm.setVisible(true);
-            lblOpm.setText("gelieve een waarde in te geven");
-        }
+    }
+
+    @FXML
+    public void handleButtonVerwijderOpm(ActionEvent event) throws IOException {
+        verwijderOpmerking(listviewOpm.getSelectionModel().getSelectedItems());
+        listOpmerkingen.removeAll(listviewOpm.getSelectionModel().getSelectedItems());
+        ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+        listviewOpm.setItems(ol);
     }
     
     @FXML
@@ -395,6 +411,31 @@ public class RijtechniekSchermController implements Initializable {
             }
             if (helling == true){
                 dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking().add(opmerking);
+            }
+        }
+    }
+     public void verwijderOpmerking(List opmerking) {
+        if (toon == true) {
+            if (houding == true) {
+                dc.getHuidigeLeerling().getRT().getZithouding().getOpmerking().removeAll(opmerking);
+            }
+            if (iskoppeling == true) {
+                dc.getHuidigeLeerling().getRT().getKoppeling().getOpmerking().removeAll(opmerking);
+            }
+            if (remmen == true) {
+                dc.getHuidigeLeerling().getRT().getRem().getOpmerking().removeAll(opmerking);
+            }
+            if (sturen == true) {
+                dc.getHuidigeLeerling().getRT().getStuurtechniek().getOpmerking().removeAll(opmerking);
+            }
+            if (schakel == true) {
+                dc.getHuidigeLeerling().getRT().getSchakel().getOpmerking().removeAll(opmerking);
+            }
+            if (kijk == true) {
+                dc.getHuidigeLeerling().getRT().getKijk().getOpmerking().removeAll(opmerking);
+            }
+            if (helling == true){
+                dc.getHuidigeLeerling().getRT().getAanzettenHelling().getOpmerking().removeAll(opmerking);
             }
         }
     }

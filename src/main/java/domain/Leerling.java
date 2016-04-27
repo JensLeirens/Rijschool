@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 
 
 public class Leerling {
-    private int id ; 
+    private String nummer; 
     private String naam;
     private String email ; 
     private String geboorteDatum ; 
@@ -25,8 +25,8 @@ public class Leerling {
         
     }
     
-    public Leerling(int id, String naam) {
-        this.id = id;
+    public Leerling(String nummer, String naam) {
+        this.nummer = nummer;
         this.naam = naam;
         this.hoofdscherm = new Hoofdscherm();
         this.RT = new Rijtechniek();
@@ -34,6 +34,10 @@ public class Leerling {
         evaluaties = new ArrayList<>();
         attitude = new ArrayList<>();
         opmerkingen = new ArrayList<>();
+    }
+
+    public String getNummer() {
+        return nummer;
     }
 
     public Verkeerstechniek getVT() {
@@ -70,10 +74,6 @@ public class Leerling {
 
     public void setAfbeelding(Image afbeelding) {
         this.afbeelding = afbeelding;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Hoofdscherm getHoofdscherm() {

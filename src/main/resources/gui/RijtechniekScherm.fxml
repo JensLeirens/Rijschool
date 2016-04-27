@@ -24,134 +24,71 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rijtechniekScherm" prefHeight="700.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RijtechniekSchermController">
-  <bottom>
-    <GridPane prefHeight="54.0" prefWidth="1056.0">
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="365.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="379.0" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-         <opaqueInsets>
-            <Insets bottom="5.0" />
-         </opaqueInsets>
-         <padding>
-            <Insets bottom="5.0" left="10.0" right="5.0" />
-         </padding>
-         <children>
-            <Button fx:id="terugknop" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleButtonTerugknop" prefHeight="54.0" prefWidth="81.0" text="Button" GridPane.rowSpan="3">
-               <GridPane.margin>
-                  <Insets bottom="5.0" />
-               </GridPane.margin></Button>
-         </children>
-    </GridPane>
-  </bottom>
-   <top>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="239.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="625.0" minWidth="10.0" prefWidth="447.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="0.0" prefWidth="0.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="205.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints />
-        </rowConstraints>
-         <children>
-            <ImageView fitHeight="96.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="3">
-               <image>
-                  <Image url="@../image/vbFoto.PNG" />
-               </image>
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-            </ImageView>
-            <Label fx:id="naam" text="Voornaam Naam" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets right="10.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets left="5.0" right="5.0" top="10.0" />
-         </padding>
-      </GridPane>
-   </top>
+<BorderPane fx:id="rijtechniekScherm" maxHeight="743.0" minHeight="743.0" prefHeight="743.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RijtechniekSchermController">
    <center>
-      <AnchorPane prefHeight="495.0" prefWidth="1047.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="748.0" prefWidth="1056.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="941.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleButtonOpm" prefHeight="52.0" prefWidth="52.0" text="Button">
+            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="945.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleButtonOpm" prefHeight="52.0" prefWidth="52.0" text="Button">
                <effect>
                   <DropShadow color="#ffaa00" height="35.83" radius="16.6725" width="32.86" />
                </effect></Button>
-            <Button fx:id="groen" contentDisplay="GRAPHIC_ONLY" layoutX="861.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonGroen" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Green;" text="Button">
+            <Button fx:id="groen" contentDisplay="GRAPHIC_ONLY" layoutX="865.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleButtonGroen" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Green;" text="Button">
                <effect>
                   <DropShadow color="#00cd26" height="38.79" radius="16.6725" width="29.9" />
                </effect></Button>
-            <Button fx:id="oranje" contentDisplay="GRAPHIC_ONLY" layoutX="726.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleButtonOranje" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Orange;" text="Button">
+            <Button fx:id="oranje" contentDisplay="GRAPHIC_ONLY" layoutX="730.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleButtonOranje" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Orange;" text="Button">
                <effect>
                   <DropShadow color="#ff9500" height="50.65" radius="18.895" width="26.93" />
                </effect></Button>
-            <Button fx:id="rood" contentDisplay="GRAPHIC_ONLY" layoutX="589.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleButtonRood" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Button">
+            <Button fx:id="rood" contentDisplay="GRAPHIC_ONLY" layoutX="593.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleButtonRood" prefHeight="62.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Button">
                <effect>
                   <DropShadow color="RED" height="41.76" radius="15.932499999999997" width="23.97" />
                </effect></Button>
-            <Button fx:id="schakeltechniek" contentDisplay="GRAPHIC_ONLY" layoutX="353.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleButtonSchakel" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="schakeltechniek" contentDisplay="GRAPHIC_ONLY" layoutX="351.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleButtonSchakel" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="kijktechniek" contentDisplay="GRAPHIC_ONLY" layoutX="390.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonKijk" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="kijktechniek" contentDisplay="GRAPHIC_ONLY" layoutX="394.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleButtonKijk" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="parkeren" contentDisplay="GRAPHIC_ONLY" layoutX="390.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleButtonParkeren" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="parkeren" contentDisplay="GRAPHIC_ONLY" layoutX="394.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleButtonParkeren" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="keren" contentDisplay="GRAPHIC_ONLY" layoutX="342.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleButtonKeren" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="keren" contentDisplay="GRAPHIC_ONLY" layoutX="346.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonKeren" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="stuurtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="274.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButtonStuur" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="stuurtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="278.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleButtonStuur" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="koppeling" contentDisplay="GRAPHIC_ONLY" layoutX="115.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleButtonKoppeling" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="koppeling" contentDisplay="GRAPHIC_ONLY" layoutX="119.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleButtonKoppeling" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="garage" contentDisplay="GRAPHIC_ONLY" layoutX="270.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleButtonGarage" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="garage" contentDisplay="GRAPHIC_ONLY" layoutX="274.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleButtonGarage" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="achteruitrijden" contentDisplay="GRAPHIC_ONLY" layoutX="183.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleButtonAchteruit" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="achteruitrijden" contentDisplay="GRAPHIC_ONLY" layoutX="187.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleButtonAchteruit" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="stuuroefeningen" contentDisplay="GRAPHIC_ONLY" layoutX="115.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleButtonStuurOef" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="stuuroefeningen" contentDisplay="GRAPHIC_ONLY" layoutX="119.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonStuurOef" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="aanzettenHelling" contentDisplay="GRAPHIC_ONLY" layoutX="72.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleButtonAanzettenHelling" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="aanzettenHelling" contentDisplay="GRAPHIC_ONLY" layoutX="76.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleButtonAanzettenHelling" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Button fx:id="remtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="187.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButtonRem" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="remtechniek" contentDisplay="GRAPHIC_ONLY" layoutX="191.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleButtonRem" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="186.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="190.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/StuurWit.png" />
                </image>
@@ -159,32 +96,55 @@
                   <DropShadow color="#020ef5" height="71.41" radius="35.9475" width="74.38" />
                </effect>
             </ImageView>
-            <Button fx:id="zithouding" contentDisplay="GRAPHIC_ONLY" layoutX="72.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleButtonHouding" prefHeight="48.0" prefWidth="46.0" text="Button">
+            <Button fx:id="zithouding" contentDisplay="GRAPHIC_ONLY" layoutX="76.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleButtonHouding" prefHeight="48.0" prefWidth="46.0" text="Button">
                <effect>
                   <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
                </effect></Button>
-            <Circle fx:id="circleStuuroefeningen" fill="WHITE" layoutX="170.0" layoutY="334.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleAchteruitrijden" fill="WHITE" layoutX="238.0" layoutY="399.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleGarage" fill="WHITE" layoutX="325.0" layoutY="399.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleKeren" fill="WHITE" layoutX="397.0" layoutY="333.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleParkeren" fill="WHITE" layoutX="445.0" layoutY="255.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleKijktechniek" fill="WHITE" layoutX="445.0" layoutY="175.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleSchakeltechniek" fill="WHITE" layoutX="408.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleStuurtechniek" fill="WHITE" layoutX="329.0" layoutY="41.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleRemtechniek" fill="WHITE" layoutX="242.0" layoutY="41.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleKoppeling" fill="WHITE" layoutX="170.0" layoutY="97.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circleZithouding" fill="WHITE" layoutX="127.0" layoutY="175.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="lblOpm" layoutX="849.0" layoutY="379.0" prefHeight="61.0" prefWidth="144.0" text="       " textFill="#0fdd00" wrapText="true">
+            <Circle fx:id="circleStuuroefeningen" fill="WHITE" layoutX="174.0" layoutY="497.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleAchteruitrijden" fill="WHITE" layoutX="242.0" layoutY="574.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleGarage" fill="WHITE" layoutX="329.0" layoutY="574.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleKeren" fill="WHITE" layoutX="401.0" layoutY="496.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleParkeren" fill="WHITE" layoutX="449.0" layoutY="413.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleKijktechniek" fill="WHITE" layoutX="449.0" layoutY="320.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleSchakeltechniek" fill="WHITE" layoutX="406.0" layoutY="233.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleStuurtechniek" fill="WHITE" layoutX="333.0" layoutY="166.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleRemtechniek" fill="WHITE" layoutX="246.0" layoutY="166.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleKoppeling" fill="WHITE" layoutX="174.0" layoutY="232.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circleZithouding" fill="WHITE" layoutX="131.0" layoutY="320.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="lblOpm" layoutX="853.0" layoutY="635.0" prefHeight="61.0" prefWidth="144.0" text="       " textFill="#0fdd00" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <ListView fx:id="listviewStandaardOpm" layoutX="533.0" layoutY="108.0" prefHeight="210.0" prefWidth="220.0" />
-            <ListView fx:id="listviewOpm" layoutX="773.0" layoutY="109.0" prefHeight="210.0" prefWidth="220.0" />
-            <Button fx:id="addWaarde" layoutX="533.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleButtonAddWaarde" prefHeight="54.0" prefWidth="143.0" text="voeg aangeduide waarde toe" textAlignment="CENTER" wrapText="true" />
-            <TextField fx:id="txfOpm" alignment="CENTER" layoutX="692.0" layoutY="330.0" prefHeight="50.0" prefWidth="236.0" promptText="vul hier een opmerking in " />
-            <Button fx:id="addOpm" layoutX="735.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleButtonAddOpm" prefHeight="48.0" prefWidth="151.0" text="voeg opmerking toe " />
-            <Button fx:id="Opslaan" layoutX="720.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleButtonOpslaan" prefHeight="54.0" prefWidth="107.0" text="Opslaan" />
-            <Circle fx:id="circleHelling" fill="WHITE" layoutX="127.0" layoutY="255.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <ListView fx:id="listviewStandaardOpm" layoutX="537.0" layoutY="283.0" prefHeight="210.0" prefWidth="220.0" />
+            <ListView fx:id="listviewOpm" layoutX="777.0" layoutY="284.0" prefHeight="210.0" prefWidth="220.0" />
+            <Button fx:id="addWaarde" layoutX="537.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleButtonAddWaarde" prefHeight="54.0" prefWidth="143.0" text="voeg aangeduide waarde toe" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="txfOpm" alignment="CENTER" layoutX="696.0" layoutY="505.0" prefHeight="50.0" prefWidth="236.0" promptText="vul hier een opmerking in " />
+            <Button fx:id="addOpm" layoutX="696.0" layoutY="569.0" mnemonicParsing="false" onAction="#handleButtonAddOpm" prefHeight="48.0" prefWidth="151.0" text="voeg opmerking toe " />
+            <Button fx:id="Opslaan" layoutX="724.0" layoutY="641.0" mnemonicParsing="false" onAction="#handleButtonOpslaan" prefHeight="54.0" prefWidth="107.0" text="Opslaan" />
+            <Circle fx:id="circleHelling" fill="WHITE" layoutX="131.0" layoutY="413.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="naam" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="827.0" layoutY="127.0" maxHeight="21.0" maxWidth="217.0" prefHeight="21.0" prefWidth="217.0" text="Voornaam Naam" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets right="5.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+            </Label>
+            <ImageView fitHeight="96.0" fitWidth="105.0" layoutX="926.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/vbFoto.PNG" />
+               </image>
+            </ImageView>
+            <Button fx:id="huidigeKnop" contentDisplay="GRAPHIC_ONLY" layoutX="742.0" layoutY="113.0" minHeight="58.0" minWidth="56.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="56.0" text="Button">
+               <effect>
+                  <DropShadow color="#0013ff" height="12.1" radius="21.862499999999997" width="77.35" />
+               </effect>
+            </Button>
+            <Button fx:id="terugknop" contentDisplay="GRAPHIC_ONLY" layoutX="18.0" layoutY="668.0" mnemonicParsing="false" onAction="#handleButtonTerugknop" prefHeight="54.0" prefWidth="81.0" text="Button" />
+            <Button fx:id="verwijderOpm" layoutX="851.0" layoutY="569.0" mnemonicParsing="false" onAction="#handleButtonVerwijderOpm" prefHeight="48.0" prefWidth="151.0" text="Verwijder opmerking" />
          </children>
       </AnchorPane>
    </center>

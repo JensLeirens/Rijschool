@@ -100,7 +100,7 @@ public class StartSchermController implements Initializable {
     @FXML
     private void handleButtonNieuw(ActionEvent event) {
         boolean leerlingBestaatAl = true; 
-        try {
+       
         lblMessage.setTextFill(Color.web("#e42d2d"));   
         
         lblMessage.setVisible(true);
@@ -116,7 +116,7 @@ public class StartSchermController implements Initializable {
         
         else {
             for (Leerling l : dc.getLeerlingen()) {
-                if( l.getId() != Integer.parseInt(txtNummer.getText())){
+                if( !l.getNummer().equals(txtNummer.getText())){
                     leerlingBestaatAl = false ; 
                 } 
                 else {
@@ -126,7 +126,7 @@ public class StartSchermController implements Initializable {
             }
             
             if (leerlingBestaatAl == false){
-                dc.getLeerlingen().add(new Leerling(Integer.parseInt(txtNummer.getText()), txtNaam.getText()));
+                dc.getLeerlingen().add(new Leerling(txtNummer.getText(), txtNaam.getText()));
                 lblMessage.setTextFill(Color.web("#006400"));
                 lblMessage.setText("Leerling aangemaakt");
             
@@ -134,10 +134,7 @@ public class StartSchermController implements Initializable {
             
            
         }
-        } catch (NumberFormatException e) {
-            lblMessage.setTextFill(Color.web("#e42d2d"));
-            lblMessage.setText("GELIEVE EEN GELDIG NUMMER IN TE GEVEN!");
-        }
+        
         refreshList();
     }
     
