@@ -39,8 +39,8 @@ public class DomainController {
     }
     
     public void generateData() {
-        leerlingen.add(new Leerling(1, "Johnny Cash"));
-        leerlingen.add(new Leerling(2, "Walter Vanderpoorten"));
+        leerlingen.add(new Leerling("1a", "Johnny Cash"));
+        leerlingen.add(new Leerling("2a", "Walter Vanderpoorten"));
     }
     
     

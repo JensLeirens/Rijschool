@@ -25,6 +25,11 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
@@ -63,6 +68,9 @@ public class AttitudeSchermController implements Initializable {
     private Button btnEigenAttribuut;
     
     @FXML
+    private Button opm; 
+    
+    @FXML
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
     }
@@ -93,18 +101,53 @@ public class AttitudeSchermController implements Initializable {
         refreshLists();
     }
     
+     @FXML
+    public void  handleButtonOpm (ActionEvent event){
+        List<String> check = new ArrayList(); 
+        
+         if (!listViewEigenschappen.getSelectionModel().getSelectedItems().isEmpty()) {
+             check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+
+             if (!dc.getHuidigeLeerling().getOpmerkingen().contains(check.get(0))) {
+                 dc.getHuidigeLeerling().getOpmerkingen().addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+             }
+         }
+    }
+    
+     
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         attitudeScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
         terugknop.setGraphic(new ImageView(imgTerugknop));
+        
+        BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/uitroepteken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        opm.setBackground(new Background(uitRoepTeken));
+               
         listViewVoorbeeldwaarden.setStyle("-fx-font: 12pt \"Arial\";");
         listViewEigenschappen.setStyle("-fx-font: 12pt \"Arial\";");
         
         listVoorbeeldwaarden = new ArrayList<>();  
-        listVoorbeeldwaarden.add("Rustig");
-        listVoorbeeldwaarden.add("Nonchalant");
-        listVoorbeeldwaarden.add("Aggresief");
+        listVoorbeeldwaarden.add("Gedrag TOV anderen");
+        listVoorbeeldwaarden.add("Risicoperceptie");
+        listVoorbeeldwaarden.add("Beslissingen nemen");
+        listVoorbeeldwaarden.add("Voorspelbaar rijgedrag");
+        listVoorbeeldwaarden.add("Rijgedrag IFV externe factoren");
+        listVoorbeeldwaarden.add("ECO rijden");
+        listVoorbeeldwaarden.add("Zelfreflectie");
+        listVoorbeeldwaarden.add("Gedrag bij ongeval");
+        listVoorbeeldwaarden.add("Zenuwachtig");
+        listVoorbeeldwaarden.add("Concentratie");
+        listVoorbeeldwaarden.add("Verstrooid");
+        listVoorbeeldwaarden.add("Eigenwijs");
+        listVoorbeeldwaarden.add("Inzet");
+        listVoorbeeldwaarden.add("Schrik");
+        listVoorbeeldwaarden.add("Agressief");
+        listVoorbeeldwaarden.add("Asociaal rijgedrag");
+        listVoorbeeldwaarden.add("Verkeersgevaarlijk");
+        listVoorbeeldwaarden.add("Ongeduldig");
+        listVoorbeeldwaarden.add("Andere");
         listViewVoorbeeldwaarden.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
  
