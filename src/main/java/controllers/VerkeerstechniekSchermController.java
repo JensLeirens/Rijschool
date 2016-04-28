@@ -56,7 +56,7 @@ public class VerkeerstechniekSchermController implements Initializable {
     private Label naam ;
     
     @FXML
-    private Node rijtechniekScherm ;
+    private Node verkeerstechniekScherm ;
 
     @FXML 
     private Button terugknop ; 
@@ -142,8 +142,6 @@ public class VerkeerstechniekSchermController implements Initializable {
     @FXML
     private Label lblOpm; 
     
-    @FXML
-    private ListView listviewStandaardOpm; 
     
     @FXML
     private ListView listviewOpm; 
@@ -158,6 +156,9 @@ public class VerkeerstechniekSchermController implements Initializable {
     private TextField txfOpm; 
             
     @FXML
+    private Button  verwijderOpm;
+    
+    @FXML
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();
     }
@@ -167,10 +168,9 @@ public class VerkeerstechniekSchermController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         
          listviewOpm.setStyle("-fx-font: 12pt \"Arial\";");
-         listviewStandaardOpm.setStyle("-fx-font: 12pt \"Arial\";");
           
         verdwijnOpmerkingen(); 
-        rijtechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        verkeerstechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
         
         BackgroundImage imgVoorrang = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         voorrang.setBackground(new Background(imgVoorrang));
@@ -239,35 +239,12 @@ public class VerkeerstechniekSchermController implements Initializable {
         circleOpenbareWeg.setFill(Color.valueOf(kleur));
     }
     
-      public void refreshList(){
-        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
-        listviewStandaardOpm.setItems(olVoorbeelden);
-    }
       
      @FXML
     public void handleButtonOpm(ActionEvent event) throws IOException {
         lblOpm.setVisible(true);
         lblOpm.setText("Opmerking is opgeslaan als belangrijk.");
         dc.getHuidigeLeerling().getOpmerkingen().addAll(listviewOpm.getSelectionModel().getSelectedItems()); 
-    }
-    
-    @FXML
-    public void handleButtonAddWaarde(ActionEvent event) throws IOException {
-        txfOpm.setText("");
-        lblOpm.setText("");
-        List<String> check = new ArrayList(); 
-        check.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
-        
-        if(!listOpmerkingen.contains(check.get(0))){
-            listOpmerkingen.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
-            ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
-            listviewOpm.setItems(ol);
-            geefOpmerking(check.get(0));
-        }
-        else{
-            lblOpm.setVisible(true);
-            lblOpm.setText("de gewenste opmerking staat er al in");
-        }
     }
     
     @FXML
@@ -440,34 +417,32 @@ public class VerkeerstechniekSchermController implements Initializable {
     
     public void toonOpmerkingen(){
         addOpm.setVisible(true);
-        addWaarde.setVisible(true);
         opm.setVisible(true);  
         rood .setVisible(true);
         oranje.setVisible(true);
         groen.setVisible(true);
         Opslaan.setVisible(true);
-        listviewStandaardOpm.setVisible(true); 
         listviewOpm.setVisible(true);
         txfOpm.setVisible(true);
         huidigeKnop.setVisible(true);
+        verwijderOpm.setVisible(true);
     }
     
     public void verdwijnOpmerkingen(){
         addOpm.setVisible(false);
-        addWaarde.setVisible(false);
         opm.setVisible(false);   
         rood .setVisible(false);
         oranje.setVisible(false);
         groen.setVisible(false);
-        Opslaan.setVisible(false);
-        listviewStandaardOpm.setVisible(false); 
+        Opslaan.setVisible(false); 
         listviewOpm.setVisible(false);
         txfOpm.setVisible(false);
         huidigeKnop.setVisible(false);
+         verwijderOpm.setVisible(false);
     }
     
     public void keerTerug() throws IOException{
-        Stage currentStage = (Stage) rijtechniekScherm.getScene().getWindow();
+        Stage currentStage = (Stage) verkeerstechniekScherm.getScene().getWindow();
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -494,7 +469,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanVoorrang = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -508,7 +483,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanTekens = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -522,7 +497,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanSnelheid = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -535,7 +510,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanAfstanden = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -549,7 +524,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanInhalen = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -563,7 +538,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanKruisen = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -577,7 +552,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanLinksaf = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -591,7 +566,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanRechtsaf = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -605,7 +580,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanAanwijzers = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Aanwijzers.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -619,7 +594,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             booleanOpenbareWeg = true ; 
             listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking()); 
             listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking());
-            refreshList();
+            
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }

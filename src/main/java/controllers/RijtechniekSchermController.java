@@ -166,6 +166,9 @@ public class RijtechniekSchermController implements Initializable {
     
     @FXML
     private TextField txfOpm; 
+    
+    @FXML
+    private Button verwijderOpm;
             
     @FXML
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
@@ -282,8 +285,7 @@ public class RijtechniekSchermController implements Initializable {
             ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
             listviewOpm.setItems(ol);
             geefOpmerking(check.get(0));
-        }
-        else{
+        } else{
             lblOpm.setVisible(true);
             lblOpm.setText("de gewenste opmerking staat er al in");
         }
@@ -310,7 +312,13 @@ public class RijtechniekSchermController implements Initializable {
                     lblOpm.setVisible(true);
                     lblOpm.setText("gelieve een opmerking in te geven!");
                 }
+            } else {
+                lblOpm.setVisible(true);
+                lblOpm.setText("gelieve een standaard opmerking te selecteren");
             }
+        } else {
+            lblOpm.setVisible(true);
+            lblOpm.setText("gelieve een standaard opmerking te selecteren");
         }
     }
 
@@ -320,6 +328,8 @@ public class RijtechniekSchermController implements Initializable {
         listOpmerkingen.removeAll(listviewOpm.getSelectionModel().getSelectedItems());
         ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
         listviewOpm.setItems(ol);
+        lblOpm.setVisible(true);
+        lblOpm.setText("de opmerking is verwijdert");
     }
     
     @FXML
@@ -452,6 +462,8 @@ public class RijtechniekSchermController implements Initializable {
         listviewOpm.setVisible(true);
         txfOpm.setVisible(true);
         huidigeKnop.setVisible(true);
+        verwijderOpm.setVisible(true);
+        
     }
     
     public void verdwijnOpmerkingen(){
@@ -466,6 +478,8 @@ public class RijtechniekSchermController implements Initializable {
         listviewOpm.setVisible(false);
         txfOpm.setVisible(false);
         huidigeKnop.setVisible(false);
+        verwijderOpm.setVisible(false);
+        
     }
     
     public void keerTerug() throws IOException{
