@@ -1,10 +1,15 @@
+
 package controllers;
 
 import domain.DomainController;
 import domain.Kleur;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -27,332 +34,441 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class VerkeerstechniekSchermController implements Initializable{
-    
+
+public class VerkeerstechniekSchermController implements Initializable {
     private DomainController dc = new DomainController(); 
     
-    @FXML
-    private Node verkeerstechniekScherm;
+    private boolean toon = false ;
+    private boolean booleanVoorrang = false ;
+    private boolean booleanTekens = false ;
+    private boolean booleanSnelheid = false ;
+    private boolean booleanAfstanden = false ;
+    private boolean booleanInhalen = false ;
+    private boolean booleanKruisen = false ;
+    private boolean booleanLinksaf = false ;
+    private boolean booleanRechtsaf = false ;
+    private boolean booleanAanwijzers = false ;
+    private boolean booleanOpenbareWeg = false;
+    private List<String> listVoorbeeldwaarden = new ArrayList();
+    private List<String> listOpmerkingen = new ArrayList(); 
+    
+    @FXML 
+    private Label naam ;
     
     @FXML
-    private Button btnTerug;
+    private Node rijtechniekScherm ;
+
+    @FXML 
+    private Button terugknop ; 
     
     @FXML
-    private Label lblNaam;
+    private Button opm ; 
     
     @FXML
-    private Button btnVoorrang;
+    private Button rood ; 
     
     @FXML
-    private Circle circleVoorrang ;
-    @FXML
-    private Circle circleTekens ;
-    @FXML
-    private Circle circleSnelheid ;
-    @FXML
-    private Circle circleAfstanden ;
-    @FXML
-    private Circle circleInhalen ;
-    @FXML
-    private Circle circleKruisen ;
-    @FXML
-    private Circle circleLinksaf ;
-    @FXML
-    private Circle circleRechtsaf ;
-    @FXML
-    private Circle circleAanwijzers ;
-    @FXML
-    private Circle circleOpenbareWeg ;
+    private Button oranje ; 
     
+    @FXML
+    private Button groen ; 
+    
+    @FXML
+    private Button voorrang ;
+    
+    @FXML
+    private Button tekens ;
+    
+    @FXML
+    private Button snelheid ;
+    
+    @FXML
+    private Button afstanden;
+    
+    @FXML
+    private Button inhalen ; 
+    
+    @FXML
+    private Button kruisen ; 
+    
+    @FXML
+    private Button linksaf; 
+    
+    @FXML
+    private Button rechtsaf ;
+    
+    @FXML
+    private Button aanwijzers ;
+    
+    @FXML
+    private Button openbareWeg ;
+    
+    @FXML
+    private Button Opslaan ; 
+    
+    @FXML 
+    private Button huidigeKnop;
+    
+    @FXML
+    private Circle circleVoorrang;
+    
+    @FXML
+    private Circle circleTekens;
+    
+    @FXML
+    private Circle circleSnelheid;
+    
+    @FXML
+    private Circle circleAfstanden;
+    
+    @FXML
+    private Circle circleInhalen;
+    
+    @FXML
+    private Circle circleKruisen;
+    
+    @FXML
+    private Circle circleLinksaf;
+    
+    @FXML
+    private Circle circleRechtsaf;
+    
+    @FXML
+    private Circle circleAanwijzers;
+    
+    @FXML
+    private Circle circleOpenbareWeg;
+    
+    @FXML
+    private Label lblOpm; 
+    
+    @FXML
+    private ListView listviewStandaardOpm; 
+    
+    @FXML
+    private ListView listviewOpm; 
+          
+    @FXML
+    private Button addOpm; 
+    
+    @FXML
+    private Button addWaarde; 
+    
+    @FXML
+    private TextField txfOpm; 
+            
+    @FXML
+    public void handleButtonTerugknop(ActionEvent event) throws IOException {
+        keerTerug();
+    }
    
-    @FXML
-    public void handleButtonVoorrang(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString()){
-            case "WHITE":
-                circleVoorrang.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleVoorrang.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleVoorrang.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.RED);
-                break;
-            case "RED":
-                circleVoorrang.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.ORANGE);
-                break;    
-        }
-    }
-    
-    @FXML
-    private Button btnOpenbareWeg;
-    
-    @FXML
-    public void handleButtonOpenbareWeg(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString()){
-            case "WHITE":
-                circleOpenbareWeg.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleOpenbareWeg.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleOpenbareWeg.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleOpenbareWeg.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnAanwijzers;
-    
-    @FXML
-    public void handleButtonAanwijzers(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString()){
-            case "WHITE":
-                circleAanwijzers.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleAanwijzers.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleAanwijzers.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleAanwijzers.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnRechtsaf;
-    
-    @FXML
-    public void handleButtonRechtsaf(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString()){
-            case "WHITE":
-                circleRechtsaf.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleRechtsaf.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleRechtsaf.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleRechtsaf.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnLinksaf;
-    @FXML
-    public void handleButtonLinksaf(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString()){
-            case "WHITE":
-                circleLinksaf.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleLinksaf.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleLinksaf.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleLinksaf.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnKruisen;
-    
-    @FXML
-    public void handleButtonKruisen(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString()){
-            case "WHITE":
-                circleKruisen.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleKruisen.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleKruisen.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleKruisen.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnInhalen;
-    
-    @FXML
-    public void handleButtonInhalen(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString()){
-            case "WHITE":
-                circleInhalen.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleInhalen.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleInhalen.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleInhalen.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnAfstanden;
-    
-    @FXML
-    public void handleButtonAfstanden(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString()){
-            case "WHITE":
-                circleAfstanden.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleAfstanden.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleAfstanden.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.RED);
-                break; 
-            case "RED":
-                circleAfstanden.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnSnelheid;
-    
-    @FXML
-    public void handleButtonSnelheid(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString()){
-            case "WHITE":
-                circleSnelheid.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleSnelheid.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleSnelheid.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleSnelheid.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
-    
-    @FXML
-    private Button btnTekens;
-    
-    @FXML
-    public void handleButtonTekens(ActionEvent event) {
-
-        switch(dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString()){
-            case "WHITE":
-                circleTekens.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.RED);
-                break;
-            case "ORANGE":
-                circleTekens.setFill(Color.GREEN);
-                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.GREEN);
-                break;
-            case "GREEN":
-                circleTekens.setFill(Color.RED);
-                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.RED);
-                break;  
-            case "RED":
-                circleTekens.setFill(Color.ORANGE);
-                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.ORANGE);
-                break;
-        }
-    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        verkeerstechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        
+         listviewOpm.setStyle("-fx-font: 12pt \"Arial\";");
+         listviewStandaardOpm.setStyle("-fx-font: 12pt \"Arial\";");
+          
+        verdwijnOpmerkingen(); 
+        rijtechniekScherm.setStyle("-fx-background-image: url(\"/image/achtergrond.jpg\"); -fx-background-position: center center; ");
+        
+        BackgroundImage imgVoorrang = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        voorrang.setBackground(new Background(imgVoorrang));
+        
+        BackgroundImage imgTekens = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        tekens.setBackground(new Background(imgTekens));
+        
+        BackgroundImage imgSnelheid = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        snelheid.setBackground(new Background(imgSnelheid));
+        
+        BackgroundImage imgAfstanden = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        afstanden.setBackground(new Background(imgAfstanden));
+        
+        BackgroundImage imgInhalen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        inhalen.setBackground(new Background(imgInhalen));
+        
+        BackgroundImage imgKruisen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        kruisen.setBackground(new Background(imgKruisen));
+        
+        BackgroundImage imgLinksaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        linksaf.setBackground(new Background(imgLinksaf));
+        
+        BackgroundImage imgRechtsaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        rechtsaf.setBackground(new Background(imgRechtsaf));
         
         BackgroundImage imgAanwijzers = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Aanwijzers.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnAanwijzers.setBackground(new Background(imgAanwijzers));
-        BackgroundImage imgAfstanden = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnAfstanden.setBackground(new Background(imgAfstanden));
-        BackgroundImage imgInhalen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnInhalen.setBackground(new Background(imgInhalen));
-        BackgroundImage imgKruisen = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnKruisen.setBackground(new Background(imgKruisen));
-        BackgroundImage imgLinksaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnLinksaf.setBackground(new Background(imgLinksaf));
-        BackgroundImage imgOpenbareWeg = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnOpenbareWeg.setBackground(new Background(imgOpenbareWeg));
-        BackgroundImage imgRechtsaf = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnRechtsaf.setBackground(new Background(imgRechtsaf));
-        BackgroundImage imgSnelheid = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnSnelheid.setBackground(new Background(imgSnelheid));
-        BackgroundImage imgTekens = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnTekens.setBackground(new Background(imgTekens));
-        BackgroundImage imgVoorrang = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnVoorrang.setBackground(new Background(imgVoorrang));
+        aanwijzers.setBackground(new Background(imgAanwijzers));
         
-        Image imgBtnTerug = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
-        btnTerug.setGraphic(new ImageView(imgBtnTerug));
+        BackgroundImage imgOpenbareWeg = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        openbareWeg.setBackground(new Background(imgOpenbareWeg));
+        
+        BackgroundImage uitRoepTeken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/uitroepteken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        opm.setBackground(new Background(uitRoepTeken));
+        
+        
+        Image imgTerugknop = new Image(getClass().getResourceAsStream("/image/Terugknop.png"));
+        terugknop.setGraphic(new ImageView(imgTerugknop));
+        
     }
     
-    public void handleButtonTerugknop(ActionEvent event)throws IOException{
-        Stage currentStage = (Stage) verkeerstechniekScherm.getScene().getWindow();
+    void initData(DomainController dc) {
+        this.dc = dc ; 
+        naam.setText(dc.getHuidigeLeerling().getnaam());
+        
+        String kleur;
+        
+        kleur = dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString();
+        circleVoorrang.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString();
+        circleTekens.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString();
+        circleSnelheid.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString();
+        circleAfstanden.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString();
+        circleInhalen.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString();
+        circleKruisen.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString();
+        circleLinksaf.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString();
+        circleRechtsaf.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString();
+        circleAanwijzers.setFill(Color.valueOf(kleur));
+        kleur = dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString();
+        circleOpenbareWeg.setFill(Color.valueOf(kleur));
+    }
+    
+      public void refreshList(){
+        ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
+        listviewStandaardOpm.setItems(olVoorbeelden);
+    }
+      
+     @FXML
+    public void handleButtonOpm(ActionEvent event) throws IOException {
+        lblOpm.setVisible(true);
+        lblOpm.setText("Opmerking is opgeslaan als belangrijk.");
+        dc.getHuidigeLeerling().getOpmerkingen().addAll(listviewOpm.getSelectionModel().getSelectedItems()); 
+    }
+    
+    @FXML
+    public void handleButtonAddWaarde(ActionEvent event) throws IOException {
+        txfOpm.setText("");
+        lblOpm.setText("");
+        List<String> check = new ArrayList(); 
+        check.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
+        
+        if(!listOpmerkingen.contains(check.get(0))){
+            listOpmerkingen.addAll(listviewStandaardOpm.getSelectionModel().getSelectedItems());
+            ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+            listviewOpm.setItems(ol);
+            geefOpmerking(check.get(0));
+        }
+        else{
+            lblOpm.setVisible(true);
+            lblOpm.setText("de gewenste opmerking staat er al in");
+        }
+    }
+    
+    @FXML
+    public void handleButtonAddOpm(ActionEvent event) throws IOException {
+        lblOpm.setText("");
+        String voegOpmToe = txfOpm.getText();
+        listOpmerkingen.add(voegOpmToe);
+        ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+        listviewOpm.setItems(ol);
+        geefOpmerking(voegOpmToe);
+        txfOpm.clear();
+    }
 
+    @FXML
+    public void handleButtonVerwijderOpm(ActionEvent event) throws IOException {
+        verwijderOpmerking(listviewOpm.getSelectionModel().getSelectedItems());
+        listOpmerkingen.removeAll(listviewOpm.getSelectionModel().getSelectedItems());
+        ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
+        listviewOpm.setItems(ol);
+    }
+    
+    @FXML
+    public void handleButtonOpslaan(ActionEvent event) throws IOException {
+        toon = false;
+        booleanVoorrang = false;
+        booleanTekens = false;
+        booleanSnelheid = false;
+        booleanAfstanden = false;
+        booleanInhalen = false;
+        booleanKruisen = false;
+        booleanLinksaf = false;
+        booleanRechtsaf = false;
+        booleanAanwijzers = false;
+        booleanOpenbareWeg = false;
+        verdwijnOpmerkingen();
+        lblOpm.setText("");
+        listOpmerkingen.clear();
+        listviewOpm.getItems().clear();
+        txfOpm.setText("");
+    }
+    
+    @FXML
+    public void handleButtonGroen(ActionEvent event) throws IOException {
+        geefKleur("GREEN");
+    }
+    
+    @FXML
+    public void handleButtonOranje(ActionEvent event) throws IOException {
+        geefKleur("ORANGE");
+    }
+     
+    @FXML
+    public void handleButtonRood(ActionEvent event) throws IOException {
+        geefKleur("RED");
+    }
+    
+    public void geefKleur(String kleur) {
+        if (toon == true) {
+            if (booleanVoorrang == true) {
+                circleVoorrang.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getVoorrang().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanTekens == true) {
+                circleTekens.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getTekens().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanSnelheid == true) {
+                circleSnelheid.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getSnelheid().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanAfstanden == true) {
+                circleAfstanden.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getAfstanden().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanInhalen == true) {
+                circleInhalen.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getInhalen().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanKruisen == true) {
+                circleKruisen.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getKruisen().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanLinksaf == true) {
+                circleLinksaf.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getLinksaf().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanRechtsaf == true) {
+                circleRechtsaf.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getRechtsaf().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanAanwijzers == true) {
+                circleAanwijzers.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getAanwijzers().setKleur(Kleur.valueOf(kleur));
+            }
+            if (booleanOpenbareWeg == true) {
+                circleOpenbareWeg.setFill(Color.valueOf(kleur));
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().setKleur(Kleur.valueOf(kleur));
+            }
+        }
+    }
+    
+    public void geefOpmerking(String opmerking) {
+        if (toon == true) {
+            if (booleanVoorrang == true) {
+                dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking().add(opmerking);
+            }
+            if (booleanTekens == true) {
+                dc.getHuidigeLeerling().getVT().getTekens().getOpmerking().add(opmerking);
+            }
+            if (booleanSnelheid == true) {
+                dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking().add(opmerking);
+            }
+            if (booleanAfstanden == true) {
+                dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking().add(opmerking);
+            }
+            if (booleanInhalen == true) {
+                dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking().add(opmerking);
+            }
+            if (booleanKruisen == true) {
+                dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking().add(opmerking);
+            }
+            if (booleanLinksaf == true){
+                dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking().add(opmerking);
+            }
+            if (booleanRechtsaf == true){
+                dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking().add(opmerking);
+            }
+            if (booleanAanwijzers == true){
+                dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking().add(opmerking);
+            }
+            if (booleanOpenbareWeg == true){
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking().add(opmerking);
+            }
+        }
+    }
+     public void verwijderOpmerking(List opmerking) {
+        if (toon == true) {
+            if (booleanVoorrang == true) {
+                dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanTekens == true) {
+                dc.getHuidigeLeerling().getVT().getTekens().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanSnelheid == true) {
+                dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanAfstanden == true) {
+                dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanInhalen == true) {
+                dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanKruisen == true) {
+                dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanLinksaf == true){
+                dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanRechtsaf == true){
+                dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanAanwijzers == true){
+                dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking().removeAll(opmerking);
+            }
+            if (booleanOpenbareWeg == true){
+                dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking().removeAll(opmerking);
+            }
+        }
+    }
+    
+    public void toonOpmerkingen(){
+        addOpm.setVisible(true);
+        addWaarde.setVisible(true);
+        opm.setVisible(true);  
+        rood .setVisible(true);
+        oranje.setVisible(true);
+        groen.setVisible(true);
+        Opslaan.setVisible(true);
+        listviewStandaardOpm.setVisible(true); 
+        listviewOpm.setVisible(true);
+        txfOpm.setVisible(true);
+        huidigeKnop.setVisible(true);
+    }
+    
+    public void verdwijnOpmerkingen(){
+        addOpm.setVisible(false);
+        addWaarde.setVisible(false);
+        opm.setVisible(false);   
+        rood .setVisible(false);
+        oranje.setVisible(false);
+        groen.setVisible(false);
+        Opslaan.setVisible(false);
+        listviewStandaardOpm.setVisible(false); 
+        listviewOpm.setVisible(false);
+        txfOpm.setVisible(false);
+        huidigeKnop.setVisible(false);
+    }
+    
+    public void keerTerug() throws IOException{
+        Stage currentStage = (Stage) rijtechniekScherm.getScene().getWindow();
+        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/HoofdScherm.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -367,33 +483,147 @@ public class VerkeerstechniekSchermController implements Initializable{
         
         stage.show();
         currentStage.close();
-    }
 
-    void initData(DomainController dc) {
-        this.dc = dc ; 
-        lblNaam.setText(dc.getHuidigeLeerling().getnaam());
-        String kleur;
-        kleur = dc.getHuidigeLeerling().getVT().getAanwijzers().getKleur().toString();
-        circleAanwijzers.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getAfstanden().getKleur().toString();
-        circleAfstanden.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getInhalen().getKleur().toString();
-        circleInhalen.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getKruisen().getKleur().toString();
-        circleKruisen.setFill(Color.valueOf(kleur));
-        
-        kleur = dc.getHuidigeLeerling().getVT().getLinksaf().getKleur().toString();
-        circleLinksaf.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString();
-        circleOpenbareWeg.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getRechtsaf().getKleur().toString();
-        circleRechtsaf.setFill(Color.valueOf(kleur));
-        
-        kleur = dc.getHuidigeLeerling().getVT().getSnelheid().getKleur().toString();
-        circleSnelheid.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getTekens().getKleur().toString();
-        circleTekens.setFill(Color.valueOf(kleur));
-        kleur = dc.getHuidigeLeerling().getVT().getVoorrang().getKleur().toString();
-        circleVoorrang.setFill(Color.valueOf(kleur));
     }
+       
+    @FXML
+    public void handleButtonVoorrang(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanVoorrang = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonTekens(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanTekens = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonSnelheid(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanSnelheid = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    @FXML
+    public void handleButtonAfstanden(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanAfstanden = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonInhalen(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanInhalen = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonKruisen(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanKruisen = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonLinksaf(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanLinksaf = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonRechtsaf(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanRechtsaf = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonAanwijzers(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanAanwijzers = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Aanwijzers.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    @FXML
+    public void handleButtonOpenbareWeg(ActionEvent event) throws IOException {
+        if (toon == false){
+            toonOpmerkingen();
+            toon = true ;
+            booleanOpenbareWeg = true ; 
+            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking()); 
+            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking());
+            refreshList();
+            BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            huidigeKnop.setBackground(new Background(imgHuidigeKnop));
+        }
+    }
+    
+    
 }
