@@ -500,10 +500,13 @@ public class VerkeerstechniekSchermController implements Initializable {
         if (toon == false){
             toonOpmerkingen();
             toon = true ;
-            booleanVoorrang = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking());
-            
+            booleanVoorrang = true ;
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getVoorrang().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getVoorrang().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Voorrang.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -515,9 +518,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanTekens = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getTekens().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getTekens().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Tekens.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -529,9 +535,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanSnelheid = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getSnelheid().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getSnelheid().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Snelheid.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -542,9 +551,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanAfstanden = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAfstanden().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getAfstanden().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Afstanden.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -555,10 +567,13 @@ public class VerkeerstechniekSchermController implements Initializable {
         if (toon == false){
             toonOpmerkingen();
             toon = true ;
-            booleanInhalen = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking());
-            
+            booleanInhalen = true ;
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getInhalen().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getInhalen().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Inhalen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -570,9 +585,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanKruisen = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getKruisen().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getKruisen().getOpmerking());
+                    }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Kruisen.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -584,9 +602,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanLinksaf = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getLinksaf().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getLinksaf().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Linksaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -598,9 +619,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanRechtsaf = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getRechtsaf().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getRechtsaf().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Rechtsaf.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -612,9 +636,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanAanwijzers = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getAanwijzers().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getAanwijzers().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Aanwijzers.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
@@ -626,9 +653,12 @@ public class VerkeerstechniekSchermController implements Initializable {
             toonOpmerkingen();
             toon = true ;
             booleanOpenbareWeg = true ; 
-            listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking()); 
-            listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking());
-            
+            if(toonEvaluatie == false){
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking()); 
+                listOpmerkingen.addAll(dc.getHuidigeLeerling().getVT().getOpenbareWeg().getOpmerking());
+            } else {
+                listviewOpm.getItems().addAll(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getOpenbareWeg().getOpmerking());
+            }
             BackgroundImage imgHuidigeKnop = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/OpenbareWeg.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             huidigeKnop.setBackground(new Background(imgHuidigeKnop));
         }
