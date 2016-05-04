@@ -11,7 +11,11 @@ public class KnopUitgebreid {
     public KnopUitgebreid() {
         this.kleur = Kleur.WHITE;
         this.opmerking = new ArrayList<>();
-        
+    }
+    
+    public KnopUitgebreid(KnopUitgebreid k){
+        this.kleur = k.getKleur();
+        this.opmerking = new ArrayList<> (k.getOpmerking());
     }
     
     public Kleur getKleur() {

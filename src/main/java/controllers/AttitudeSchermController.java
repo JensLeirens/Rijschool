@@ -40,6 +40,8 @@ public class AttitudeSchermController implements Initializable {
     
     private DomainController dc = new DomainController(); 
     private ArrayList<String> listVoorbeeldwaarden;
+    boolean toonEvaluatie;
+    int evaluatie;
     
     @FXML
     private Node attitudeScherm ;
@@ -77,41 +79,49 @@ public class AttitudeSchermController implements Initializable {
     
     @FXML
     public void handleVoegVoorbeeldwaardenToe(ActionEvent event){
-        List<String> checkList = new ArrayList<>();
-        checkList.addAll(listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems());
-        for(String s : checkList){
-            if(!dc.getHuidigeLeerling().getAttitude().contains(s)){
-                dc.getHuidigeLeerling().getAttitude().add(s);
+        if(toonEvaluatie == false){
+            List<String> checkList = new ArrayList<>();
+            checkList.addAll(listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems());
+            for(String s : checkList){
+                if(!dc.getHuidigeLeerling().getAttitude().contains(s)){
+                    dc.getHuidigeLeerling().getAttitude().add(s);
+                }
             }
+            refreshLists();
         }
-        refreshLists();
     }
     
     @FXML
     public void handleVerwijderWaarden(ActionEvent event){
-        dc.getHuidigeLeerling().getAttitude().removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
-        refreshLists();
+        if(toonEvaluatie == false){
+            dc.getHuidigeLeerling().getAttitude().removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+            refreshLists();
+        }
     }
     
     @FXML
     public void handleVoegEigenAttribuutToe(ActionEvent event){
-        if(!dc.getHuidigeLeerling().getAttitude().contains(txtEigenschap.getText())){
-            dc.getHuidigeLeerling().getAttitude().add(txtEigenschap.getText());
+            if(toonEvaluatie == false){
+            if(!dc.getHuidigeLeerling().getAttitude().contains(txtEigenschap.getText())){
+                dc.getHuidigeLeerling().getAttitude().add(txtEigenschap.getText());
+            }
+            refreshLists();
         }
-        refreshLists();
     }
     
      @FXML
     public void  handleButtonOpm (ActionEvent event){
-        List<String> check = new ArrayList(); 
-        
-         if (!listViewEigenschappen.getSelectionModel().getSelectedItems().isEmpty()) {
-             check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+        if(toonEvaluatie == false){
+            List<String> check = new ArrayList(); 
 
-             if (!dc.getHuidigeLeerling().getOpmerkingen().contains(check.get(0))) {
-                 dc.getHuidigeLeerling().getOpmerkingen().addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+             if (!listViewEigenschappen.getSelectionModel().getSelectedItems().isEmpty()) {
+                 check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+
+                 if (!dc.getHuidigeLeerling().getOpmerkingen().contains(check.get(0))) {
+                     dc.getHuidigeLeerling().getOpmerkingen().addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+                 }
              }
-         }
+        }     
     }
     
      
@@ -154,9 +164,13 @@ public class AttitudeSchermController implements Initializable {
     public void refreshLists(){
         ObservableList<String> olVoorbeelden = FXCollections.observableArrayList(listVoorbeeldwaarden);
         listViewVoorbeeldwaarden.setItems(olVoorbeelden);
-        
-        ObservableList<String> olEigenschappen = FXCollections.observableArrayList(dc.getHuidigeLeerling().getAttitude());
-        listViewEigenschappen.setItems(olEigenschappen);
+        if(toonEvaluatie == false){
+            ObservableList<String> olEigenschappen = FXCollections.observableArrayList(dc.getHuidigeLeerling().getAttitude());
+            listViewEigenschappen.setItems(olEigenschappen);
+        }  else {
+            ObservableList<String> olEigenschappen = FXCollections.observableArrayList(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getAttitude());
+            listViewEigenschappen.setItems(olEigenschappen);
+        }
     }
 
     public void keerTerug() throws IOException{
@@ -173,14 +187,16 @@ public class AttitudeSchermController implements Initializable {
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
-        controller.initData(dc);
+        controller.initData(dc, toonEvaluatie, evaluatie);
         
         stage.show();
         currentStage.close();
     }
 
-    void initData(DomainController dc) {
-        this.dc = dc; 
+    void initData(DomainController dc, boolean toonEvaluatie, int evaluatie) {
+        this.dc = dc;
+        this.toonEvaluatie = toonEvaluatie;
+        this.evaluatie = evaluatie;
         naam.setText(dc.getHuidigeLeerling().getnaam());
         refreshLists();
     }

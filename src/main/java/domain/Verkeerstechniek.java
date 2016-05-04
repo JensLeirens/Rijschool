@@ -26,6 +26,19 @@ public class Verkeerstechniek {
         this.kruisen = new KnopUitgebreid();
         this.linksaf = new KnopUitgebreid();
     }
+    
+    public Verkeerstechniek(Verkeerstechniek v){
+        this.aanwijzers = new KnopUitgebreid(v.getAanwijzers());
+        this.rechtsaf = new KnopUitgebreid(v.getRechtsaf());
+        this.openbareWeg = new KnopUitgebreid(v.getOpenbareWeg());
+        this.voorrang = new KnopUitgebreid(v.getVoorrang());
+        this.tekens = new KnopUitgebreid(v.getTekens());
+        this.snelheid = new KnopUitgebreid(v.getSnelheid());
+        this.afstanden = new KnopUitgebreid(v.getAfstanden());
+        this.inhalen = new KnopUitgebreid(v.getInhalen());
+        this.kruisen = new KnopUitgebreid(v.getKruisen());
+        this.linksaf = new KnopUitgebreid(v.getLinksaf());
+    }
 
     public KnopUitgebreid getAanwijzers() {
         return aanwijzers;
