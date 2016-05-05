@@ -28,7 +28,7 @@
    <center>
       <AnchorPane prefHeight="748.0" prefWidth="1056.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="945.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleButtonOpm" prefHeight="52.0" prefWidth="52.0" text="Button">
+            <Button fx:id="opm" contentDisplay="GRAPHIC_ONLY" layoutX="941.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleButtonOpm" prefHeight="52.0" prefWidth="52.0" text="Button">
                <effect>
                   <DropShadow color="#ffaa00" height="35.83" radius="16.6725" width="32.86" />
                </effect></Button>
@@ -115,12 +115,12 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <ListView fx:id="listviewStandaardOpm" layoutX="537.0" layoutY="283.0" prefHeight="210.0" prefWidth="220.0" />
-            <ListView fx:id="listviewOpm" layoutX="777.0" layoutY="284.0" prefHeight="210.0" prefWidth="220.0" />
-            <Button fx:id="addWaarde" layoutX="537.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleButtonAddWaarde" prefHeight="54.0" prefWidth="143.0" text="voeg aangeduide waarde toe" textAlignment="CENTER" wrapText="true" />
-            <TextField fx:id="txfOpm" alignment="CENTER" layoutX="696.0" layoutY="505.0" prefHeight="50.0" prefWidth="236.0" promptText="vul hier een opmerking in " />
-            <Button fx:id="addOpm" layoutX="696.0" layoutY="569.0" mnemonicParsing="false" onAction="#handleButtonAddOpm" prefHeight="48.0" prefWidth="151.0" text="voeg opmerking toe " />
-            <Button fx:id="Opslaan" layoutX="724.0" layoutY="641.0" mnemonicParsing="false" onAction="#handleButtonOpslaan" prefHeight="54.0" prefWidth="107.0" text="Opslaan" />
+            <ListView fx:id="listviewStandaardOpm" layoutX="533.0" layoutY="283.0" prefHeight="210.0" prefWidth="220.0" />
+            <ListView fx:id="listviewOpm" layoutX="773.0" layoutY="284.0" prefHeight="210.0" prefWidth="220.0" />
+            <Button fx:id="addWaarde" layoutX="533.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleButtonAddWaarde" prefHeight="54.0" prefWidth="143.0" text="voeg aangeduide waarde toe" textAlignment="CENTER" wrapText="true" />
+            <TextField fx:id="txfOpm" alignment="CENTER" layoutX="686.0" layoutY="505.0" prefHeight="50.0" prefWidth="242.0" promptText="vul hier een opmerking in " />
+            <Button fx:id="addOpm" alignment="CENTER" contentDisplay="CENTER" layoutX="687.0" layoutY="569.0" mnemonicParsing="false" onAction="#handleButtonAddOpm" prefHeight="48.0" prefWidth="160.0" text="voeg opmerking toe " textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="Opslaan" layoutX="714.0" layoutY="641.0" mnemonicParsing="false" onAction="#handleButtonOpslaan" prefHeight="54.0" prefWidth="107.0" text="Opslaan" />
             <Circle fx:id="circleHelling" fill="WHITE" layoutX="131.0" layoutY="413.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
             <Label fx:id="naam" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="827.0" layoutY="127.0" maxHeight="21.0" maxWidth="217.0" prefHeight="21.0" prefWidth="217.0" text="Voornaam Naam" textFill="WHITE">
                <font>
