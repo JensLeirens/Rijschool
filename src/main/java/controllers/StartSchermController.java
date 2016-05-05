@@ -168,7 +168,7 @@ public class StartSchermController implements Initializable {
         stage.setScene(scene);
         // DC meegeven aan de volgende controller 
         HoofdSchermController controller = fxmlLoader.<HoofdSchermController>getController();
-        controller.initData(dc);
+        controller.initData(dc, false, 0);
         
         stage.show();
         currentStage.close();

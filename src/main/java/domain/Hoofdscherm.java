@@ -41,6 +41,23 @@ public class Hoofdscherm {
         evolutie = 0;
     }
     
+    public Hoofdscherm(Hoofdscherm h){
+        rotonde = new KnopUitgebreid(h.getRotonde());
+        banden = new KnopUitgebreid(h.getBanden());
+        vloeistof = new KnopUitgebreid(h.getVloeistof());
+        schakelaar = new KnopUitgebreid(h.getSchakelaar());
+        
+        rotonde = new KnopUitgebreid(h.getRotonde());
+        rijBaanMetRijstroken = new KnopUitgebreid(h.getRijBaanMetRijstroken());
+        stad = new KnopUitgebreid(h.getStad());
+        autoSnelweg = new KnopUitgebreid(h.getAutoSnelweg());
+        
+        tanken = new KnopUitgebreid(h.getTanken());
+        gps = new KnopUitgebreid(h.getGps());
+        stop = new KnopUitgebreid(h.getStop());
+        evolutie = h.getEvolutie();
+    }
+    
     public KnopUitgebreid getBanden() {
         return banden;
     }

@@ -34,6 +34,22 @@ public class Rijtechniek {
         this.koppeling = new KnopUitgebreid();
         this.zithouding = new KnopUitgebreid();
     }
+    
+    public Rijtechniek(Rijtechniek r) {
+        this.parkeren = new KnopUitgebreid(r.getParkeren());
+        this.keren = new KnopUitgebreid(r.getKeren());
+        this.garage = new KnopUitgebreid(r.getGarage());
+        this.achteruit = new KnopUitgebreid(r.getAchteruit());
+        this.stuurOef = new KnopUitgebreid(r.getStuurOef());
+        
+        this.aanzettenHelling = new KnopUitgebreid(r.getAanzettenHelling());
+        this.kijk = new KnopUitgebreid(r.getKijk());
+        this.schakel = new KnopUitgebreid(r.getSchakel());
+        this.stuurtechniek = new KnopUitgebreid(r.getStuurtechniek());
+        this.rem = new KnopUitgebreid(r.getRem());
+        this.koppeling = new KnopUitgebreid(r.getKoppeling());
+        this.zithouding = new KnopUitgebreid(r.getZithouding());
+    }
 
     public KnopUitgebreid getAanzettenHelling() {
         return aanzettenHelling;
