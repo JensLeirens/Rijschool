@@ -278,6 +278,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             listviewOpm.setItems(ol);
             geefOpmerking(voegOpmToe);
             txfOpm.clear();
+            lblOpm.setText("Opmerking toegevoegd.");
         }
     }
 
@@ -288,6 +289,7 @@ public class VerkeerstechniekSchermController implements Initializable {
             listOpmerkingen.removeAll(listviewOpm.getSelectionModel().getSelectedItems());
             ObservableList<String> ol = FXCollections.observableArrayList(listOpmerkingen);
             listviewOpm.setItems(ol);
+            lblOpm.setText("Opmerking verwijdert.");
         }
     }
     
@@ -305,10 +307,11 @@ public class VerkeerstechniekSchermController implements Initializable {
         booleanAanwijzers = false;
         booleanOpenbareWeg = false;
         verdwijnOpmerkingen();
-        lblOpm.setText("");
         listOpmerkingen.clear();
         listviewOpm.getItems().clear();
         txfOpm.setText("");
+        if (toonEvaluatie == false )
+            lblOpm.setText("de opmerkingen zijn opgeslagen");
     }
     
     @FXML
