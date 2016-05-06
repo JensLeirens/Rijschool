@@ -72,6 +72,9 @@ public class AttitudeSchermController implements Initializable {
     @FXML
     private Button opm; 
     
+    @FXML 
+    private Label lblOpm; 
+    
     @FXML
     public void handleButtonTerugknop(ActionEvent event) throws IOException {
         keerTerug();        
@@ -79,12 +82,23 @@ public class AttitudeSchermController implements Initializable {
     
     @FXML
     public void handleVoegVoorbeeldwaardenToe(ActionEvent event){
-        if(toonEvaluatie == false){
+        if (toonEvaluatie == false) {
+            
             List<String> checkList = new ArrayList<>();
             checkList.addAll(listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems());
-            for(String s : checkList){
-                if(!dc.getHuidigeLeerling().getAttitude().contains(s)){
+            
+            if (listViewVoorbeeldwaarden.getSelectionModel().getSelectedItems().isEmpty()) {
+                lblOpm.setText("gelieve een basisopmerking te selecteren");
+            }
+
+            for (String s : checkList) {
+                
+                if (!dc.getHuidigeLeerling().getAttitude().contains(s)) {
+                    
                     dc.getHuidigeLeerling().getAttitude().add(s);
+                    lblOpm.setText("de voorbeeldwaarde is toegevoegd");
+                } else {
+                    lblOpm.setText("de opmerking bestaat al");
                 }
             }
             refreshLists();
@@ -100,30 +114,46 @@ public class AttitudeSchermController implements Initializable {
     }
     
     @FXML
-    public void handleVoegEigenAttribuutToe(ActionEvent event){
-            if(toonEvaluatie == false){
-            if(!dc.getHuidigeLeerling().getAttitude().contains(txtEigenschap.getText())){
-                dc.getHuidigeLeerling().getAttitude().add(txtEigenschap.getText());
+    public void handleVoegEigenAttribuutToe(ActionEvent event) {
+        if (toonEvaluatie == false) {
+            List<String> check = new ArrayList();
+            check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+            String voegOpmToe = txtEigenschap.getText();
+            if (!txtEigenschap.getText().equals("")) {
+                dc.getHuidigeLeerling().getAttitude().removeAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+                txtEigenschap.setText(check.get(0) + ": " + voegOpmToe);
+                voegOpmToe = txtEigenschap.getText();
+                ObservableList<String> ol = FXCollections.observableArrayList(dc.getHuidigeLeerling().getAttitude());
+                listViewEigenschappen.setItems(ol);
+                dc.getHuidigeLeerling().getAttitude().add(voegOpmToe);
+            } else {
+                lblOpm.setText("gelieve een opmerking in te geven!");
             }
             refreshLists();
         }
     }
     
-     @FXML
-    public void  handleButtonOpm (ActionEvent event){
-        if(toonEvaluatie == false){
-            List<String> check = new ArrayList(); 
+    @FXML
+    public void handleButtonOpm(ActionEvent event) {
+        if (toonEvaluatie == false) 
+        {
+            List<String> check = new ArrayList();
 
-             if (!listViewEigenschappen.getSelectionModel().getSelectedItems().isEmpty()) {
-                 check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+            if (!listViewEigenschappen.getSelectionModel().getSelectedItems().isEmpty()) 
+            {
+                check.addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
 
-                 if (!dc.getHuidigeLeerling().getOpmerkingen().contains(check.get(0))) {
-                     dc.getHuidigeLeerling().getOpmerkingen().addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
-                 }
-             }
-        }     
+                if (!dc.getHuidigeLeerling().getOpmerkingen().contains(check.get(0)))
+                {
+                    dc.getHuidigeLeerling().getOpmerkingen().addAll(listViewEigenschappen.getSelectionModel().getSelectedItems());
+                    lblOpm.setText("de opmerking is gemarkeerd als belangrijk");
+                }
+            } else {
+                lblOpm.setText("gelieve eerst een opmerking te selecteren");
+            }
+        }
     }
-    
+
      
     
     @Override

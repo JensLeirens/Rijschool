@@ -263,6 +263,8 @@ public class RijtechniekSchermController implements Initializable {
             circleKoppeling.setFill(Color.valueOf(kleur));
             kleur = dc.getHuidigeLeerling().getRT().getZithouding().getKleur().toString();
             circleZithouding.setFill(Color.valueOf(kleur));
+            kleur = dc.getHuidigeLeerling().getRT().getAanzettenHelling().getKleur().toString();
+            circleHelling.setFill(Color.valueOf(kleur));
         } else {
             circleAchteruitrijden.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getAchteruit().getKleur().toString()));
             circleGarage.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getGarage().getKleur().toString()));
@@ -275,7 +277,8 @@ public class RijtechniekSchermController implements Initializable {
             circleRemtechniek.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getRem().getKleur().toString()));
             circleKoppeling.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getKoppeling().getKleur().toString()));
             circleZithouding.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getZithouding().getKleur().toString()));
-            
+            circleHelling.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getAanzettenHelling().getKleur().toString()));
+                    
             Opslaan.setText("Ga terug");
         }
     }
@@ -368,11 +371,12 @@ public class RijtechniekSchermController implements Initializable {
             kijk = false;   
             toon = false;
             helling = false; 
-            lblOpm.setText("");
             listOpmerkingen.clear();
             listviewOpm.getItems().clear();
             txfOpm.setText("");
             verdwijnOpmerkingen();
+            if (toonEvaluatie == false )
+                lblOpm.setText("de opmerkingen zijn opgeslagen");
     }
     
     @FXML
