@@ -423,7 +423,7 @@ public class HoofdSchermController implements Initializable {
     private void handleCheckButtonEvaluatie1(ActionEvent event) throws IOException {
         switch(dc.getHuidigeLeerling().getEvaluaties().size()){
             case 0:
-                dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude()));
+                dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude(),1));
                 evaluatie1.setSelected(true);
                 break;
             case 1:
@@ -462,7 +462,7 @@ public class HoofdSchermController implements Initializable {
         switch(dc.getHuidigeLeerling().getEvaluaties().size()){
             case 1:
                 if(toonEvaluatie == false){
-                    dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude()));
+                    dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude(),2));
                     evaluatie2.setSelected(true);
                 } else {
                     evaluatie2.setSelected(false);
@@ -501,7 +501,7 @@ public class HoofdSchermController implements Initializable {
         switch(dc.getHuidigeLeerling().getEvaluaties().size()){
             case 2:
                 if(toonEvaluatie == false){
-                    dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude()));
+                    dc.getHuidigeLeerling().getEvaluaties().add(new Evaluatie(dc.getHuidigeLeerling().getVT(), dc.getHuidigeLeerling().getRT(), dc.getHuidigeLeerling().getHoofdscherm(), dc.getHuidigeLeerling().getAttitude(),3));
                     evaluatie3.setSelected(true);
                 } else {
                     evaluatie3.setSelected(false);
