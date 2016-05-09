@@ -9,13 +9,15 @@ public class Evaluatie {
     private Rijtechniek RT;
     private Hoofdscherm hoofdscherm;
     private List<String> attitude;
+    private int nummer;
     
 
-    public Evaluatie(Verkeerstechniek VT, Rijtechniek RT, Hoofdscherm hoofdscherm, List<String> attitude) {
+    public Evaluatie(Verkeerstechniek VT, Rijtechniek RT, Hoofdscherm hoofdscherm, List<String> attitude, int nummer) {
         this.VT = new Verkeerstechniek(VT);
         this.RT = new Rijtechniek(RT);
         this.hoofdscherm = new Hoofdscherm(hoofdscherm);
         this.attitude = new ArrayList<>(attitude);
+        this.nummer = nummer;
     }
 
     public Evaluatie() {
