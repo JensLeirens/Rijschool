@@ -53,6 +53,8 @@ public class VerkeerstechniekSchermController implements Initializable {
     private boolean booleanOpenbareWeg = false;
     private List<String> listVoorbeeldwaarden = new ArrayList();
     private List<String> listOpmerkingen = new ArrayList();
+    @FXML
+    private Label lblEvaluatie;
     
     @FXML 
     private Label naam ;
@@ -143,7 +145,6 @@ public class VerkeerstechniekSchermController implements Initializable {
     
     @FXML
     private Label lblOpm; 
-    
     
     @FXML
     private ListView listviewOpm; 
@@ -241,9 +242,10 @@ public class VerkeerstechniekSchermController implements Initializable {
             circleAanwijzers.setFill(Color.valueOf(kleur));
             kleur = dc.getHuidigeLeerling().getVT().getOpenbareWeg().getKleur().toString();
             circleOpenbareWeg.setFill(Color.valueOf(kleur));
+            lblEvaluatie.setVisible(false);
         }
         else {
-            
+            lblEvaluatie.setVisible(true);
             circleVoorrang.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getVoorrang().getKleur().toString()));
             circleTekens.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getTekens().getKleur().toString()));
             circleSnelheid.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getVT().getSnelheid().getKleur().toString()));

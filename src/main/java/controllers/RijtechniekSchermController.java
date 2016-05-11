@@ -58,6 +58,9 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private Node rijtechniekScherm ;
 
+    @FXML
+    private Label lblEvaluatie;
+    
     @FXML 
     private Button terugknop ; 
     
@@ -265,6 +268,7 @@ public class RijtechniekSchermController implements Initializable {
             circleZithouding.setFill(Color.valueOf(kleur));
             kleur = dc.getHuidigeLeerling().getRT().getAanzettenHelling().getKleur().toString();
             circleHelling.setFill(Color.valueOf(kleur));
+            lblEvaluatie.setVisible(false);
         } else {
             circleAchteruitrijden.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getAchteruit().getKleur().toString()));
             circleGarage.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getGarage().getKleur().toString()));
@@ -278,7 +282,7 @@ public class RijtechniekSchermController implements Initializable {
             circleKoppeling.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getKoppeling().getKleur().toString()));
             circleZithouding.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getZithouding().getKleur().toString()));
             circleHelling.setFill(Color.valueOf(dc.getHuidigeLeerling().getEvaluaties().get(evaluatie).getRT().getAanzettenHelling().getKleur().toString()));
-                    
+            lblEvaluatie.setVisible(true);        
             Opslaan.setText("Ga terug");
         }
     }

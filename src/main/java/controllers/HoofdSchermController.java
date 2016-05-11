@@ -4,8 +4,10 @@ package controllers;
 import domain.DomainController;
 import domain.Evaluatie;
 import domain.Kleur;
+import domain.KnopUitgebreid;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -56,6 +58,8 @@ public class HoofdSchermController implements Initializable {
     @FXML
     ListView<String> listViewOpmerkingen = new ListView<String>();
     
+    @FXML
+    private Label lblEvaluatie;
     @FXML
     private Circle circleBanden;
     @FXML
@@ -434,12 +438,14 @@ public class HoofdSchermController implements Initializable {
                     evaluatie1.setStyle("-fx-border-style: solid" );
                     evaluatie1.setStyle("-fx-border-color: lightblue");
                     toonEvaluatie = true;
+                    lblEvaluatie.setVisible(true);
                     evaluatie = 0;
                     toonEvaluatie(evaluatie);
                 } 
                 else {
                     if(evaluatie == 0) {
                         toonEvaluatie = false;
+                        lblEvaluatie.setVisible(false);
                         evaluatie1.setStyle("");
                         initData(dc, toonEvaluatie, evaluatie);
                     } 
@@ -474,12 +480,14 @@ public class HoofdSchermController implements Initializable {
                     evaluatie2.setStyle("-fx-border-style: solid" );
                     evaluatie2.setStyle("-fx-border-color: lightblue");
                     toonEvaluatie = true;
+                    lblEvaluatie.setVisible(true);
                     evaluatie = 1;
                     toonEvaluatie(evaluatie);
                 } 
                 else {
                     if(evaluatie == 1) {
                     toonEvaluatie = false;
+                    lblEvaluatie.setVisible(false);
                     evaluatie2.setStyle("");
                     initData(dc, toonEvaluatie, evaluatie);
                     }
@@ -515,10 +523,12 @@ public class HoofdSchermController implements Initializable {
                     toonEvaluatie = true;
                     evaluatie = 2;
                     toonEvaluatie(evaluatie);
+                    lblEvaluatie.setVisible(true);
                 } 
                 else {
                     if(evaluatie == 2) {
                     toonEvaluatie = false;
+                    lblEvaluatie.setVisible(false);
                     evaluatie3.setStyle("");
                     initData(dc, toonEvaluatie, evaluatie);
                     }
@@ -631,7 +641,7 @@ public class HoofdSchermController implements Initializable {
         
         BackgroundImage imgRijBaanMetRijStroken = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/RijbaanMetRijStroken.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         rijBaanMetRijStroken.setBackground(new Background(imgRijBaanMetRijStroken));
-               
+        lblEvaluatie.setVisible(false);       
         
         // Left ____________________________________________________________________
         BackgroundImage imgSchakelaar = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Schakelaar.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
@@ -657,11 +667,11 @@ public class HoofdSchermController implements Initializable {
         
         // Center __________________________________________________________________
         
-        BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/StuurWit.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnRijtechniek.setBackground(new Background(imgStuur));
+        //BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/StuurWit.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        //btnRijtechniek.setBackground(new Background(imgStuur));
         
-        BackgroundImage imgRijtechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Verkeerstechniek.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-        btnVerkeerstechniek.setBackground(new Background(imgRijtechniek));
+        //BackgroundImage imgRijtechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Verkeerstechniek.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        //btnVerkeerstechniek.setBackground(new Background(imgRijtechniek));
 
         BackgroundImage imgAttitude = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Attitude.png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         btnAttitude.setBackground(new Background(imgAttitude));
@@ -734,7 +744,264 @@ public class HoofdSchermController implements Initializable {
         }
         
        refreshList();
+       int bovenkantStuurG = 0;
+       if(dc.getHuidigeLeerling().getRT().getZithouding().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKoppeling().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getRem().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getSchakel().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKijk().getKleur().toString() == "GREEN"){
+           bovenkantStuurG++;
+       }
+       
+       int linksonderStuurG = 0;
+       if(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getKleur().toString() == "GREEN"){
+           linksonderStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString() == "GREEN"){
+           linksonderStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString() == "GREEN"){
+           linksonderStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString() == "GREEN"){
+           linksonderStuurG++;
+       }
+       
+       int rechtsonderStuurG = 0;
+       if(dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString() == "GREEN"){
+           rechtsonderStuurG++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString() == "GREEN"){
+           rechtsonderStuurG++;
+       }
+       
+       int bovenkantStuurW = 0;
+       if(dc.getHuidigeLeerling().getRT().getZithouding().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKoppeling().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getRem().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getSchakel().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKijk().getKleur().toString() == "WHITE"){
+           bovenkantStuurW++;
+       }
+       
+       int linksonderStuurW = 0;
+       if(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getKleur().toString() == "WHITE"){
+           linksonderStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString() == "WHITE"){
+           linksonderStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString() == "WHITE"){
+           linksonderStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString() == "WHITE"){
+           linksonderStuurW++;
+       }
+       
+       int rechtsonderStuurW = 0;
+       if(dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString() == "WHITE"){
+           rechtsonderStuurW++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString() == "WHITE"){
+           rechtsonderStuurW++;
+       }
+       
+       int bovenkantStuurO = 0;
+       if(dc.getHuidigeLeerling().getRT().getZithouding().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKoppeling().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getRem().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurtechniek().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getSchakel().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getKijk().getKleur().toString() == "ORANGE"){
+           bovenkantStuurO++;
+       }
+       
+       int linksonderStuurO = 0;
+       if(dc.getHuidigeLeerling().getRT().getAanzettenHelling().getKleur().toString() == "ORANGE"){
+           linksonderStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getStuurOef().getKleur().toString() == "ORANGE"){
+           linksonderStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getAchteruit().getKleur().toString() == "ORANGE"){
+           linksonderStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getGarage().getKleur().toString() == "ORANGE"){
+           linksonderStuurO++;
+       }
+       
+       int rechtsonderStuurO = 0;
+       if(dc.getHuidigeLeerling().getRT().getKeren().getKleur().toString() == "ORANGE"){
+           rechtsonderStuurO++;
+       }
+       if(dc.getHuidigeLeerling().getRT().getParkeren().getKleur().toString() == "ORANGE"){
+           rechtsonderStuurO++;
+       }
+       String bovenkantStuur = "W";
+       if(bovenkantStuurG == 6){
+           bovenkantStuur = "G";
+       } else {
+           if(bovenkantStuurW == 6){
+               bovenkantStuur = "W";
+           } else {
+               if(bovenkantStuurO > 0){
+                   bovenkantStuur = "O";
+               }
+           }
+       }
+       String linksonderStuur= "W";
+       if(linksonderStuurG == 4){
+           linksonderStuur = "G";
+       } else {
+           if(linksonderStuurW == 4){
+               linksonderStuur = "W";
+           } else {
+               if(linksonderStuurO > 0){
+               linksonderStuur = "O";
+               }
+           }
+       }
+       String rechtsonderStuur = "W";
+       if(rechtsonderStuurG == 2){
+           rechtsonderStuur = "G";
+       } else {
+           if(rechtsonderStuurW == 2){
+               rechtsonderStuur = "W";
+           } else {
+               if(rechtsonderStuurO > 0){
+               rechtsonderStuur = "O";
+           }
+           }
+       }
+       BackgroundImage imgStuur = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Stuur" + bovenkantStuur + linksonderStuur + rechtsonderStuur + ".png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+       btnRijtechniek.setBackground(new Background(imgStuur));
+      
+       int pijlRechtsG = 0;
+       int pijlRechtsO = 0;
+       int pijlRechtsR = 0;
+       List<KnopUitgebreid> pijlRechts = new ArrayList<>();
+       pijlRechts.add(dc.getHuidigeLeerling().getVT().getVoorrang());
+       pijlRechts.add(dc.getHuidigeLeerling().getVT().getTekens());
+       pijlRechts.add(dc.getHuidigeLeerling().getVT().getSnelheid());
+        for(KnopUitgebreid k : pijlRechts){
+            switch(k.getKleur().toString()){
+                case "GREEN" : pijlRechtsG++;
+                    break;
+                case "ORANGE" : pijlRechtsO++;
+                    break;
+                case "RED" : pijlRechtsR++;
+                    break;
+           }
+        }
         
+        int pijlLinksG = 0;
+        int pijlLinksO = 0;
+        int pijlLinksR = 0;
+        List<KnopUitgebreid> pijlLinks = new ArrayList<>();
+        pijlLinks.add(dc.getHuidigeLeerling().getVT().getKruisen());
+        pijlLinks.add(dc.getHuidigeLeerling().getVT().getAanwijzers());
+        pijlLinks.add(dc.getHuidigeLeerling().getVT().getInhalen());
+        for(KnopUitgebreid k : pijlLinks){
+            switch(k.getKleur().toString()){
+                case "GREEN" : pijlLinksG++;
+                    break;
+                case "ORANGE" : pijlLinksO++;
+                    break;
+                case "RED" : pijlLinksR++;
+                    break;
+           }
+        }
+        int pijlOnderaanG = 0;
+        int pijlOnderaanO = 0;
+        int pijlOnderaanR = 0;
+        List<KnopUitgebreid> pijlOnderaan = new ArrayList<>();
+        pijlOnderaan.add(dc.getHuidigeLeerling().getVT().getLinksaf());
+        pijlOnderaan.add(dc.getHuidigeLeerling().getVT().getRechtsaf());
+        pijlOnderaan.add(dc.getHuidigeLeerling().getVT().getOpenbareWeg());
+        pijlOnderaan.add(dc.getHuidigeLeerling().getVT().getAfstanden());
+        for(KnopUitgebreid k : pijlOnderaan){
+            switch(k.getKleur().toString()){
+                case "GREEN" : pijlOnderaanG++;
+                    break;
+                case "ORANGE" : pijlOnderaanO++;
+                    break;
+                case "RED" : pijlOnderaanR++;
+                    break;
+           }
+        }
+        
+        String strPijlRechts;
+        if(pijlRechtsG == 3){
+            strPijlRechts = "G";
+        } else {
+            if(pijlRechtsR > 0){
+                strPijlRechts = "R";
+            } else {
+                if(pijlRechtsO > 0){
+                    strPijlRechts = "O";
+                } else strPijlRechts = "W";
+            }
+        }
+        
+        String strPijlLinks;
+        if(pijlLinksG == 3){
+            strPijlLinks = "G";
+        } else {
+            if(pijlLinksR > 0){
+                strPijlLinks = "R";
+            } else {
+                if(pijlLinksO > 0){
+                    strPijlLinks = "O";
+                } else strPijlLinks = "W";
+            }
+        }
+        String strPijlOnderaan;
+        if(pijlOnderaanG == 3){
+            strPijlOnderaan = "G";
+        } else {
+            if(pijlOnderaanR > 0){
+                strPijlOnderaan = "R";
+            } else {
+                if(pijlOnderaanO > 0){
+                    strPijlOnderaan = "O";
+                } else strPijlOnderaan = "W";
+            }
+        }
+        
+        BackgroundImage imgVerkeertechniek = new BackgroundImage(new Image(getClass().getResourceAsStream("/image/Verkeer" + strPijlLinks + strPijlRechts + strPijlOnderaan + ".png")),BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        btnVerkeerstechniek.setBackground(new Background(imgVerkeertechniek));
     }
     
      
