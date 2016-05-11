@@ -36,6 +36,10 @@ public class Leerling {
         opmerkingen = new ArrayList<>();
     }
 
+    public void setNummer(String nummer) {
+        this.nummer = nummer;
+    }
+    
     public String getNummer() {
         return nummer;
     }

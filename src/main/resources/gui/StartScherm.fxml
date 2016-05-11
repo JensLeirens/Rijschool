@@ -42,7 +42,7 @@
                   <Insets left="10.0" right="5.0" top="10.0" />
                </padding>
         </Label>
-        <Button fx:id="zoeken" mnemonicParsing="false" onAction="#handleButtonZoeken" prefHeight="125.0" prefWidth="149.0" text="Zoeken &amp; Opslaan" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+        <Button fx:id="zoeken" mnemonicParsing="false" onAction="#handleButtonZoeken" prefHeight="125.0" prefWidth="149.0" text="Leerling opslaan" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="21.0" />
                </font></Button>
@@ -50,7 +50,7 @@
                <font>
                   <Font size="21.0" />
                </font></Button>
-        <Button fx:id="sync" mnemonicParsing="false" onAction="#handleButtonSync" prefHeight="116.0" prefWidth="199.0" text="Synchroniseren" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+        <Button fx:id="sync" mnemonicParsing="false" onAction="#handleButtonSync" prefHeight="116.0" prefWidth="199.0" text="Leerlingenlijst synchroniseren" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="80.0" />
                </GridPane.margin>

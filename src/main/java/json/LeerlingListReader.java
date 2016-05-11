@@ -13,6 +13,7 @@ import javax.json.JsonArray;
 import javax.json.JsonException;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonValue;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -22,7 +23,7 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 @Consumes(MediaType.APPLICATION_JSON)
-public class UserListReader implements MessageBodyReader<List<Leerling>> {
+public class LeerlingListReader implements MessageBodyReader<List<Leerling>> {
 
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
@@ -43,15 +44,38 @@ public class UserListReader implements MessageBodyReader<List<Leerling>> {
         try (JsonReader in = Json.createReader(entityStream)) {
             JsonArray jsonUsers = in.readArray();
             List<Leerling> leerlingen = new ArrayList<>();
+            
             for (JsonObject jsonUser: jsonUsers.getValuesAs(JsonObject.class)) {
-                String username = jsonUser.getString("username", null);
-                String fullName = jsonUser.getString("fullName", null);
+                
                 Leerling leerling = new Leerling();
-//                leerling.setUsername(username);
-//                leerling.setFullName(fullName);
-//                leerling.add(leerling);
+                String naam = jsonUser.getString("naam", null);
+                String nummer = jsonUser.getString("nummer", null);
+                Verkeerstechniek VT = (Verkeerstechniek) jsonUser.getJsonObject("VT"); 
+                Rijtechniek RT = (Rijtechniek) jsonUser.getJsonObject("RT"); 
+                Hoofdscherm hoofdscherm = (Hoofdscherm) jsonUser.getJsonObject("hoofdscherm"); 
+                
+
+                for (JsonValue eva : jsonUser.getJsonArray("evaluaties")) {
+                    leerling.getEvaluaties().add((Evaluatie) eva);
+                }
+                
+                for (JsonValue att : jsonUser.getJsonArray("attitude")) {
+                    leerling.getAttitude().add(att.toString());
+                }
+                
+                for (JsonValue opm : jsonUser.getJsonArray("opmerkingen")) {
+                    leerling.getOpmerkingen().add( opm.toString());
+                }
+                
+                leerling.setnaam(naam);
+                leerling.setNummer(nummer);
+                leerling.setRT(RT);
+                leerling.setVT(VT);
+                leerling.setHoofdscherm(hoofdscherm);
+                leerlingen.add(leerling);
             }
-            return null;//leerling;
+            
+            return leerlingen;
         } catch (JsonException | ClassCastException ex) {
             return new ArrayList();
         }
