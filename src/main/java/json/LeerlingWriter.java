@@ -37,12 +37,12 @@ public class LeerlingWriter implements MessageBodyWriter<Leerling> {
             JsonObjectBuilder jsonUser = Json.createObjectBuilder();
             jsonUser.add("naam", leerling.getnaam());
             jsonUser.add("nummer", leerling.getNummer());
-            jsonUser.add("VT", (JsonObjectBuilder) leerling.getVT());
-            jsonUser.add("RT", (JsonObjectBuilder) leerling.getRT());
-            jsonUser.add("hoofdscherm", (JsonObjectBuilder) leerling.getHoofdscherm());
-            jsonUser.add("evaluaties", (JsonArrayBuilder) leerling.getEvaluaties());
-            jsonUser.add("attitude", (JsonArrayBuilder) leerling.getAttitude());
-            jsonUser.add("opmerkingen", (JsonArrayBuilder) leerling.getOpmerkingen());
+//            jsonUser.add("VT", (JsonObjectBuilder) leerling.getVT());
+//            jsonUser.add("RT", (JsonObjectBuilder) leerling.getRT());
+//            jsonUser.add("hoofdscherm", (JsonObjectBuilder) leerling.getHoofdscherm());
+//            jsonUser.add("evaluaties", (JsonArrayBuilder) leerling.getEvaluaties());
+//            jsonUser.add("attitude", (JsonArrayBuilder) leerling.getAttitude());
+//            jsonUser.add("opmerkingen", (JsonArrayBuilder) leerling.getOpmerkingen());
              
 
              

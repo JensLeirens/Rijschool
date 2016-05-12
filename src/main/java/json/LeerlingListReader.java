@@ -50,28 +50,28 @@ public class LeerlingListReader implements MessageBodyReader<List<Leerling>> {
                 Leerling leerling = new Leerling();
                 String naam = jsonUser.getString("naam", null);
                 String nummer = jsonUser.getString("nummer", null);
-                Verkeerstechniek VT = (Verkeerstechniek) jsonUser.getJsonObject("VT"); 
-                Rijtechniek RT = (Rijtechniek) jsonUser.getJsonObject("RT"); 
-                Hoofdscherm hoofdscherm = (Hoofdscherm) jsonUser.getJsonObject("hoofdscherm"); 
-                
-
-                for (JsonValue eva : jsonUser.getJsonArray("evaluaties")) {
-                    leerling.getEvaluaties().add((Evaluatie) eva);
-                }
-                
-                for (JsonValue att : jsonUser.getJsonArray("attitude")) {
-                    leerling.getAttitude().add(att.toString());
-                }
-                
-                for (JsonValue opm : jsonUser.getJsonArray("opmerkingen")) {
-                    leerling.getOpmerkingen().add( opm.toString());
-                }
+//                Verkeerstechniek VT = (Verkeerstechniek) jsonUser.getJsonObject("VT"); 
+//                Rijtechniek RT = (Rijtechniek) jsonUser.getJsonObject("RT"); 
+//                Hoofdscherm hoofdscherm = (Hoofdscherm) jsonUser.getJsonObject("hoofdscherm"); 
+//                
+//
+//                for (JsonValue eva : jsonUser.getJsonArray("evaluaties")) {
+//                    leerling.getEvaluaties().add((Evaluatie) eva);
+//                }
+//                
+//                for (JsonValue att : jsonUser.getJsonArray("attitude")) {
+//                    leerling.getAttitude().add(att.toString());
+//                }
+//                
+//                for (JsonValue opm : jsonUser.getJsonArray("opmerkingen")) {
+//                    leerling.getOpmerkingen().add( opm.toString());
+//                }
                 
                 leerling.setnaam(naam);
                 leerling.setNummer(nummer);
-                leerling.setRT(RT);
-                leerling.setVT(VT);
-                leerling.setHoofdscherm(hoofdscherm);
+//                leerling.setRT(RT);
+//                leerling.setVT(VT);
+//                leerling.setHoofdscherm(hoofdscherm);
                 leerlingen.add(leerling);
             }
             
