@@ -65,23 +65,37 @@ public class StartSchermController implements Initializable {
         }
     }
     
+    private BackendController bc = new BackendController(); 
     @FXML
     private void handleButtonZoeken(ActionEvent event) {
         lblMessage.setVisible(true);
-        lblMessage.setText("deze knop zoekt een leerling in de online database en slaat deze lokaal op (TBI)");
+        if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
+            for (Leerling leerling : dc.getLeerlingen()) {
+                if(listViewLeerlingen.getSelectionModel().getSelectedItem().equalsIgnoreCase(leerling.getnaam())){
+                    bc.addLeerling(leerling);
+                }
+            }
+            
+            lblMessage.setText("De leerling is online opgeslagen");
+        }
+        else {
+            lblMessage.setVisible(true);
+            lblMessage.setText("gelieve een leerling te selecteren in de rechter kader");
+        }
+        
     }
     
     @FXML
     private void handleButtonSync(ActionEvent event) {
         lblMessage.setVisible(true);
-        lblMessage.setText("synchroniseert lokale leerlingen met online database (TBI)");
+        bc.updateList();
+        dc.setLeerlingen(bc.getLeerlingList());
+        refreshList();
+        lblMessage.setText("leerlingen zijn gesynchroniseerd");
     }
-    
     
     @FXML
     private void handleButtonOpenEva(ActionEvent event) throws IOException {
-        
-        
         if(listViewLeerlingen.getSelectionModel().getSelectedItem() != null){
             for (Leerling leerling : dc.getLeerlingen()) {
                 if(listViewLeerlingen.getSelectionModel().getSelectedItem().equalsIgnoreCase(leerling.getnaam())){

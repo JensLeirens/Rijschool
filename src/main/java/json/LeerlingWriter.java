@@ -6,7 +6,9 @@ import java.io.OutputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
+import javax.json.JsonValue;
 import javax.json.JsonWriter;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -17,7 +19,7 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class UserWriter implements MessageBodyWriter<Leerling> {
+public class LeerlingWriter implements MessageBodyWriter<Leerling> {
 
     @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
@@ -35,11 +37,16 @@ public class UserWriter implements MessageBodyWriter<Leerling> {
             JsonObjectBuilder jsonUser = Json.createObjectBuilder();
             jsonUser.add("naam", leerling.getnaam());
             jsonUser.add("nummer", leerling.getNummer());
-            
-            
-            
-            
-            
+//            jsonUser.add("VT", (JsonObjectBuilder) leerling.getVT());
+//            jsonUser.add("RT", (JsonObjectBuilder) leerling.getRT());
+//            jsonUser.add("hoofdscherm", (JsonObjectBuilder) leerling.getHoofdscherm());
+//            jsonUser.add("evaluaties", (JsonArrayBuilder) leerling.getEvaluaties());
+//            jsonUser.add("attitude", (JsonArrayBuilder) leerling.getAttitude());
+//            jsonUser.add("opmerkingen", (JsonArrayBuilder) leerling.getOpmerkingen());
+             
+
+             
+              
             out.writeObject(jsonUser.build());
         }
     }
